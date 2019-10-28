@@ -16,3 +16,261 @@ $govuk-assets-path: '/govuk/assets/';
 @import "components/cookie-banner";
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+
+.govuk-tag--not-in-use {
+  background-color: #dee0e2;
+}
+
+.govuk-tag--hold {
+  background-color: #6f777b;
+}
+
+.govuk-tag--incomplete {
+  text-transform: capitalize;
+  color: #6f777b;
+  background-color: #dee0e2;
+}
+
+.app-task-list__task-completed {
+  text-transform: capitalize;
+}
+
+.app-task-list__task-in-progress {
+  background-color: #d53880;
+  color: #fff;
+  float: right;
+  text-transform: capitalize;
+
+}
+
+.govuk-tag--current {
+background-color: #df3034;
+color: #ffffff;
+float: right;
+text-transform: capitalize;
+
+}
+
+.govuk-tag--break {
+  background-color: #f8f8f8;
+}
+
+.none {
+  border-bottom: 1px solid #bfc1c3;
+  padding: 0.63158em 1.05263em 0.47368em 0;
+  font-weight: bold;
+}
+
+.govuk-panel--grey {
+  background-color: #dee0e2;
+  padding-left: 10
+  margin-left 0
+}
+
+.govuk-tag--last {
+  border-bottom: 0 !important;
+}
+
+.govuk--version-control {
+  color: #dee0e2;
+}
+
+
+.govuk-table--no-border {
+  border-style: hidden !important;
+}
+
+.govuk-table__regular {
+  font-weight: normal !important;
+}
+
+.govuk-panel--grey {
+  padding: 1% !important;
+  text-align: left;
+
+
+}
+
+.govuk-header__content {
+  padding-left: 0;
+}
+
+.pc-index{
+  margin-top:0px !important;
+  padding-left: 0 !important;
+}
+
+.app-task-list-pc{
+ padding-left: 0 !important;
+ list-style: none;
+ border-bottom: 0 !important;
+ padding-bottom:0;
+}
+
+.li-pc{
+     list-style:none;
+}
+
+.govuk-section-break-hidden{
+ border-style: hidden !important;
+}
+
+
+.govuk-table-pc__header{
+  font-weight: 200;
+}
+
+.govuk-summary-list
+{
+  margin-bottom: 0 !important;
+}
+
+.govuk-summary-list__key{
+  width: 40% !important;
+}
+.govuk-summary-list__key-last{
+  border-bottom-width: 0px;
+}
+
+.govuk-summary-list__value{
+  width: 35% !important;
+}
+
+.govuk-summary-list__actions{
+  width: 25% !important;
+}
+
+.govuk-body-left{
+  text-align: left;
+  font-weight: 200;
+}
+
+.hint{
+  color: #6f777b;
+}
+
+.pc-row-head-10{
+  padding-top: 10px !important;
+}
+
+
+.app-warning-text--long-3 {
+  top: 25%;
+}
+
+.app-warning-text--long-2 {
+  top: 33.3%;
+}
+
+.pc-text-regualar {
+  font-weight: normal;
+}
+
+.js-enabled .govuk-accordion__section--expanded {
+  .govuk-accordion__icon {
+    &::before {
+      content: 'Hide';
+    }
+  }
+}
+
+.govuk-accordion__link {
+  position: relative;
+  z-index: 10;
+}
+
+.js-enabled .govuk-accordion__icon {
+  width: auto;
+  right: 5px;
+  margin-top: -10px;
+
+  &::before {
+    content: '';
+  }
+
+  &::after {
+    content: 'Show';
+  }
+
+  // styles for the text
+  &::before,
+  &::after {
+    font-family: 'GDS Transport';
+    font-weight: normal;
+    color:govuk-colour("blue");
+    text-decoration:underline;
+    font-size: 16px;
+    background: none;
+    border: 0;
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+.govuk-panel--agent {
+  background-color:#fff;
+  border: 20px;
+  border-color: govuk-colour("blue");
+  border-style: solid;
+  border-width: 0px 0px 0px 10px;
+  padding-left: 30px;
+  margin-bottom:0;
+}
+
+.govuk-panel--agent-single {
+  background-color:#fff;
+  border: 20px;
+  border-color: govuk-colour("blue");
+  border-style: solid;
+  border-width: 0px 0px 0px 10px;
+  padding-left: 30px;
+  padding-top: 12px;
+  padding-bottom:1px;
+  margin-bottom:15px;
+}
+
+.agent-action{
+    color: govuk-colour("black");
+}
+
+.govuk-heading-xm {
+  font-family: 'GDS Transport';
+  font-weight: 700;
+  font-size: 29px !important;
+}
+
+.govuk-radio-table-select{
+  width: 5% !important;
+}
+
+.govuk-radio-table-item{
+  width: 65% !important;
+}
+
+.govuk-radio-table-weeks{
+  width: 20% !important;
+}
+
+.govuk-table--no-border{
+ border-style: hidden !important;
+}
+
+.low-density {
+  line-height: 2em !important;
+  letter-spacing: .2em !important;
+  word-spacing: .3em !important;
+}
+
+.high-density {
+  letter-spacing: -.1em !important;
+  line-height: .8em !important;
+}
+
+.pc-zero-space {
+  margin-top:.5em !important;
+  padding-bottom:0px !important;
+  margin-bottom:0px !important;
+}
