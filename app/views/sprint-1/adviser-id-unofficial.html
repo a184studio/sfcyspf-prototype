@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  benefit-overview - Pension Credit
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <form action="yourself-adviser-fallout" method="post" class="form">
+
+      <input type="hidden" name="benefits-complete" value="in-progress"/>
+
+      <div class="govuk-panel--agent">
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Adviser: This is any unverified method. </h1>
+
+
+          <p class=govuk-body><strong></strong>You might need to do some work to esablish ID or something</p>
+      </div>
+
+<br>
+
+{{ govukButton({
+  text: "Identification confirmed",
+  classes: "govuk-!-margin-right-1"
+}) }}
+
+    </form>
+
+    <p class="govuk-body"><a href="exit-check">Exit the service</a></p>
+
+
+  </div>
+</div>
+{% endblock %}

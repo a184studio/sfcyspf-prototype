@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Income? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="yourself-self-employment-yes-router" method="post">
+
+
+            <h2 class="govuk-heading-xl govuk-!-margin-bottom-6"><span class="agent-action">Do you pay Class 2 National Insurance contributions?</h2>
+
+              {{ govukRadios({
+                idPrefix: "yourself-self-employment-yes",
+                name: "yourself-self-employment-yes",
+                fieldset: {
+                  legend: {
+                    html: "",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--xl"
+                    }
+                    },
+                    items: [
+                  {
+                    value: "Yes",
+                    text: "Yes",
+                    checked: (data["yourself-self-employment-yes"] == "Yes")
+                  },
+                  {
+                    value: "No",
+                    text: "No",
+                    checked: (data["yourself-self-employment-yes"] == "No")
+                  },
+                  {
+                    value: "Don't know",
+                    text: "Don't know",
+                    checked: (data["yourself-self-employment-yes"] == "Dont know")
+                  }
+                ]
+              }) }}
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

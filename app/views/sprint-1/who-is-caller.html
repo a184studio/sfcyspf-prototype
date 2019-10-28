@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Who are calling for? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="who-is-caller-router" method="post">
+
+        {{ govukRadios({
+          idPrefix: "who-is-caller",
+          name: "who-is-caller",
+          fieldset: {
+            legend: {
+              text: "Who are calling for?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {
+              value: "Yourself",
+              text: "Yourself",
+              checked: data['who-is-caller'] == "Yourself"
+            },
+            {
+              divider: "or"
+            },
+            {
+            value: "POA",
+            text: "Someone you have power of attorney for",
+            checked: data['who-is-caller'] == "POA"
+          },
+          {
+            value: "Appointee",
+            text: "Someone you act as an appointee for",
+            checked: data['who-is-caller'] == "Appointee"
+          },
+          {
+            value: "Charity",
+            text: "Someone who has asked your charity for help",
+            checked: data['who-is-caller'] == "Charity"
+          },
+          {
+            value: "Family",
+            text: "A family member",
+            checked: data['who-is-caller'] == "Family"
+          },
+          {
+            value: "Friend",
+            text: "A friend",
+            checked: data['who-is-caller'] == "Friend"
+          },
+          {
+            value: "SomeoneElse",
+            text: "Someone else",
+            checked: data['who-is-caller'] == "SomeoneElse"
+          }
+          ]
+        }) }}
+
+<br>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+{% endblock %}

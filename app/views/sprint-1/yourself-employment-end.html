@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What is your National Insurance number? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="yourself-employment-end-router" method="post">
+
+        <div class="govuk-panel--agent govuk-!-margin-bottom-6">
+          <h2 class="govuk-heading-m"><span class="agent-action">Adviser: XXX</h2>
+        </div>
+
+            <h2 class="govuk-heading-xl govuk-!-margin-bottom-6"><span class="agent-action">Do you know when you will top working?</h2>
+
+              {{ govukRadios({
+                idPrefix: "yourself-employment-end",
+                name: "yourself-employment-end",
+                fieldset: {
+                  legend: {
+                    html: "",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--xl"
+                    }
+                    },
+                    items: [
+                  {
+                    value: "Yes",
+                    text: "Yes",
+                    checked: (data["yourself-employment-end"] == "Yes")
+                  },
+                  {
+                    value: "No",
+                    text: "No",
+                    checked: (data["yourself-employment-end"] == "No")
+                  }
+                ]
+              }) }}
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Who are calling for? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="yourself-employment-none-router" method="post">
+
+        {{ govukRadios({
+          idPrefix: "yourself-employment-none",
+          name: "yourself-employment-none",
+          fieldset: {
+            legend: {
+              html: "Do you have any other income? <br><br>WE SHOULD NOT BE ASKING ABOUT BENEFITS AT ALL. IT'S DWP DATA. USE SEARCHLIGHT. THATS WHAT ITS FOR",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+          {
+            value: "I am retired",
+            text: "I am retired",
+            checked: data['yourself-employment-none'] == "I am retired"
+          },
+          {
+            value: "I am receiving benefits",
+            text: "I am receiving benefits",
+            checked: data['yourself-employment-none'] == "I am receiving benefits"
+          },
+          {
+            value: "No other income",
+            text: "No other income",
+            checked: (data["yourself-employment-none"] == "No other income")
+          }
+        ]
+      }) }}
+
+<br>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,158 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What is your National Insurance number? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="yourself-employment-end-router" method="post">
+
+        <div class="govuk-panel--agent govuk-!-margin-bottom-6">
+          <h2 class="govuk-heading-m"><span class="agent-action">Adviser: XXX</h2>
+        </div>
+
+            <h2 class="govuk-heading-xl govuk-!-margin-bottom-6"><span class="agent-action">What best describes the reason you will stop working?</h2>
+
+
+
+              {% set particularAge %}
+                {{ govukDateInput({
+                  id: "yourself-employment-end-particularAge",
+                  namePrefix: "yourself-employment-end-particularAge",
+                  fieldset: {
+                    legend: {
+                      text: "What is this date?"
+                    }
+                  },
+                  items: [
+                    {
+                      name: "day",
+                      classes: "govuk-input--width-2",
+                      value: data["yourself-employment-end-particularAge-day"]
+                    },
+                    {
+                      name: "month",
+                      classes: "govuk-input--width-2",
+                      value: data["yourself-employment-end-particularAge-month"]
+                    },
+                    {
+                      name: "year",
+                      classes: "govuk-input--width-4",
+                      value: data["yourself-employment-end-particularAge-year"]
+                    }
+                  ]
+                }) }}
+              {% endset -%}
+
+              {% set particularDate %}
+                {{ govukDateInput({
+                  id: "yourself-employment-end-particularDate",
+                  namePrefix: "yourself-employment-end-particularDate",
+                  fieldset: {
+                    legend: {
+                      text: "What is this date?"
+                    }
+                  },
+                  items: [
+                    {
+                      name: "day",
+                      classes: "govuk-input--width-2",
+                      value: data["yourself-employment-end-particularDate-day"]
+                    },
+                    {
+                      name: "month",
+                      classes: "govuk-input--width-2",
+                      value: data["yourself-employment-end-particularDate-month"]
+                    },
+                    {
+                      name: "year",
+                      classes: "govuk-input--width-4",
+                      value: data["yourself-employment-end-particularDate-year"]
+                    }
+                  ]
+                }) }}
+              {% endset -%}
+
+              {% set otherEndDate %}
+                {{ govukDateInput({
+                  id: "yourself-employment-end-otherEndDate",
+                  namePrefix: "yourself-employment-end-otherEndDate",
+                  fieldset: {
+                    legend: {
+                      text: "What is this date?"
+                    }
+                  },
+                  items: [
+                    {
+                      name: "day",
+                      classes: "govuk-input--width-2",
+                      value: data["yourself-employment-end-otherEndDate-day"]
+                    },
+                    {
+                      name: "month",
+                      classes: "govuk-input--width-2",
+                      value: data["yourself-employment-end-otherEndDate-month"]
+                    },
+                    {
+                      name: "year",
+                      classes: "govuk-input--width-4",
+                      value: data["yourself-employment-end-otherEndDate-year"]
+                    }
+                  ]
+                }) }}
+              {% endset -%}
+
+              {{ govukRadios({
+                idPrefix: "yourself-employment-end",
+                name: "yourself-employment-end",
+                fieldset: {
+                  legend: {
+                    html: "",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--xl"
+                    }
+                    },
+                    items: [
+                  {
+                    value: "I reach a particular age",
+                    text: "I reach a particular age",
+                    checked: (data["yourself-employment-end"] == "I reach a particular age"),
+                    conditional: {
+                      html: particularAge
+                    }
+                  },
+                    {
+                    value: "I reach a particular date",
+                    text: "I reach a particular date",
+                    checked: (data["yourself-employment-end"] == "I reach a particular date"),
+                    conditional: {
+                      html: particularDate
+                    }
+                  },
+                    {
+                    value: "Something else",
+                    text: "Something else",
+                    checked: (data["yourself-employment-end"] == "Something else"),
+                    conditional: {
+                      html: otherEndDate
+                    }
+                  }
+                  ]
+                }) }}
+
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
