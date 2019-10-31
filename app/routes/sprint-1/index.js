@@ -49,7 +49,7 @@ router.post('/yourself-ni-found-yn-router', (req, res, next) => {
   } else if (niFound === 'No') {
     res.redirect('yourself-adviser-prompt')
   } else {
-    res.redirect('yourself-find-claimant')
+    res.redirect('yourself-adviser-prompt')
   }
 })
 
@@ -115,7 +115,7 @@ router.post('/yourself-employment-yes-router', (req, res, next) => {
   } else if (yourselfEmploymentYn === 'No') {
     res.redirect('outcome-estimate')
   } else {
-    res.redirect('outcome-estimate')
+    res.redirect('yourself-overview-not-gaining')
   }
 })
 
