@@ -17,26 +17,26 @@
           name: "yourself-employment-none",
           fieldset: {
             legend: {
-              html: "Do you have any other income? <br><br>WE SHOULD NOT BE ASKING ABOUT BENEFITS AT ALL. IT'S DWP DATA. USE SEARCHLIGHT. THATS WHAT ITS FOR",
+              html: "Are you on any benefits or receiving credits?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
           },
           items: [
           {
-            value: "I am retired",
-            text: "I am retired",
-            checked: data['yourself-employment-none'] == "I am retired"
+            value: "Yes - I am receiving credits",
+            text: "Yes - I am receiving credits",
+            checked: data['yourself-employment-none'] == "Yes - I am receiving credits"
           },
           {
-            value: "I am receiving benefits",
-            text: "I am receiving benefits",
-            checked: data['yourself-employment-none'] == "I am receiving benefits"
+            value: "Yes - I am on benefits",
+            text: "Yes - I am on benefits",
+            checked: data['yourself-employment-none'] == "Yes - I am on benefits"
           },
           {
-            value: "No other income",
-            text: "No other income",
-            checked: (data["yourself-employment-none"] == "No other income")
+            value: "No",
+            text: "No",
+            checked: (data["yourself-employment-none"] == "No")
           }
         ]
       }) }}

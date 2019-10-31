@@ -10,14 +10,14 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="outcome-forecast-created" method="post">
+    <form action="outcome-forecast-notify" method="post">
 
 
 
 
   {% call govukFieldset({
     legend: {
-      text: "What is your home address?",
+      text: "What is your address?",
       classes: "govuk-fieldset__legend--xl",
       isPageHeading: true
     }
@@ -25,7 +25,7 @@
 
     {{ govukInput({
       label: {
-        html: '<span class="govuk-visually-hidden">line 1 of 2</span>'
+        html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
       },
       id: "address-line-1",
       name: "address-line-1"
@@ -33,7 +33,7 @@
 
     {{ govukInput({
       label: {
-        html: '<span class="govuk-visually-hidden">Building and street line 2 of 4</span>'
+        html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
       },
       id: "address-line-2",
       name: "address-line-2"
@@ -41,21 +41,12 @@
 
     {{ govukInput({
       label: {
-        html: '<span class="govuk-visually-hidden">Building and street line 3 of 4</span>'
+        text: "Town or city"
       },
-      id: "address-line-2",
-      name: "address-line-2"
+      classes: "govuk-!-width-two-thirds",
+      id: "address-town",
+      name: "address-town"
     }) }}
-
-    {{ govukInput({
-      label: {
-        html: '<span class="govuk-visually-hidden">Building and street line 4 of 4</span>'
-      },
-      id: "address-line-2",
-      name: "address-line-2"
-    }) }}
-
-
 
     {{ govukInput({
       label: {
@@ -66,11 +57,19 @@
       name: "address-country"
     }) }}
 
+    {{ govukInput({
+      label: {
+        text: "Postcode"
+      },
+      classes: "govuk-input--width-10",
+      id: "address-postcode",
+      name: "address-postcode"
+    }) }}
 
   {% endcall %}
 
       {{ govukButton({
-        text: "Print locally"
+        text: "Send to Notify"
       }) }}
 
       <p class="govuk-body"><a href="yourself-address-postcode"></a></p>

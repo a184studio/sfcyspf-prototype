@@ -18,7 +18,7 @@
 
 
 
-    <form action="outcome-estimate" method="post" class="form">
+    <form action="outcome-forecast-notify" method="post" class="form">
       {{ govukSelect({
         id: "address",
         name: "address",
@@ -53,13 +53,13 @@
       <br>
 
       {{ govukButton({
-        text: "Continue"
+        text: "Send to Notify"
       }) }}
     </form>
 
     <ul class="govuk-list">
       <li>
-        <a class="govuk-link" href="address-manual">Enter your address manually</a>
+        <a class="govuk-link" href="yourself-address-manual-uk">Not found in list</a>
       </li>
     </ul>
 

@@ -17,11 +17,29 @@ router.post('/who-is-caller-router', (req, res, next) => {
   } else if (whoIsCaller === 'Friend') {
     res.redirect('adviser-id-unofficial')
   } else if (whoIsCaller === 'SomeoneElse') {
-    res.redirect('adviser-id-unofficial')
+    res.redirect('who-is-caller-other')
   } else {
-    res.redirect('adviser-id-unofficial')
+    res.redirect('who-is-caller-other')
   }
 })
+
+
+router.post('/who-is-caller-other-router', (req, res, next) => {
+  const whoIsCaller = req.session.data['who-is-caller-other']
+
+  if (whoIsCaller === 'Personal capacity') {
+    res.redirect('legal-adviser-id-check')
+  } else if (whoIsCaller === 'Organisation') {
+    res.redirect('notlegal-adviser-id-check')
+  } else {
+    res.redirect('XXX')
+  }
+})
+
+
+
+
+
 
 router.post('/yourself-ni-found-yn-router', (req, res, next) => {
   const niFound = req.session.data['yourself-ni-found-yn']
@@ -68,19 +86,19 @@ router.post('/yourself-employment-type-router', (req, res, next) => {
   } else if (yourselfEmploymentYn === 'Self-employed in the UK') {
     res.redirect('yourself-self-employment-yes')
   } else {
-    res.redirect('yourself-adviser-fallout')
+    res.redirect('yourself-overview-not-gaining')
   }
 })
 
 router.post('/yourself-employment-none-router', (req, res, next) => {
   const yourselfEmploymentYn = req.session.data['yourself-employment-none']
 
-  if (yourselfEmploymentYn === 'I am retired') {
-    res.redirect('outcome-estimate')
-  } else if (yourselfEmploymentYn === 'I am receiving benefits') {
-    res.redirect('outcome-estimate')
+  if (yourselfEmploymentYn === 'Yes - I am receiving credits') {
+    res.redirect('outcome-forecast-a')
+  } else if (yourselfEmploymentYn === 'Yes - I am on benefits') {
+    res.redirect('outcome-forecast-a')
   } else {
-    res.redirect('outcome-estimate')
+    res.redirect('yourself-overview-not-gaining')
   }
 })
 
@@ -93,7 +111,7 @@ router.post('/yourself-employment-yes-router', (req, res, next) => {
   const yourselfEmploymentYn = req.session.data['yourself-employment-yes']
 
   if (yourselfEmploymentYn === 'Yes') {
-    res.redirect('yourself-employment-end')
+    res.redirect('yourself-employment-end-known')
   } else if (yourselfEmploymentYn === 'No') {
     res.redirect('outcome-estimate')
   } else {
@@ -105,11 +123,11 @@ router.post('/yourself-self-employment-yes-router', (req, res, next) => {
   const yourselfEmploymentYn = req.session.data['yourself-self-employment-yes']
 
   if (yourselfEmploymentYn === 'Yes') {
-    res.redirect('yourself-employment-end')
+    res.redirect('yourself-self-employment-end-known')
   } else if (yourselfEmploymentYn === 'No') {
-    res.redirect('yourself-self-employment-class2-end')
+    res.redirect('yourself-overview-not-gaining')
   } else {
-    res.redirect('outcome-forecast-a')
+    res.redirect('yourself-overview-not-gaining')
   }
 })
 
