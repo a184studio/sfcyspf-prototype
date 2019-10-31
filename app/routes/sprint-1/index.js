@@ -113,7 +113,7 @@ router.post('/yourself-employment-yes-router', (req, res, next) => {
   if (yourselfEmploymentYn === 'Yes') {
     res.redirect('yourself-employment-end-known')
   } else if (yourselfEmploymentYn === 'No') {
-    res.redirect('outcome-estimate')
+    res.redirect('yourself-overview-not-gaining')
   } else {
     res.redirect('yourself-overview-not-gaining')
   }
