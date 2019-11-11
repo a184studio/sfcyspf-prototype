@@ -254,6 +254,8 @@ text-transform: capitalize;
   width: 20% !important;
 }
 
+
+
 .govuk-table--no-border{
  border-style: hidden !important;
 }
@@ -273,4 +275,18 @@ text-transform: capitalize;
   margin-top:.5em !important;
   padding-bottom:0px !important;
   margin-bottom:0px !important;
+}
+
+.govuk-table-name{
+  width: 50% !important;
+}
+
+.govuk-table-item-1{
+  width: 25% !important;
+  font-weight: normal;
+}
+
+.govuk-table-item-2{
+  width: 25% !important;
+  font-weight: normal;
 }

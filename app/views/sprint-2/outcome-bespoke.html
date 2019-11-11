@@ -28,37 +28,123 @@
 
                 <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Current estimate</h2>
-                <p class="govuk-heading-l govuk-!-margin-bottom-2">£144.50 per week</p>
-                <p class="govuk-body govuk-!-font-size-27 govuk-!-margin-bottom-6">£7,514.00 annually</p>
-
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Forecast to State Pension age</h2>
-                <p class="govuk-heading-l govuk-!-margin-bottom-2">£154.14 per week</p>
-                <p class="govuk-body govuk-!-font-size-27 govuk-!-margin-bottom-6">£8,015.28 annually</p>
-
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Most you can get</h2>
-                <p class="govuk-heading-l govuk-!-margin-bottom-2">£168.60 per week</p>
-                <p class="govuk-body govuk-!-font-size-27 govuk-!-margin-bottom-6">£8,767.20 annually</p>
+                <h2 class="govuk-heading-xm govuk-!-padding-top-0 govuk-!-margin-bottom-0">Amounts</h2>
 
 
-                <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+                {{ govukTable({
+                  caption: "",
+                  firstCellIsHeader: false,
+                  head: [
+                    {
+                      text: "",
+                      classes: 'govuk-table-item-name'
+                    },
+                    {
+                      text: "Per week",
+                      classes: 'govuk-table-item-1'
+                    },
+                    {
+                      html: "Annually",
+                      classes: 'govuk-table-item-2'
+                    }
+                  ],
+                  rows: [
+                    [
+                      {
+                        html: "Current estimate"
+                      },
+                      {
+                        html: "<strong>£144.50</strong>"
+                      },
+                      {
+                        html: "<strong>£7,514.00</strong>"
+                      }
+                    ],
+                    [
+                      {
+                        text: "Forecast to State Pension age"
+                      },
+                      {
+                        html: "<strong>£154.14</strong> "
+                      },
+                      {
+                        html: "<strong>£8,015.28</strong>"
+                      }
+                      ],
+                      [
+                      {
+                        text: "Most you can get"
+                      },
+                      {
+                        html: "<strong>£168.60</strong> "
+                      },
+                      {
+                        html: "<strong>£8,767.20</strong>"
+                      }
+                    ]
+                  ]
+                }) }}
 
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Qualifing years to date</h2>
-                <p class="govuk-heading-l govuk-!-margin-bottom-6">30 years</p>
 
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Forcast qualifing years to date</h2>
-                <p class="govuk-heading-l govuk-!-margin-bottom-6">32 years</p>
+                <h2 class="govuk-heading-xm govuk-!-padding-top-6 govuk-!-margin-bottom-0">Qualifing years</h2>
 
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Most qualifing years</h2>
-                <p class="govuk-heading-l govuk-!-margin-bottom-6">35 years</p>
+                {{ govukTable({
+                  caption: "",
+                  firstCellIsHeader: false,
+                  head: [
+                    {
+                      text: "",
+                      classes: 'govuk-table-item-name'
+                    },
+                    {
+                      text: "Years",
+                      classes: 'govuk-table-item-1'
+                    },
+                    {
+                      text: "",
+                      classes: 'govuk-table-item-2'
+                    }
+                  ],
+                  rows: [
+                    [
+                      {
+                        html: "Qualifing years to date"
+                      },
+                      {
+                        html: "<strong>30</strong>"
+                      },
+                      {
+                        html: ""
+                      }
+                    ],
+                    [
+                      {
+                        text: "Forcast qualifing years to date"
+                      },
+                      {
+                        html: "<strong>32</strong> "
+                      },
+                      {
+                        html: ""
+                      }
+                      ],
+                      [
+                      {
+                        text: "Most qualifing years"
+                      },
+                      {
+                        html: "<strong>35</strong> "
+                      },
+                      {
+                        html: ""
+                      }
+                    ]
+                  ]
+                }) }}
 
-
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Contracted Out (COPE)</h2>
-
+                <h2 class="govuk-heading-xm govuk-!-padding-top-6 govuk-!-margin-bottom-2">Contracted Out (COPE)</h2>
                 <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-9">There is COPE amount.</p>
 
-
-Make this into a table
 
 
 

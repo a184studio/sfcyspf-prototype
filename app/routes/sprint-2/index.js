@@ -1,24 +1,24 @@
 const express = require('express')
 const router = new express.Router()
 
-router.post('/who-is-caller-router', (req, res, next) => {
-  const whoIsCaller = req.session.data['who-is-caller']
 
 
 
 
-router.post('/start-work-router', (req, res, next) => {
-  const telephonyCheck = req.session.data['start-work']
+  router.post('/start-work-router', (req, res, next) => {
+    const workCheck = req.session.data['start-work']
 
-  if (telephonyCheck === 'Telephony') {
-    res.redirect('yourself-national-insurance')
-  } else if (telephonyCheck === 'Other') {
-    res.redirect('Other')
-  } else {
-    res.redirect('XXXX')
-  }
-})
+    if (workCheck === 'Telephony') {
+      res.redirect('yourself-national-insurance')
+    } else if (workCheck === 'Something') {
+      res.redirect('xxx')
+    } else {
+      res.redirect('xxx')
+    }
+  })
 
+  router.post('/who-is-caller-router', (req, res, next) => {
+    const whoIsCaller = req.session.data['who-is-caller']
 
   if (whoIsCaller === 'Yourself') {
     res.redirect('yourself-national-insurance')
@@ -51,6 +51,7 @@ router.post('/who-is-caller-other-router', (req, res, next) => {
     res.redirect('XXX')
   }
 })
+
 
 
 
