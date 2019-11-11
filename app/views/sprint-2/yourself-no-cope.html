@@ -10,24 +10,20 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
-      <form action="yourself-ni-found-yn-router" method="post">
-
-<!--
+      <form action="outcome-forecast-created" method="post">
 
           <div class="govuk-panel--agent govuk-!-margin-bottom-6">
-            <h2 class="govuk-heading-m"><span class="agent-action">National Insrance number: </span><strong>{{ data["yourself-national-insurance"] }}</strong></h2>
+            <h2 class="govuk-heading-m"><span class="agent-action">Adviser: No COPE on record</h2>
           </div>
-
-          -->
 
 
               {{ govukRadios({
                 classes: "govuk-radios",
-                idPrefix: "cyourself-ni-found-yn",
-                name: "yourself-ni-found-yn",
+                idPrefix: "yourself-no-cope-yn",
+                name: "yourself-no-cope-yn",
                 fieldset: {
                   legend: {
-                    html: "Have you seen a State Pension forecast in the last 12 months?",
+                    html: "Check schemes in OLE",
 
                     isPageHeading: true,
                     classes: "govuk-fieldset__legend--xl"
@@ -41,17 +37,12 @@
                 {
                     value: "Yes",
                     text: "Yes",
-                    checked: (data["yourself-ni-found-yn"] == "Mobile")
+                    checked: (data["yourself-no-cope-yn"] == "Mobile")
                   },
                   {
                     value: "No",
                     text: "No",
-                    checked: (data["yourself-ni-found-yn"] == "I don't have a mobile")
-                  },
-                  {
-                    value: "Don't know",
-                    text: "Don't know",
-                    checked: (data["yourself-ni-found-yn"] == "Dont know")
+                    checked: (data["yourself-no-cope-yn"] == "I don't have a mobile")
                   }
                 ]
               }) }}

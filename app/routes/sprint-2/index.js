@@ -4,6 +4,22 @@ const router = new express.Router()
 router.post('/who-is-caller-router', (req, res, next) => {
   const whoIsCaller = req.session.data['who-is-caller']
 
+
+
+
+router.post('/start-work-router', (req, res, next) => {
+  const telephonyCheck = req.session.data['start-work']
+
+  if (telephonyCheck === 'Telephony') {
+    res.redirect('yourself-national-insurance')
+  } else if (telephonyCheck === 'Other') {
+    res.redirect('Other')
+  } else {
+    res.redirect('XXXX')
+  }
+})
+
+
   if (whoIsCaller === 'Yourself') {
     res.redirect('yourself-national-insurance')
   } else if (whoIsCaller === 'POA') {

@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Who are calling for? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="start-work-router" method="post">
+
+        {{ govukRadios({
+          idPrefix: "start-work",
+          name: "start-work",
+          fieldset: {
+            legend: {
+              text: "Type of work?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {
+              value: "Telephony",
+              text: "Telephony",
+              checked: data['start-work'] == "Telephony"
+            },
+          {
+            value: "Other",
+            text: "Other",
+            checked: data['start-work'] == "Other"
+          }
+          ]
+        }) }}
+
+<br>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+{% endblock %}
