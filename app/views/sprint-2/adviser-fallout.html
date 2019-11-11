@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What is your National Insurance number? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="Start" method="post">
+
+        <div class="govuk-panel--agent govuk-!-margin-bottom-6">
+          <h2 class="govuk-heading-m"><span class="agent-action">Adviser: </span>You may need do some stuff.</h2>
+        </div>
+
+            <h2 class="govuk-heading-xl govuk-!-margin-bottom-6"><span class="agent-action">Something has gone wrong</h2>
+
+              <h2 class="govuk-body govuk-!-font-size-24">What now?:</h2>
+
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Option A</h2>
+              <p class="govuk-body govuk-!-margin-bottom-6">This is appropriate dummy text that is being employed in order to ascertain an approximate length </p>
+
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Option B</h2>
+              <p class="govuk-body govuk-!-margin-bottom-6">This is appropriate dummy text that is being employed in order to ascertain an approximate length </p>
+
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Option C</h2>
+              <p class="govuk-body govuk-!-margin-bottom-6">This is appropriate dummy text that is being employed in order to ascertain an approximate length </p>
+
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Option C</h2>
+              <p class="govuk-body govuk-!-margin-bottom-9">This is appropriate dummy text that is being employed in order to ascertain an approximate length </p>
+
+
+              {{ govukButton({
+                text: "Exit and close",
+                classes: "govuk-!-margin-right-1"
+              }) }}
+
+
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

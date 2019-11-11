@@ -1,0 +1,139 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What is your National Insurance number? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <form action="yourself-employment-end-known-router" method="post">
+
+<!--
+        <div class="govuk-panel--agent govuk-!-margin-bottom-6">
+          <h2 class="govuk-heading-m"><span class="agent-action">Adviser: XXX</h2>
+        </div>
+
+-->
+            <h2 class="govuk-heading-xl govuk-!-margin-bottom-6"><span class="agent-action">When do you plan to stop paying Class 2 contributions?</h2>
+
+
+
+              {% set particularAge %}
+              {{ govukInput({
+                label: {
+                  text: "Age"
+                },
+                classes: "govuk-input--width-5",
+                id: "ourself-employment-end-known-particularAge",
+                name: "yourself-employment-end-known-particularAge"
+              }) }}
+              {% endset -%}
+
+              {% set particularDate %}
+                {{ govukDateInput({
+                  id: "yourself-employment-end-known-particularDate",
+                  namePrefix: "yourself-employment-end-known-particularDate",
+                  fieldset: {
+                    legend: {
+                      text: "What is this date?"
+                    }
+                  },
+                  items: [
+                    {
+                      name: "day",
+                      classes: "govuk-input--width-2",
+                      value: data["yourself-employment-end-known-particularDate-day"]
+                    },
+                    {
+                      name: "month",
+                      classes: "govuk-input--width-2",
+                      value: data["yourself-employment-end-known-particularDate-month"]
+                    },
+                    {
+                      name: "year",
+                      classes: "govuk-input--width-4",
+                      value: data["yourself-employment-end-known-particularDate-year"]
+                    }
+                  ]
+                }) }}
+              {% endset -%}
+
+              {% set otherEndDate %}
+                {{ govukDateInput({
+                  id: "yourself-employment-end-known-otherEndDate",
+                  namePrefix: "yourself-employment-end-known-otherEndDate",
+                  fieldset: {
+                    legend: {
+                      text: "What is this date?"
+                    }
+                  },
+                  items: [
+                    {
+                      name: "day",
+                      classes: "govuk-input--width-2",
+                      value: data["yourself-employment-end-known-otherEndDate-day"]
+                    },
+                    {
+                      name: "month",
+                      classes: "govuk-input--width-2",
+                      value: data["yourself-employment-end-known-otherEndDate-month"]
+                    },
+                    {
+                      name: "year",
+                      classes: "govuk-input--width-4",
+                      value: data["yourself-employment-end-known-otherEndDate-year"]
+                    }
+                  ]
+                }) }}
+              {% endset -%}
+
+              {{ govukRadios({
+                idPrefix: "yourself-employment-end-known",
+                name: "yourself-employment-end-known",
+                fieldset: {
+                  legend: {
+                    html: "",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--xl"
+                    }
+                    },
+                    items: [
+                  {
+                    value: "I reach a particular age",
+                    text: "I reach a particular age",
+                    checked: (data["yourself-employment-end-known"] == "I reach a particular age"),
+                    conditional: {
+                      html: particularAge
+                    }
+                  },
+                    {
+                    value: "I reach a particular date",
+                    text: "I reach a particular date",
+                    checked: (data["yourself-employment-end-known"] == "I reach a particular date"),
+                    conditional: {
+                      html: particularDate
+                    }
+                  },
+                    {
+                    value: "Don't know",
+                    text: "Don't know",
+                    checked: (data["yourself-employment-end-known"] == "Dont know")
+                  }
+                  ]
+                }) }}
+
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

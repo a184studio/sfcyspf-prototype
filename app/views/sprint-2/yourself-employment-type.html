@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Who are calling for? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="yourself-employment-type-router" method="post">
+
+        {{ govukRadios({
+          idPrefix: "yourself-employment-type",
+          name: "yourself-employment-type",
+          fieldset: {
+            legend: {
+              text: "Are you working in the UK?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {
+              value: "Employed in the UK",
+              text: "Employed in the UK",
+              checked: data['yourself-employment-type'] == "Employed in the UK"
+            },
+            {
+            value: "Self-employed in the UK",
+            text: "Self-employed in the UK",
+            checked: data['yourself-employment-type'] == "Self-employed in the UK"
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "Employment outside of the UK",
+            text: "Employment outside of the UK",
+            checked: data['yourself-employment-type'] == "Employment outside of the UK"
+          }
+          ]
+        }) }}
+
+<br>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+{% endblock %}

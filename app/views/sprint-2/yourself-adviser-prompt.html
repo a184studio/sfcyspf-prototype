@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What is your National Insurance number? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="yourself-find-claimant" method="post">
+
+          <div class="govuk-panel--agent govuk-!-margin-bottom-6">
+            <h2 class="govuk-heading-m"><span class="agent-action">Adviser: </span><strong>Talk to the caller about self service option.</strong></h2>
+          </div>
+
+            <h2 class="govuk-heading-xl govuk-!-margin-bottom-6"><span class="agent-action">You might be able to do some of this online, we have the following options that may help</h2>
+
+              <h2 class="govuk-body govuk-!-font-size-24">GOV have a bunch of options:</h2>
+
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Option A</h2>
+              <p class="govuk-body govuk-!-margin-bottom-6">This is appropriate dummy text that is being employed in order to ascertain an approximate length </p>
+
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Option B</h2>
+              <p class="govuk-body govuk-!-margin-bottom-6">This is appropriate dummy text that is being employed in order to ascertain an approximate length </p>
+
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Option C</h2>
+              <p class="govuk-body govuk-!-margin-bottom-9">This is appropriate dummy text that is being employed in order to ascertain an approximate length </p>
+
+
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
