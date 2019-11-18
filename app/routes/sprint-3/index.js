@@ -103,6 +103,19 @@ router.post('/paper-address-check-router', (req, res, next) => {
 })
 
 
+
+router.post('/yourself-find-claimant-router', (req, res, next) => {
+  const addressCheck = req.session.data['yourself-find-claimant-workAddress']
+
+  if (addressCheck === 'United Kingdom') {
+    res.redirect('yourself-address-postcode')
+  } else if (addressCheck === 'Overseas') {
+    res.redirect('yourself-address-manual')
+  } else {
+    res.redirect('XXX')
+  }
+})
+
 router.post('/yourself-ni-found-yn-router', (req, res, next) => {
   const niFound = req.session.data['yourself-ni-found-yn']
 
