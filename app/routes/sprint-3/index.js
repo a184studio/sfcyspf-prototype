@@ -68,7 +68,7 @@ router.post('/yourself-cope-check-yn-router', (req, res, next) => {
   const whoIsCaller = req.session.data['yourself-cope-check-yn']
 
   if (whoIsCaller === 'No') {
-    res.redirect('yourself-ni-found')
+    res.redirect('telephone-who-is-caller')
   } else if (whoIsCaller === 'Yes') {
     res.redirect('outcome-no-cope')
   } else {
