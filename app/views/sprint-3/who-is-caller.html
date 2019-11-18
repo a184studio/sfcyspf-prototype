@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Who are calling for? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="who-is-caller-router" method="post">
+
+        {{ govukRadios({
+          idPrefix: "who-is-caller",
+          name: "who-is-caller",
+          fieldset: {
+            legend: {
+              text: "Are you calling about yourself or someone else?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {
+              value: "Yourself",
+              text: "Yourself",
+              checked: data['who-is-caller'] == "Yourself"
+            },
+          {
+            value: "SomeoneElse",
+            text: "Someone else",
+            checked: data['who-is-caller'] == "SomeoneElse"
+          }
+          ]
+        }) }}
+
+<br>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+{% endblock %}

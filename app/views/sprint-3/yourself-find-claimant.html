@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What is your full name? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="yourself-address-manual" method="post">
+
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">What is your full name?</h1>
+
+
+<!-- html: "<p class=\"govuk-heading-xl\">What is your full name?" -->
+
+{{ govukInput({
+  label: {
+    html: ""
+    },
+    classes: "govuk-input--width-30",
+    hint: {
+      text: ""
+    },
+  id: "yourself-find-claimant-name",
+  name: "yourself-find-claimant-name",
+  attributes: {
+    spellcheck: "false"
+  }
+}) }}
+
+{{ govukRadios({
+  idPrefix: "yourself-find-claimant-workAddress",
+  name: "yourself-find-claimant-workAddress",
+  fieldset: {
+    legend: {
+      text: "Address?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "United Kingdom",
+      text: "United Kingdom",
+      checked: data['yourself-find-claimant-workAddress'] == "United Kingdom"
+    },
+  {
+    value: "Overseas",
+    text: "Overseas",
+    checked: data['yourself-find-claimant-workAddress'] == "Overseas"
+  }
+  ]
+}) }}
+
+
+        {{ govukButton({
+          text: "Search"
+        }) }}
+
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
