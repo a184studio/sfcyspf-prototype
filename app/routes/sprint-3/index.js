@@ -64,6 +64,17 @@ router.post('/who-is-caller-other-router', (req, res, next) => {
 
 
 
+router.post('/yourself-cope-check-yn-router', (req, res, next) => {
+  const whoIsCaller = req.session.data['yourself-cope-check-yn']
+
+  if (whoIsCaller === 'Yes') {
+    res.redirect('yourself-ni-found')
+  } else if (whoIsCaller === 'No') {
+    res.redirect('outcome-no-cope')
+  } else {
+    res.redirect('XXX')
+  }
+})
 
 router.post('/paper-cope-check-router', (req, res, next) => {
   const whoIsCaller = req.session.data['paper-cope-check-yn']
