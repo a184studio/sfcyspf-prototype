@@ -8,10 +8,10 @@ const router = new express.Router()
   router.post('/start-work-router', (req, res, next) => {
     const workCheck = req.session.data['start-work']
 
-    if (workCheck === 'Telephony') {
+    if (workCheck === 'Telephone') {
       res.redirect('yourself-national-insurance')
-    } else if (workCheck === 'Something') {
-      res.redirect('xxx')
+    } else if (workCheck === 'Paper') {
+      res.redirect('paper-national-insurance')
     } else {
       res.redirect('xxx')
     }
@@ -20,23 +20,33 @@ const router = new express.Router()
   router.post('/who-is-caller-router', (req, res, next) => {
     const whoIsCaller = req.session.data['who-is-caller']
 
-  if (whoIsCaller === 'Yourself') {
+  if (whoIsCaller === 'Citizen') {
     res.redirect('yourself-national-insurance')
-  } else if (whoIsCaller === 'POA') {
+  } else if (whoIsCaller === 'Corporate Acting Body (CAB)') {
     res.redirect('adviser-id-check')
-  } else if (whoIsCaller === 'Appointee') {
+  } else if (whoIsCaller === 'Personal Acting Body (PAB)') {
     res.redirect('adviser-id-check')
-  } else if (whoIsCaller === 'Charity') {
+  } else if (whoIsCaller === 'Third party (EG)') {
     res.redirect('adviser-id-unofficial')
-  } else if (whoIsCaller === 'Family') {
-    res.redirect('adviser-id-unofficial')
-  } else if (whoIsCaller === 'Friend') {
-    res.redirect('adviser-id-unofficial')
-  } else if (whoIsCaller === 'SomeoneElse') {
-    res.redirect('who-is-caller-other')
   } else {
-    res.redirect('who-is-caller-other')
+    res.redirect('paper-who-is-caller')
   }
+})
+
+router.post('/paper-who-is-caller-router', (req, res, next) => {
+  const whoIsCaller = req.session.data['paper-who-is-caller']
+
+if (whoIsCaller === 'Citizen') {
+  res.redirect('paper-forecast-b')
+} else if (whoIsCaller === 'Corporate Acting Body (CAB)') {
+  res.redirect('paper-forecast-b')
+} else if (whoIsCaller === 'Personal Acting Body (PAB)') {
+  res.redirect('paper-forecast-b')
+} else if (whoIsCaller === 'Third party (EG)') {
+  res.redirect('paper-forecast-b')
+} else {
+  res.redirect('paper-who-is-caller')
+}
 })
 
 
@@ -55,6 +65,17 @@ router.post('/who-is-caller-other-router', (req, res, next) => {
 
 
 
+router.post('/paper-cope-check-router', (req, res, next) => {
+  const whoIsCaller = req.session.data['paper-cope-check-yn']
+
+  if (whoIsCaller === 'Yes') {
+    res.redirect('paper-who-is-caller')
+  } else if (whoIsCaller === 'No') {
+    res.redirect('paper-outcome-no-cope')
+  } else {
+    res.redirect('XXX')
+  }
+})
 
 
 
@@ -197,8 +218,6 @@ router.post('/yourself-self-employment-class2-end-known-router', (req, res, next
     res.redirect('outcome-forecast-a')
   }
 })
-
-
 
 
 
