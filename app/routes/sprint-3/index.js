@@ -37,13 +37,13 @@ router.post('/paper-who-is-caller-router', (req, res, next) => {
   const whoIsCaller = req.session.data['paper-who-is-caller']
 
 if (whoIsCaller === 'Citizen') {
-  res.redirect('paper-forecast-b')
+  res.redirect('paper-address-check')
 } else if (whoIsCaller === 'Corporate Acting Body (CAB)') {
-  res.redirect('paper-forecast-b')
+  res.redirect('paper-address-check')
 } else if (whoIsCaller === 'Personal Acting Body (PAB)') {
-  res.redirect('paper-forecast-b')
+  res.redirect('paper-address-check')
 } else if (whoIsCaller === 'Third party (EG)') {
-  res.redirect('paper-forecast-b')
+  res.redirect('paper-address-check')
 } else {
   res.redirect('paper-who-is-caller')
 }
@@ -67,9 +67,9 @@ router.post('/who-is-caller-other-router', (req, res, next) => {
 router.post('/yourself-cope-check-yn-router', (req, res, next) => {
   const whoIsCaller = req.session.data['yourself-cope-check-yn']
 
-  if (whoIsCaller === 'Yes') {
+  if (whoIsCaller === 'No') {
     res.redirect('yourself-ni-found')
-  } else if (whoIsCaller === 'No') {
+  } else if (whoIsCaller === 'Yes') {
     res.redirect('outcome-no-cope')
   } else {
     res.redirect('XXX')
@@ -79,15 +79,28 @@ router.post('/yourself-cope-check-yn-router', (req, res, next) => {
 router.post('/paper-cope-check-router', (req, res, next) => {
   const whoIsCaller = req.session.data['paper-cope-check-yn']
 
-  if (whoIsCaller === 'Yes') {
+  if (whoIsCaller === 'No') {
     res.redirect('paper-who-is-caller')
-  } else if (whoIsCaller === 'No') {
+  } else if (whoIsCaller === 'Yes') {
     res.redirect('paper-outcome-no-cope')
   } else {
     res.redirect('XXX')
   }
 })
 
+
+
+router.post('/paper-address-check-router', (req, res, next) => {
+  const addressCheck = req.session.data['paper-address-check']
+
+  if (addressCheck === 'United Kingdom') {
+    res.redirect('paper-address-postcode')
+  } else if (addressCheck === 'Overseas') {
+    res.redirect('paper-address-manual')
+  } else {
+    res.redirect('XXX')
+  }
+})
 
 
 router.post('/yourself-ni-found-yn-router', (req, res, next) => {
