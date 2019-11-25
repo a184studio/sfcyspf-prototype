@@ -5,6 +5,7 @@ const router = express.Router()
 router.use('/sprint-1', require('./routes/sprint-1'))
 router.use('/sprint-2', require('./routes/sprint-2'))
 router.use('/sprint-3', require('./routes/sprint-3'))
+router.use('/sprint-4', require('./routes/sprint-4'))
 
 
 module.exports = router

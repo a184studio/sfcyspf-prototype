@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What is your National Insurance number? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <form action="start-work" method="post">
+        <span class="govuk-caption-m">Telephone enquiry</span>
+
+<!--
+        <div class="govuk-panel--agent govuk-!-margin-bottom-6">
+          <h2 class="govuk-heading-m"><span class="agent-action">National Insrance number: </span>{{ data["yourself-national-insurance"] }}</h2>
+        </div>
+
+-->
+
+            <h2 class="govuk-heading-xl govuk-!-margin-bottom-6"><span class="agent-action">Overview</h2>
+
+              <!--<p class="govuk-body govuk-!-font-size-24">GOV have a bunch of cool data we can share with you so that you can make the best choies:</p>-->
+
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-2">State Pension date:</h2>
+              <p class="govuk-heading-l govuk-!-margin-bottom-6">19 November 2022</p>
+
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Years to Final Relevent Year (FRY)</h2>
+              <p class="govuk-heading-l govuk-!-margin-bottom-6">4 years</p>
+
+              <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Estimate to 2018/2019</h2>
+              <p class="govuk-heading-l govuk-!-margin-bottom-2">£57.81 a week</p>
+              <p class="govuk-body govuk-!-font-size-27 govuk-!-margin-bottom-6">£X,XXX.00 annually</p>
+
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Forecast to State Pension age</h2>
+              <p class="govuk-heading-l govuk-!-margin-bottom-2">£77.08 a week</p>
+              <p class="govuk-body govuk-!-font-size-27 govuk-!-margin-bottom-6">£X,XXX.00 annually</p>
+
+              <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Qualifying years to 2018/2019</h2>
+              <p class="govuk-heading-l govuk-!-margin-bottom-6">12 years</p>
+
+<!--
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Contracted Out (COPE)</h2>
+              <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-9">There is COPE on the record.</p>
+
+-->
+
+
+
+        {{ govukButton({
+          text: "Fill in gaps",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+
+        {{ govukButton({
+          text: "Create forecast",
+          classes: "govuk-button--secondary",
+          href: "yourself-find-claimant"
+        }) }}
+
+
+
+
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

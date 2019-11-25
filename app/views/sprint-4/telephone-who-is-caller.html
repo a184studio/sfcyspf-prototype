@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Who are calling for? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="yourself-national-insurance" method="post">
+        <span class="govuk-caption-m">Telephone enquiry</span>
+
+        {{ govukRadios({
+          idPrefix: "telephone-who-is-caller",
+          name: "telephone-who-is-caller",
+          fieldset: {
+            legend: {
+              text: "Who is making this enquiry?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {
+              value: "Citizen",
+              text: "Citizen",
+              checked: data['telephone-who-is-caller'] == "Citizen"
+            },
+          {
+            value: "Corporate Acting Body (CAB)",
+            text: "Corporate Acting Body (CAB)",
+            checked: data['telephone-who-is-caller'] == "Corporate Acting Body (CAB)"
+          },
+        {
+          value: "Personal Acting Body (PAB)",
+          text: "Personal Acting Body (PAB)",
+          checked: data['telephone-who-is-caller'] == "Personal Acting Body (PAB)"
+        }
+          ]
+        }) }}
+
+<br>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+{% endblock %}

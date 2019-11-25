@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Do you live in the UK? - Pension Credit
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-m">Telephone enquiry</span>
+
+      <form action="yourself-live-in-uk-router" method="post">
+        {{ govukRadios({
+          classes: "govuk-radios",
+          idPrefix: "yourself-live-in-uk",
+          name: "yourself-live-in-uk",
+          fieldset: {
+            legend: {
+              text: "Do you live in England, Northern Ireland, Scotland or Wales?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              checked: data['yourself-live-in-uk'] == "Yes"
+            },
+            {
+              value: "No",
+              text: "No",
+              checked: data['yourself-live-in-uk'] == "No"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+      </div>
+  </div>
+{% endblock %}
