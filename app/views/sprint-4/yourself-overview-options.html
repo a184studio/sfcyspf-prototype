@@ -10,7 +10,7 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
-      <form action="vnics-a" method="post">
+      <form action="yourself-employment-type" method="post">
         <span class="govuk-caption-m">Telephone enquiry</span>
 
 <!--
@@ -156,15 +156,21 @@
 
 
         {{ govukButton({
-          text: "Fill in gaps",
+          text: "Continue",
           classes: "govuk-!-margin-right-1"
         }) }}
 
-        {{ govukButton({
-          text: "Create forecast",
-          classes: "govuk-button--secondary",
-          href: "yourself-find-claimant"
-        }) }}
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2 govuk-!-padding-top-2">Other actions</h2>
+
+        <p class="govuk-body govuk-!-padding-top-0"><a href="vnics-a">Fill in gaps</a></p>
+
+        <p class="govuk-body govuk-!-padding-top-0"><a href="yourself-find-claimant">Create forecast</a></p>
+
+        <p class="govuk-body govuk-!-padding-top-0"><a href="call-type">Help with another enquriy</a></p>
+
+        <p class="govuk-body govuk-!-padding-top-0"><a href="exit-check">Call drop</a></p>
+
+
 
 
 
