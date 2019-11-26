@@ -9,7 +9,7 @@ const router = new express.Router()
     const workCheck = req.session.data['start-work']
 
     if (workCheck === 'Telephone') {
-      res.redirect('telephone-who-is-caller')
+      res.redirect('call-type')
     } else if (workCheck === 'Paper') {
       res.redirect('paper-national-insurance')
     } else {
@@ -32,6 +32,43 @@ const router = new express.Router()
     res.redirect('paper-who-is-caller')
   }
 })
+
+
+
+router.post('/call-type-router', (req, res, next) => {
+  const callType = req.session.data['call-type']
+
+if (callType === 'Forecast request') {
+  res.redirect('telephone-who-is-caller')
+} else if (callType === 'Personal enquiry') {
+  res.redirect('yourself-national-insurance')
+} else if (callType === 'Top general enquiry') {
+  res.redirect('general-enquiry-top')
+} else if (callType === 'Other general enquiries') {
+  res.redirect('general-enquiry-all')
+} else if (callType === 'HMRC Top enquiry') {
+  res.redirect('hmrc-enquiry-top')
+} else if (callType === 'Other HMRC enquiries') {
+  res.redirect('hmrc-enquiry-all')
+} else if (callType === 'Pension signposting') {
+  res.redirect('pension-signposting')
+} else if (callType === 'Answered without aid') {
+  res.redirect('exit-check')
+} else {
+  res.redirect('xxx')
+}
+})
+
+
+
+
+
+
+
+
+
+
+
 
 router.post('/paper-who-is-caller-router', (req, res, next) => {
   const whoIsCaller = req.session.data['paper-who-is-caller']
@@ -72,7 +109,7 @@ router.post('/yourself-cope-check-yn-router', (req, res, next) => {
   } else if (whoIsCaller === 'Yes') {
     res.redirect('outcome-no-cope')
   } else {
-    res.redirect('XXX')
+    res.redirect('paper-address-check')
   }
 })
 

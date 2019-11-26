@@ -1,0 +1,136 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Who are calling for? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="call-type-router" method="post">
+        <span class="govuk-caption-m">Telephone enquiry</span>
+
+
+        {% set callTypeReason %}
+        {{ govukTextarea({
+          label: {
+            html: "Explain what happened on the call @jane"
+          },
+          hint: {
+            text: ""
+          },
+          id: "call-type-reason",
+          name: "call-type-reason",
+          classes: "govuk-input--width-30",
+          attributes: {
+            maxlength: 300
+          }
+        }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "call-type",
+          name: "call-type",
+          fieldset: {
+            legend: {
+              text: "What is this call about?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {
+              value: "Forecast request",
+              text: "Forecast request",
+              checked: data['call-type'] == "Forecast request",
+                label: {
+                  classes: "govuk-label--s"
+                }
+            },
+          {
+            value: "Personal enquiry",
+            text: "Personal enquiry",
+            checked: data['call-type'] == "Personal enquiry",
+              label: {
+                classes: "govuk-label--s"
+              }
+          },
+        {
+          value: "Top general enquiry",
+          text: "Top general enquiry @Jane",
+          checked: data['call-type'] == "Top general enquiry",
+            label: {
+              classes: "govuk-label--s"
+            }
+        },
+          {
+            value: "Other general enquiries",
+            text: "Other general enquiries",
+            checked: data['call-type'] == "Other general enquiries",
+              label: {
+                classes: "govuk-label--s"
+              },
+              hint: {
+                text: "Example of general enquiries, X, Y and Z"
+              }
+          },
+        {
+          value: "HMRC Top enquiry",
+          text: "HMRC Top enquiry @Jane",
+          checked: data['call-type'] == "HMRC Top enquiry",
+            label: {
+              classes: "govuk-label--s"
+            }
+        },
+      {
+        value: "Other HMRC enquiries",
+        text: "Other HMRC enquiries",
+        checked: data['call-type'] == "Other HMRC enquiries",
+          label: {
+            classes: "govuk-label--s"
+          },
+          hint: {
+            text: "Example of general enquiries, X, Y and Z"
+          }
+      },
+      {
+        value: "Pension signposting",
+        text: "Pension signposting",
+        checked: data['call-type'] == "Pension signposting",
+          label: {
+            classes: "govuk-label--s"
+          }
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "Answered without aid",
+        text: "Answered without aid",
+        checked: data['call-type'] == "Answered without aid",
+          label: {
+            classes: "govuk-label--s"
+          },
+          conditional: {
+            html: callTypeReason
+          }
+        }
+        ]
+      }) }}
+
+<br>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+      <p class="govuk-body govuk-!-padding-top-6"><a href="exit-check">Call drop</a></p>
+
+
+    </div>
+{% endblock %}

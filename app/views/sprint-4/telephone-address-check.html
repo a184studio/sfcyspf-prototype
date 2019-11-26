@@ -1,0 +1,296 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Who are calling for? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="paper-address-check-router" method="post">
+        <span class="govuk-caption-m">Paper enquiry</span>
+
+  <!--------------------------------------------------------------------------------------------------->
+
+  {% if data["telephone-who-is-caller"] == "Citizen" %}
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Claimant details</h1>
+
+        {{ govukInput({
+          label: {
+            html: "Citizen name"
+            },
+            classes: "govuk-input--width-30",
+            hint: {
+              text: ""
+            },
+          id: "paper-address-check-name",
+          name: "paper-address-check-name",
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+
+        {{ govukRadios({
+          idPrefix: "paper-address-check",
+          name: "paper-address-check",
+          fieldset: {
+            legend: {
+              text: "Citizen address",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "United Kingdom",
+              text: "United Kingdom",
+              checked: data['paper-address-check'] == "United Kingdom"
+            },
+          {
+            value: "Overseas",
+            text: "Overseas",
+            checked: data['paper-address-check'] == "Overseas"
+          }
+          ]
+        }) }}
+
+        {% endif %}
+
+<!--------------------------------------------------------------------------------------------------->
+  {% if data["telephone-who-is-caller"] == "Corporate Acting Body (CAB)" %}
+
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Corporate Acting Body (CAB) details</h1>
+
+        {{ govukInput({
+          label: {
+            html: "Citizen name"
+            },
+            classes: "govuk-input--width-30",
+            hint: {
+              text: ""
+            },
+          id: "paper-address-check-name",
+          name: "paper-address-check-name",
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+
+        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+        {{ govukInput({
+          label: {
+            html: "Contact name"
+            },
+            classes: "govuk-input--width-30",
+            hint: {
+              text: ""
+            },
+          id: "paper-address-check-name",
+          name: "paper-address-check-name",
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+
+        {{ govukInput({
+          label: {
+            html: "Company / Organisation name"
+            },
+            classes: "govuk-input--width-30",
+            hint: {
+              text: ""
+            },
+          id: "paper-address-check-name",
+          name: "paper-address-check-name",
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+
+
+
+        {{ govukRadios({
+          idPrefix: "paper-address-check",
+          name: "paper-address-check",
+          fieldset: {
+            legend: {
+              text: "Personal Acting Body (PAB) address",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "United Kingdom",
+              text: "United Kingdom",
+              checked: data['paper-address-check'] == "United Kingdom"
+            },
+          {
+            value: "Overseas",
+            text: "Overseas",
+            checked: data['paper-address-check'] == "Overseas"
+          }
+          ]
+        }) }}
+
+        {% endif %}
+        <!--------------------------------------------------------------------------------------------------->
+            {% if data["telephone-who-is-caller"] == "Personal Acting Body (PAB)" %}
+
+                <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Citizen and Personal Acting Body (PAB) details</h1>
+
+                {{ govukInput({
+                  label: {
+                    html: "Citizen name"
+                    },
+                    classes: "govuk-input--width-30",
+                    hint: {
+                      text: ""
+                    },
+                  id: "paper-address-check-name",
+                  name: "paper-address-check-name",
+                  attributes: {
+                    spellcheck: "false"
+                  }
+                }) }}
+
+                <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+                {{ govukInput({
+                  label: {
+                    html: "Personal Acting Body (PAB) name"
+                    },
+                    classes: "govuk-input--width-30",
+                    hint: {
+                      text: ""
+                    },
+                  id: "paper-address-check-name",
+                  name: "paper-address-check-name",
+                  attributes: {
+                    spellcheck: "false"
+                  }
+                }) }}
+
+
+
+                {{ govukRadios({
+                  idPrefix: "paper-address-check",
+                  name: "paper-address-check",
+                  fieldset: {
+                    legend: {
+                      text: "Personal Acting Body (PAB) address",
+                      isPageHeading: true,
+                      classes: "govuk-fieldset__legend--s"
+                    }
+                  },
+                  items: [
+                    {
+                      value: "United Kingdom",
+                      text: "United Kingdom",
+                      checked: data['paper-address-check'] == "United Kingdom"
+                    },
+                  {
+                    value: "Overseas",
+                    text: "Overseas",
+                    checked: data['paper-address-check'] == "Overseas"
+                  }
+                  ]
+                }) }}
+
+                  {% endif %}
+
+        <!--------------------------------------------------------------------------------------------------->
+  {% if data["telephone-who-is-caller"] == "Third party (EG)" %}
+
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Third party (EG) details</h1>
+
+        {{ govukInput({
+          label: {
+            html: "Citizen name"
+            },
+            classes: "govuk-input--width-30",
+            hint: {
+              text: ""
+            },
+          id: "paper-address-check-name",
+          name: "paper-address-check-name",
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+
+        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+        {{ govukInput({
+          label: {
+            html: "Contact name"
+            },
+            classes: "govuk-input--width-30",
+            hint: {
+              text: ""
+            },
+          id: "paper-address-check-name",
+          name: "paper-address-check-name",
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+
+        {{ govukInput({
+          label: {
+            html: "Company / Organisation name"
+            },
+            classes: "govuk-input--width-30",
+            hint: {
+              text: ""
+            },
+          id: "paper-address-check-name",
+          name: "paper-address-check-name",
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+
+
+
+        {{ govukRadios({
+          idPrefix: "paper-address-check",
+          name: "paper-address-check",
+          fieldset: {
+            legend: {
+              text: "Third party address",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "United Kingdom",
+              text: "United Kingdom",
+              checked: data['paper-address-check'] == "United Kingdom"
+            },
+          {
+            value: "Overseas",
+            text: "Overseas",
+            checked: data['paper-address-check'] == "Overseas"
+          }
+          ]
+        }) }}
+
+        {% endif %}
+<br>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+{% endblock %}
