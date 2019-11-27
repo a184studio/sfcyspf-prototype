@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Income? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="yourself-employment-yes-router" method="post">
+        <span class="govuk-caption-m">Telephone enquiry</span>
+
+
+            <h2 class="govuk-heading-xl govuk-!-margin-bottom-6"><span class="agent-action">Do you earn more that £10,000.00 a year?</h2>
+
+              {{ govukRadios({
+                idPrefix: "yourself-employment-yes",
+                name: "yourself-employment-yes",
+                fieldset: {
+                  legend: {
+                    html: "",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--xl"
+                    }
+                    },
+                    items: [
+                  {
+                    value: "Yes",
+                    text: "Yes",
+                    checked: (data["yourself-employment-yes"] == "Yes")
+                  },
+                  {
+                    value: "No",
+                    text: "No",
+                    checked: (data["yourself-employment-yes"] == "No")
+                  },
+                  {
+                    value: "Don't know",
+                    text: "Don't know",
+                    checked: (data["yourself-employment-yes"] == "Dont know")
+                  }
+                ]
+              }) }}
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
