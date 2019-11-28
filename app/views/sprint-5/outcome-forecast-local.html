@@ -12,10 +12,11 @@
     <div class="govuk-grid-column-full">
       <form action="start-work" method="post">
 
+
       <div class="govuk-grid-row govuk-!-margin-bottom-9">
   <div class="govuk-grid-column-full">
     {{ govukPanel({
-      titleText: "Forecast sent using Notifiy",
+      titleText: "Forecast locally printed",
       html: ""
     }) }}
 
@@ -23,17 +24,12 @@
 </div>
 
 
-
-
-      {{ govukButton({
-        text: "Exit and close",
-        classes: "govuk-button--warning"
-      }) }}
-
-
+{{ govukButton({
+  text: "Exit and close",
+  classes: "govuk-button--warning"
+}) }}
 
       </form>
-            </div>
     </div>
   </div>
 {% endblock %}

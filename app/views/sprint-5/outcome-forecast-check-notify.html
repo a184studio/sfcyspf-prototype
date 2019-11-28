@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What is your National Insurance number? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-panel--agent">
+      <form action="outcome-forecast-notify" method="post">
+
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Advier: You are about to send this forecast to Notify</h1>
+
+<h2 class="govuk-heading-m">Before leaving this screen:</h2>
+
+<ul class="govuk-list govuk-list--number govuk-!-margin-bottom-6">
+<li>Check over details</li>
+<li>Check item 2</li>
+
+<ul class="govuk-list govuk-list">
+  <li>XXX: <strong>XXX</strong></li>
+  <li>XXX: <strong>XXX</strong></li>
+  <li>XXX: <strong>XXX</strong></li>
+  <li>XXX: <strong>XXX</strong></li>
+</ul>
+
+<li>Check item 3</li>
+</ul>
+
+
+      {{ govukCheckboxes({
+      idPrefix: "download-pdf-checkbox",
+      name: "download-pdf-checkbox",
+      fieldset: {
+      legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--s"
+      }
+      },
+      items: [
+      {
+      value: "download-pdf",
+      text: "Confirm that you have read the forecast and it's correct"
+      }
+      ]
+      }) }}
+
+        {{ govukButton({
+          text: "Send to Notify"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

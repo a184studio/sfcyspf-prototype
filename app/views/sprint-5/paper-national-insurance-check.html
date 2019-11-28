@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  XXX - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="paper-national-insurance-check-router" method="post">
+        <span class="govuk-caption-m">Paper enquiry</span>
+
+
+<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Enter National<br>Insurance number</h1>
+
+
+<!-- html: "<p class=\"govuk-heading-xl\">What is your full name?" -->
+
+      {{ govukInput({
+      label: {
+      html: ""
+      },
+      classes: "govuk-input--width-10",
+      hint: {
+        html: ""
+      },
+      id: "paper-national-insurance-check",
+      name: "paper-national-insurance-check",
+      attributes: {
+      spellcheck: "false"
+      }
+      }) }}
+
+
+
+
+        {{ govukButton({
+          text: "Search"
+        }) }}
+
+
+<!--
+
+      <details class="govuk-details govuk-!-margin-top-4">
+        <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        Doesn't know National Insurance number
+        </span>
+      </summary>
+
+      </details>
+
+-->
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
