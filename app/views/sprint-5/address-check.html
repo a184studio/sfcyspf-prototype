@@ -60,9 +60,9 @@
         {% endif %}
 
 <!--------------------------------------------------------------------------------------------------->
-  {% if data["who-is-caller"] == "Someone else" %}
+  {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}
 
-        <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Corporate Acting Body (CAB) or Citizen and Personal Acting Body (PAB) details</h1>
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Corporate or Personal Acting Body details</h1>
 
         {{ govukInput({
           label: {
@@ -119,7 +119,7 @@
           name: "address-check",
           fieldset: {
             legend: {
-              text: "Where is the address for the CAB or PAB?",
+              text: "What is the address for the Corporate or Personal Acting Body?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--s"
             }

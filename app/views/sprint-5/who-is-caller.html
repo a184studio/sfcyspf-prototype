@@ -29,25 +29,27 @@
             text: "Citizen",
             checked: data['who-is-caller'] == "Citizen",
               label: {
-                classes: "govuk-label--s"
+                classes: ""
               },
               hint: {
                 text: ""
               }
           },
             {
-              value: "Someone else",
-              text: "Someone else",
-              checked: data['who-is-caller'] == "Someone else",
+              value: "Corporate or Personal Acting Body",
+              text: "Corporate or Personal Acting Body",
+              checked: data['who-is-caller'] == "Corporate or Personal Acting Body",
                 label: {
-                  classes: "govuk-label--s"
+                  classes: ""
                 },
                 hint: {
-                  html: "Corporate Acting Body (CAB) <br>Personal Acting Body (PAB)"
+                  html: ""
                 }
             }
           ]
         }) }}
+
+        <!-- Corporate Acting Body (CAB) <br>Personal Acting Body (PAB) -->
 
 
 <br>
