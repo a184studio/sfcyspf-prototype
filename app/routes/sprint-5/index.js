@@ -5,9 +5,9 @@ const router = new express.Router()
     const workCheck = req.session.data['start-work']
 
     if (workCheck === 'Telephone') {
-      res.redirect('telephone-national-insurance-check')
+      res.redirect('telephone-who-is-caller')
     } else if (workCheck === 'Paper') {
-      res.redirect('paper-national-insurance-check')
+      res.redirect('paper-who-is-caller')
     } else {
       res.redirect('xxx')
     }
@@ -97,7 +97,7 @@ const router = new express.Router()
     if (paperCOPEcheck === 'Yes') {
       res.redirect('outcome-no-cope')
     } else {
-      res.redirect('who-is-caller')
+      res.redirect('address-check')
     }
   })
 
