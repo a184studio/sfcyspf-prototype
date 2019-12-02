@@ -16,7 +16,7 @@
   <!--------------------------------------------------------------------------------------------------->
 
   {% if data["who-is-caller"] == "Citizen" %}
-        <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Claimant details</h1>
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Details for postal enquiries</h1>
 
         {{ govukInput({
           label: {
@@ -62,7 +62,7 @@
 <!--------------------------------------------------------------------------------------------------->
   {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}
 
-        <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Corporate or Personal Acting Body details</h1>
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Details for postal enquiries</h1>
 
         {{ govukInput({
           label: {
@@ -80,6 +80,8 @@
         }) }}
 
         <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+        <h1 class="govuk-heading-m govuk-!-margin-bottom-4">Corporate or Personal Acting Body details</h1>
 
 
         {{ govukInput({
