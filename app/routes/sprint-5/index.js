@@ -40,7 +40,7 @@ const router = new express.Router()
       res.redirect('telephone-rre')
     } else if (telephoneNIcheck === 'NOCOPE') {
       res.redirect('telephone-cope-check')
-    } else if (telephoneNIcheck === 'NI00112233a') {
+    } else if (telephoneNIcheck === 'NI00112233A') {
       res.redirect('telephone-cope-check')
     } else {
       res.redirect('validation')
@@ -137,6 +137,18 @@ router.post('/telephone-statement-check-router', (req, res, next) => {
     res.redirect('telephone-online-prompt-forecast')
   }
 })
+
+router.post('/telephone-overview-ab-router', (req, res, next) => {
+  const overViewAB = req.session.data['telephone-overview-ab']
+
+  if (overViewAB === 'A') {
+    res.redirect('telephone-overview-a')
+  } else {
+    res.redirect('telephone-overview-b')
+  }
+})
+
+
 
 
 

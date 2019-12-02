@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Overview - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <form action="telephone-vnics-a" method="post">
+        <span class="govuk-caption-m">Telephone enquiry</span>
+
+<!--
+        <div class="govuk-panel--agent govuk-!-margin-bottom-6">
+          <h2 class="govuk-heading-m"><span class="agent-action">National Insrance number: </span>{{ data["yourself-national-insurance"] }}</h2>
+        </div>
+
+-->
+
+            <h2 class="govuk-heading-xl govuk-!-margin-bottom-6"><span class="agent-action">Overview</h2>
+
+              <!---<p class="govuk-body govuk-!-font-size-24">GOV have a bunch of cool data we can share with you so that you can make the best choies:</p>-->
+
+              {{ govukAccordion({
+                id: "accordion-default",
+                items: [
+                  {
+                    heading: {
+                      text: "Writing well for the web"
+                    },
+                    content: {
+                      html: "<p class='govuk-body'>This is the content for Writing well for the web.</p>"
+                    }
+                  },
+                  {
+                    heading: {
+                      text: "Writing well for specialists"
+                    },
+                    content: {
+                      html: "<p class='govuk-body'>This is the content for Writing well for specialists.</p>"
+                    }
+                  },
+                    {
+                    heading: {
+                      text: "Know your audience"
+                    },
+                    content: {
+                      html: "<p class='govuk-body'>This is the content for Know your audience.</p>"
+                    }
+                  },
+                    {
+                    heading: {
+                      text: "How people read"
+                    },
+                    content: {
+                      html: "<p class='govuk-body'>This is the content for How people read.</p>"
+                    }
+                  }
+                ]
+              }) }}
+
+<br><br>
+
+
+        {{ govukButton({
+          text: "Fill in gaps",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2 govuk-!-padding-top-2">Other actions</h2>
+
+        <p class="govuk-body govuk-!-padding-top-0"><a href="yourself-find-claimant">Create forecast</a></p>
+
+        <p class="govuk-body govuk-!-padding-top-0"><a href="call-type">Help with another enquriy</a></p>
+
+        <p class="govuk-body govuk-!-padding-top-0"><a href="exit-check">Call drop</a></p>
+
+
+
+
+
+
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
