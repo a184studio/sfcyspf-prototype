@@ -40,6 +40,8 @@ const router = new express.Router()
       res.redirect('telephone-rre')
     } else if (telephoneNIcheck === 'NOCOPE') {
       res.redirect('telephone-cope-check')
+    } else if (telephoneNIcheck === 'NI00112233a') {
+      res.redirect('telephone-cope-check')
     } else {
       res.redirect('validation')
     }
