@@ -11,7 +11,20 @@ module.exports = function (env) {
     if (data['who-is-caller'] === 'Citizen') {
       return 'your';
     }
-    return 'their';
+    if (data['who-is-caller'] === 'Corporate or Personal Acting Body') {
+      return 'your';
+    }
+    return 'pronoun';
+  }
+
+  filters.getPronounSingle = function(data) {
+    if (data['who-is-caller'] === 'Citizen') {
+      return 'you';
+    }
+    if (data['who-is-caller'] === 'Corporate or Personal Acting Body') {
+      return 'your';
+    }
+    return 'pronoun';
   }
 
   /* ------------------------------------------------------------------
