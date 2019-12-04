@@ -9,20 +9,20 @@ module.exports = function (env) {
 
   filters.getPronoun = function(data) {
     if (data['who-is-caller'] === 'Citizen') {
-      return 'your';
+      return 'Your';
     }
     if (data['who-is-caller'] === 'Corporate or Personal Acting Body') {
-      return 'your';
+      return 'Their';
     }
     return 'pronoun';
   }
 
   filters.getPronounSingle = function(data) {
     if (data['who-is-caller'] === 'Citizen') {
-      return 'you';
+      return 'You';
     }
     if (data['who-is-caller'] === 'Corporate or Personal Acting Body') {
-      return 'your';
+      return 'They';
     }
     return 'pronoun';
   }
