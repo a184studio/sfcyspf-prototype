@@ -7,6 +7,13 @@ module.exports = function (env) {
    */
   var filters = {}
 
+  filters.getPronoun = function(data) {
+    if (data['who-is-caller'] === 'Citizen') {
+      return 'your';
+    }
+    return 'their';
+  }
+
   /* ------------------------------------------------------------------
     add your methods to the filters obj below this comment block:
     @example:
