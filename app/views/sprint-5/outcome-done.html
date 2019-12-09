@@ -9,31 +9,26 @@
 {% include "includes/js-back-link.html" %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-      <form action="start-work" method="post">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="start" method="post">
 
-      <div class="govuk-grid-row govuk-!-margin-bottom-9">
-  <div class="govuk-grid-column-full">
-    {{ govukPanel({
-      titleText: "You have done a thing",
-      html: ""
-    }) }}
+          <div class="govuk-panel--agent govuk-!-margin-bottom-6">
 
-  </div>
+          <span class="govuk-caption-m">All enquires</span>
+            <h2 class="govuk-heading-xl govuk-!-margin-bottom-6"><span class="agent-action">You have done a bunch of things, you are all done, finish and close</h2>
+
+              <h2 class="govuk-body govuk-!-font-size-24">XXX</h2>
 </div>
 
 
 
-
-      {{ govukButton({
-        text: "Exit and close",
-        classes: "govuk-button--warning"
-      }) }}
-
+{{ govukButton({
+  text: "Exit and close",
+  classes: "govuk-button--warning"
+}) }}
 
 
       </form>
-            </div>
     </div>
   </div>
 {% endblock %}

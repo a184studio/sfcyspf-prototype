@@ -13,16 +13,19 @@
       <form action="paper-national-insurance-check-router" method="post">
         <span class="govuk-caption-m">Paper enquiry</span>
 
+<!--<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">What is {% if data["who-is-caller"] == "Citizen" %}your{% endif %} {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}their{% endif %} National Insurance number</h1>-->
 
-<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">What is {% if data["who-is-caller"] == "Citizen" %}your{% endif %} {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}their{% endif %} National Insurance number</h1>
+<!------------HEADLINE------------>
+  {% set legend %}
+  {% if data["who-is-caller"] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">What is {{ data | getPronoun }} National Insurance number?</h1>{% endif %}
+  {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">What is {{ data["full-name"] }} National Insurance number?</h1>{% endif %}
+  {% endset %}
+<!------------HEADLINE------------>
 
-
-<!-- html: "<p class=\"govuk-heading-xl\">What is your full name?" -->
-
-      {{ govukInput({
-      label: {
-      html: ""
-      },
+{{ govukInput({
+label: {
+html: legend
+},
       classes: "govuk-input--width-10",
       hint: {
         html: ""

@@ -14,14 +14,21 @@
         <span class="govuk-caption-m">Telephone enquiry</span>
 
 
-        <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">What is {{ data | getPronoun }} National Insurance number</h1>
+        <!--<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">What is {{ data["full-name"] }} National Insurance number</h1>
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">What is {{ data | getPronoun }} National Insurance number</h1>-->
 
 
-<!-- html: "<p class=\"govuk-heading-xl\">What is your full name?" -->
+        <!------------HEADLINE------------>
+          {% set legend %}
+          {% if data["who-is-caller"] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">What is {{ data | getPronoun }} National Insurance number?</h1>{% endif %}
+          {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">What is {{ data["full-name"] }} National Insurance number?</h1>{% endif %}
+          {% endset %}
+        <!------------HEADLINE------------>
+
 
 {{ govukInput({
 label: {
-html: ""
+html: legend
 },
 classes: "govuk-input--width-10",
 hint: {

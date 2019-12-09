@@ -12,9 +12,10 @@
   <div class="govuk-grid-column-two-thirds">
     <span class="govuk-caption-m">All enquires</span>
 
-    <h1 class="govuk-heading-xl">
-      What is your home postcode?
-    </h1>
+    <!------------HEADLINE------------>
+      {% if data["who-is-caller"] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">What is {{ data | getPronoun }} postcode?</h1>{% endif %}
+      {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">What is the Corporate or personal acting body's postcode?</h1>{% endif %}
+    <!------------HEADLINE------------>
 
     <form action="address-choice" method="post" class="form">
       {{ govukInput({

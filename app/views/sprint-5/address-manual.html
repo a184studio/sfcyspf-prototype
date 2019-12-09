@@ -14,12 +14,17 @@
 
     <form action="outcome-forecast-check-local" method="post">
 
+      <!------------HEADLINE------------>
+        {% set legend %}
+        {% if data["who-is-caller"] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-0">What is {{ data | getPronoun }} full address?</h1>{% endif %}
+        {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-0">What is the Corporate or personal acting bodys full address?</h1>{% endif %}
+        {% endset %}
 
-
+      <!------------HEADLINE------------>
 
   {% call govukFieldset({
     legend: {
-      text: "Postal address",
+      html: legend,
       classes: "govuk-fieldset__legend--xl",
       isPageHeading: true
     }

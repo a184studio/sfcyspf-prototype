@@ -12,9 +12,12 @@
     <div class="govuk-grid-column-three-quarters">
       <form action="telephone-forecast-enquiry-router" method="post">
 
+<!--
           <div class="govuk-panel--agent govuk-!-margin-bottom-6">
             <h2 class="govuk-heading-m"><span class="agent-action">Adviser: X</h2>
           </div>
+
+        -->
 
           <span class="govuk-caption-m">Telephone enquiry</span>
 
@@ -36,14 +39,22 @@
 
                 items: [
                 {
-                    value: "Forecast",
-                    text: "Forecast",
-                    checked: (data["telephone-forecast-enquiry"] == "Forecast")
+                  value: "Enquiry",
+                  text: "Enquiry",
+                  checked: (data["telephone-forecast-enquiry"] == "Enquiry")
                   },
                   {
-                    value: "Enquiry",
-                    text: "Enquiry",
-                    checked: (data["telephone-forecast-enquiry"] == "Enquiry")
+                    value: "Forecast",
+                      text: "Forecast",
+                      checked: (data["telephone-forecast-enquiry"] == "Forecast")
+                    },
+                    {
+                      divider: "—"
+                    },
+                    {
+                    value: "Forecast + RRE",
+                    text: "Forecast + RRE",
+                    checked: (data["telephone-forecast-enquiry"] == "(Internal) Forecast + RRE")
                   }
                 ]
               }) }}

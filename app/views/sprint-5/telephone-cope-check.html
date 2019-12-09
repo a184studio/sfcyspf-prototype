@@ -14,7 +14,12 @@
 
           <div class="govuk-panel--agent govuk-!-margin-bottom-6">
             <h2 class="govuk-heading-m"><span class="agent-action">Adviser: Look in OLE NIRS and determine COPE status</h2>
-          </div>
+
+              <!------------HEADLINE------------>
+                {% set legend %}
+                <h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Does {{ data["full-name"] }} have Contracted Out Pension Equivalent (COPE)?</h1>
+                {% endset %}
+              <!------------HEADLINE------------>
 
           <span class="govuk-caption-m">Telephone enquiry</span>
 
@@ -24,7 +29,7 @@
                 name: "telephone-cope-check",
                 fieldset: {
                   legend: {
-                    html: "Does this citizen have Contracted Out Pension Equivalent (COPE)?",
+                    html: legend,
 
                     isPageHeading: true,
                     classes: "govuk-fieldset__legend--xl"
@@ -52,6 +57,7 @@
           text: "Continue"
         }) }}
 
+</div>
 
       </form>
     </div>

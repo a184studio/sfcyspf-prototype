@@ -74,10 +74,14 @@ const router = new express.Router()
       res.redirect('paper-rre')
     } else if (paperNIcheck === 'NOCOPE') {
       res.redirect('paper-cope-check')
+    } else if (paperNIcheck === 'NI00112233A') {
+      res.redirect('contact-formats')
     } else {
       res.redirect('validation')
     }
   })
+
+
 
   router.post('/telephone-cope-check-router', (req, res, next) => {
     const telephoneCOPEcheck = req.session.data['telephone-cope-check']
@@ -85,7 +89,7 @@ const router = new express.Router()
     if (telephoneCOPEcheck === 'No') {
       res.redirect('telephone-forecast-enquiry')
     } else if (telephoneCOPEcheck === 'Yes') {
-      res.redirect('outcome-no-cope')
+      res.redirect('telephone-forecast-enquiry')
     } else {
       res.redirect('xxx')
     }
@@ -105,11 +109,11 @@ const router = new express.Router()
     const telephoneForecastEnquiry = req.session.data['telephone-forecast-enquiry']
 
     if (telephoneForecastEnquiry === 'Forecast') {
-      res.redirect('online-prompt')
+      res.redirect('contact-formats')
     } else if (telephoneForecastEnquiry === 'Enquiry') {
       res.redirect('telephone-statement-check')
     } else {
-      res.redirect('xxx')
+      res.redirect('service-rre')
     }
   })
 

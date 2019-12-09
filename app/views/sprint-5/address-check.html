@@ -15,32 +15,23 @@
 
   <!--------------------------------------------------------------------------------------------------->
 
-  {% if data["who-is-caller"] == "Citizen" %}
-        <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Details for postal enquiries</h1>
+  <!------------HEADLINE------------>
+    {% set legend %}
+    {% if data["who-is-caller"] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Is {{ data | getPronoun }} address in the UK or overseas?</h1>{% endif %}
+    {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Is data["full-name"]'s address in the UK or overseas?'</h1>{% endif %}
+    {% endset %}
+  <!------------HEADLINE------------>
 
-        {{ govukInput({
-          label: {
-            html: "Citizen name"
-            },
-            classes: "govuk-input--width-30",
-            hint: {
-              text: ""
-            },
-          id: "address-check-name",
-          name: "address-check-name",
-          attributes: {
-            spellcheck: "false"
-          }
-        }) }}
+  {% if data["who-is-caller"] == "Citizen" %}
 
         {{ govukRadios({
           idPrefix: "address-check",
           name: "address-check",
           fieldset: {
             legend: {
-              text: "Citizen address",
+              html: legend,
               isPageHeading: true,
-              classes: "govuk-fieldset__legend--s"
+              classes: "govuk-fieldset__legend--xl"
             }
           },
           items: [
@@ -62,26 +53,7 @@
 <!--------------------------------------------------------------------------------------------------->
   {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}
 
-        <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Details for postal enquiries</h1>
-
-        {{ govukInput({
-          label: {
-            html: "Citizen name"
-            },
-            classes: "govuk-input--width-30",
-            hint: {
-              text: ""
-            },
-          id: "address-check-name",
-          name: "address-check-name",
-          attributes: {
-            spellcheck: "false"
-          }
-        }) }}
-
-        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-
-        <h1 class="govuk-heading-m govuk-!-margin-bottom-4">Corporate or Personal Acting Body details</h1>
+<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Corporate or personal acting body details</h1>
 
 
         {{ govukInput({
@@ -121,7 +93,7 @@
           name: "address-check",
           fieldset: {
             legend: {
-              text: "What is the address for the Corporate or Personal Acting Body?",
+              text: "Is the address within the United Kingdom or overseas?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--s"
             }
