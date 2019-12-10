@@ -13,15 +13,26 @@
       <form action="telephone-cope-check-router" method="post">
 
           <div class="govuk-panel--agent govuk-!-margin-bottom-6">
-            <h2 class="govuk-heading-m"><span class="agent-action">Adviser: Look in OLE NIRS and determine COPE status</h2>
+            <span class="govuk-caption-m">Telephone enquiry</span>
+
+            <h2 class="govuk-heading-xl"><span class="agent-action">Adviser: Look in OLE NIRS and determine COPE status</h2>
 
               <!------------HEADLINE------------>
                 {% set legend %}
-                <h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Does {{ data["full-name"] }} have Contracted Out Pension Equivalent (COPE)?</h1>
+                <h1 class="govuk-heading-m govuk-!-margin-bottom-0">Does {{ data["full-name"] }} have Contracted Out Pension Equivalent (COPE)?</h1>
                 {% endset %}
               <!------------HEADLINE------------>
 
-          <span class="govuk-caption-m">Telephone enquiry</span>
+
+          <h2 class="govuk-body govuk-!-font-size-24">Step 1</h2>
+
+
+          <h2 class="govuk-body govuk-!-font-size-24">Step 2</h2>
+
+
+          <h2 class="govuk-body govuk-!-font-size-24">Step 3</h2>
+          <h2 class="govuk-body govuk-!-font-size-24">Step 4</h2>
+
 
               {{ govukRadios({
                 classes: "govuk-radios",
@@ -32,7 +43,7 @@
                     html: legend,
 
                     isPageHeading: true,
-                    classes: "govuk-fieldset__legend--xl"
+                    classes: "govuk-fieldset__legend--m"
                   }
                 },
                 hint: {

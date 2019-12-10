@@ -111,7 +111,7 @@ const router = new express.Router()
     if (telephoneForecastEnquiry === 'Forecast') {
       res.redirect('contact-formats')
     } else if (telephoneForecastEnquiry === 'Enquiry') {
-      res.redirect('telephone-statement-check')
+      res.redirect('telephone-overview-ab')
     } else {
       res.redirect('service-rre')
     }
