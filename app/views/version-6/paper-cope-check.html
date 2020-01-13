@@ -14,7 +14,9 @@
 
         <span class="govuk-caption-m">Paper enquiry</span>
 
-        <h2 class="govuk-heading-xl"><span class="agent-action">Adviser: Look in OLE NIRS and determine COPE status</h2>
+          <div class="govuk-panel--agent govuk-!-margin-top-2 govuk-!-margin-bottom-6">
+            <h2 class="govuk-heading-xl"><span class="agent-action">Adviser: Look in OLE NIRS and determine COPE status</h2>
+
 
           <!------------HEADLINE------------>
             {% set legend %}
@@ -23,14 +25,12 @@
           <!------------HEADLINE------------>
 
 
-      <h2 class="govuk-body govuk-!-font-size-24">Step 1</h2>
-
-
+      <h2 class="govuk-body govuk-!-font-size-24">There is no COPE on the record. Are there contracted out schemes in OLE/NIRS?</h2>
       <h2 class="govuk-body govuk-!-font-size-24">Step 2</h2>
-
-
       <h2 class="govuk-body govuk-!-font-size-24">Step 3</h2>
       <h2 class="govuk-body govuk-!-font-size-24">Step 4</h2>
+
+      </div>
 
               {{ govukRadios({
                 classes: "govuk-radios",
@@ -41,7 +41,7 @@
                     html: "Does this citizen have Contracted Out Pension Equivalent (COPE)?",
 
                     isPageHeading: true,
-                    classes: "govuk-fieldset__legend--xl"
+                    classes: "govuk-fieldset__legend--l"
                   }
                 },
                 hint: {

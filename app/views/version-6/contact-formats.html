@@ -10,7 +10,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="address-check" method="post" class="form">
+    <form action="contact-formats-router" method="post" class="form">
 
       <!------------HEADLINE------------>
         {% if data["who-is-caller"] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Do {{ data | getPronounSingle }} have any contact formats </h1>{% endif %}
@@ -66,11 +66,16 @@
             text: "Large print",
             checked: (disabilities.includes("Large print"))
           },
+          {
+            value: "Letters in Welsh",
+            text: "Letters in Welsh",
+            checked: (disabilities.includes("Letters in Welsh"))
+          },
 
           {
             value: "TexBox",
             text: "TexBox",
-            checked: (disabilities.includes("Large print"))
+            checked: (disabilities.includes("TexBox"))
           },
           {
             value: "TypeTalk",
@@ -81,7 +86,7 @@
       }) }}
 
 
-      {{ govukRadios({
+      <!-- {{ govukRadios({
         classes: "govuk-radios",
         idPrefix: "disabilities-welsh-yn",
         name: "disabilities-welsh-yn",
@@ -108,13 +113,27 @@
         }
 
         ]
-      }) }}
+      }) }} -->
 
 
 
-      {{ govukButton({
+      <!-- {{ govukButton({
         text: "Continue"
-      }) }}
+      }) }} -->
+
+
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2 govuk-!-padding-top-2">Actions</h2>
+
+    <p class="govuk-body govuk-!-padding-top-0"><a href="outcome-forecast-check-notify">Notifiy</a></p>
+
+    <p class="govuk-body govuk-!-padding-top-0"><a href="outcome-forecast-check-local">Print local</a></p>
+
+    <p class="govuk-body govuk-!-padding-top-0"><a href="contact-formats-fallout">Cant automate</a></p>
+
+
+
+
+
 
     </form>
 

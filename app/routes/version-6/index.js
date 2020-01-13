@@ -5,9 +5,9 @@ const router = new express.Router()
     const workCheck = req.session.data['start-work']
 
     if (workCheck === 'Telephone') {
-      res.redirect('telephone-who-is-caller')
+      res.redirect('telephone-national-insurance-check')
     } else if (workCheck === 'Paper') {
-      res.redirect('paper-who-is-caller')
+      res.redirect('paper-national-insurance-check')
     } else {
       res.redirect('xxx')
     }
@@ -72,8 +72,14 @@ const router = new express.Router()
       res.redirect('exclusion-10')
     } else if (paperNIcheck === 'RRE') {
       res.redirect('paper-rre')
+    } else if (paperNIcheck === 'MAN') {
+      res.redirect('exclustion-isle-of-man')
     } else if (paperNIcheck === 'NOCOPE') {
       res.redirect('paper-cope-check')
+    } else if (paperNIcheck === 'YESCOPE') {
+      res.redirect('paper-overview')
+    } else if (paperNIcheck === 'MISSINGNI') {
+      res.redirect('exclustion-missing-ni')
     } else if (paperNIcheck === 'NI00112233A') {
       res.redirect('contact-formats')
     } else {
@@ -99,9 +105,26 @@ const router = new express.Router()
     const paperCOPEcheck = req.session.data['paper-cope-check']
 
     if (paperCOPEcheck === 'Yes') {
-      res.redirect('outcome-no-cope')
+      res.redirect('paper-who-is-caller')
     } else {
-      res.redirect('address-check')
+      res.redirect('paper-overview')
+    }
+  })
+
+
+
+
+  router.post('/paper-overview-continue-router', (req, res, next) => {
+    const paperOverviewContinue = req.session.data['paper-overview-continue']
+
+    if (paperOverviewContinue === 'Personalisation') {
+      res.redirect('Personalisation')
+    } else if (paperOverviewContinue === 'Create forecast') {
+      res.redirect('paper-who-is-caller')
+    } else if (paperOverviewContinue === 'End call') {
+      res.redirect('outcome-done')
+    } else {
+      res.redirect('other')
     }
   })
 

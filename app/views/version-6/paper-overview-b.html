@@ -10,8 +10,8 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
-      <form action="telephone-vnics-a" method="post">
-        <span class="govuk-caption-m">Telephone enquiry</span>
+      <form action="paper-overview-continue-router" method="post">
+        <span class="govuk-caption-m">Paper enquiry</span>
 
 <!--
         <div class="govuk-panel--agent govuk-!-margin-bottom-6">
@@ -130,21 +130,58 @@
 
 <br><br>
 
+        {{ govukRadios({
+          idPrefix: "paper-overview-continue",
+          name: "paper-overview-continue",
+          fieldset: {
+            legend: {
+              text: "Next steps",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "Personalisation",
+              text: "Personalisation",
+              checked: data['paper-overview-continue'] == "Personalisation"
+            },
+          {
+            value: "Create forecast",
+            text: "Create forecast",
+            checked: data['paper-overview-continue'] == "Create forecast"
+            },
+          {
+            value: "x",
+            text: "x",
+            checked: data['paper-overview-continue'] == "x"
+            },
+          {
+            value: "End call",
+            text: "End call",
+            checked: data['paper-overview-continue'] == "End call"
+            }
+          ]
+        }) }}
 
         {{ govukButton({
-          text: "Fill in gaps",
+          text: "Continue",
           classes: "govuk-!-margin-right-1"
         }) }}
 
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-2 govuk-!-padding-top-2">Other actions</h2>
 
-        <p class="govuk-body govuk-!-padding-top-0"><a href="yourself-find-claimant">Create forecast</a></p>
+        <!--
+          <h2 class="govuk-heading-m govuk-!-margin-bottom-2 govuk-!-padding-top-2">Actions</h2>
 
-        <p class="govuk-body govuk-!-padding-top-0"><a href="call-type">Help with another enquriy</a></p>
+          <p class="govuk-body govuk-!-padding-top-0"><a href="yourself-find-claimant">Personalisation</a></p>
 
-        <p class="govuk-body govuk-!-padding-top-0"><a href="exit-check">Call drop</a></p>
+          <p class="govuk-body govuk-!-padding-top-0"><a href="yourself-find-claimant">Create forecast</a></p>
 
+          <p class="govuk-body govuk-!-padding-top-0"><a href="call-type">Help with another enquriy</a></p>
 
+          <p class="govuk-body govuk-!-padding-top-0"><a href="exit-check">End call</a></p>
+
+        -->
 
 
 

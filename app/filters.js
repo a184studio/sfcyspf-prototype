@@ -7,15 +7,15 @@ module.exports = function (env) {
    */
   var filters = {}
 
-  filters.getPronoun = function(data) {
-    if (data['who-is-caller'] === 'Citizen') {
-      return 'Your';
-    }
-    if (data['who-is-caller'] === 'Corporate or Personal Acting Body') {
-      return 'Their';
-    }
-    return 'pronoun';
-  }
+  // filters.getPronoun = function(data) {
+  //   if (data['who-is-caller'] === 'Citizen') {
+  //     return 'Your';
+  //   }
+  //   if (data['who-is-caller'] === 'Corporate or Personal Acting Body') {
+  //     return 'Their';
+  //   }
+  //   return 'pronoun';
+  // }
 
   filters.getPronounSingle = function(data) {
     if (data['who-is-caller'] === 'Citizen') {
@@ -26,6 +26,17 @@ module.exports = function (env) {
     }
     return 'pronoun';
   }
+
+  filters.getPronoun = function(data) {
+    if (data['start-work'] === 'Telephone') {
+      return 'Your';
+    }
+    if (data['start-work'] === 'Paper') {
+      return 'Their';
+    }
+    return 'pronoun';
+  }
+
 
   /* ------------------------------------------------------------------
     add your methods to the filters obj below this comment block:
