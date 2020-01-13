@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  XXX? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="telephone-national-insurance-check-router" method="post">
+        <span class="govuk-caption-m">Telephone enquiry</span>
+
+
+        <!--<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">What is {{ data["full-name"] }} National Insurance number</h1>
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">What is {{ data | getPronoun }} National Insurance number</h1>-->
+
+
+        <!------------HEADLINE------------>
+          {% set legend %}
+          {% if data["who-is-caller"] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">What is {{ data | getPronoun }} National Insurance number?</h1>{% endif %}
+          {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">What is {{ data["full-name"] }} National Insurance number?</h1>{% endif %}
+          {% endset %}
+        <!------------HEADLINE------------>
+
+
+{{ govukInput({
+label: {
+html: legend
+},
+classes: "govuk-input--width-10",
+hint: {
+  html: ""
+},
+id: "telephone-national-insurance-check",
+name: "telephone-national-insurance-check",
+attributes: {
+spellcheck: "false"
+}
+}) }}
+
+
+
+
+        {{ govukButton({
+          text: "Search"
+        }) }}
+
+
+<!--
+
+      <details class="govuk-details govuk-!-margin-top-4">
+        <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        Doesn't know National Insurance number
+        </span>
+      </summary>
+
+      </details>
+
+-->
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

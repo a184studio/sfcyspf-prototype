@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What is your National Insurance number? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <form action="paper-cope-check-router" method="post">
+
+        <span class="govuk-caption-m">Paper enquiry</span>
+
+        <h2 class="govuk-heading-xl"><span class="agent-action">Adviser: Look in OLE NIRS and determine COPE status</h2>
+
+          <!------------HEADLINE------------>
+            {% set legend %}
+            <h1 class="govuk-heading-m govuk-!-margin-bottom-0">Does {{ data["full-name"] }} have Contracted Out Pension Equivalent (COPE)?</h1>
+            {% endset %}
+          <!------------HEADLINE------------>
+
+
+      <h2 class="govuk-body govuk-!-font-size-24">Step 1</h2>
+
+
+      <h2 class="govuk-body govuk-!-font-size-24">Step 2</h2>
+
+
+      <h2 class="govuk-body govuk-!-font-size-24">Step 3</h2>
+      <h2 class="govuk-body govuk-!-font-size-24">Step 4</h2>
+
+              {{ govukRadios({
+                classes: "govuk-radios",
+                idPrefix: "paper-cope-check",
+                name: "paper-cope-check",
+                fieldset: {
+                  legend: {
+                    html: "Does this citizen have Contracted Out Pension Equivalent (COPE)?",
+
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--xl"
+                  }
+                },
+                hint: {
+                    text: ""
+                },
+
+                items: [
+                {
+                    value: "Yes",
+                    text: "Yes",
+                    checked: (data["paper-cope-check"] == "Yes")
+                  },
+                  {
+                    value: "No",
+                    text: "No",
+                    checked: (data["paper-cope-check"] == "No")
+                  }
+                ]
+              }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

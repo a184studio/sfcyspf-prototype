@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What’s the postcode? - Pension Credit
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-m">All enquires</span>
+
+    <!------------HEADLINE------------>
+      {% if data["who-is-caller"] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">What is {{ data | getPronoun }} postcode?</h1>{% endif %}
+      {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">What is the Corporate or personal acting body's postcode?</h1>{% endif %}
+    <!------------HEADLINE------------>
+
+    <form action="address-choice" method="post" class="form">
+      {{ govukInput({
+        id: "postcode",
+        name: "postcode",
+        value: data["postcode"],
+        classes: "govuk-input--width-10",
+        label: {
+          text: " "
+        }
+      }) }}
+
+      <input type="hidden" name="address-complete" value="in-progress"/>
+
+      {{ govukButton({
+        text: "Find address"
+      }) }}
+    </form>
+
+    <br>
+
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link" href="paper-address-manual"></a>
+      </li>
+    </ul>
+
+  </div>
+</div>
+{% endblock %}

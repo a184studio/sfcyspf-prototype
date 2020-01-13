@@ -1,0 +1,125 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Who are calling for? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="address-check-router" method="post">
+        <span class="govuk-caption-m">All enquires</span>
+
+  <!--------------------------------------------------------------------------------------------------->
+
+  <!------------HEADLINE------------>
+    {% set legend %}
+    {% if data["who-is-caller"] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Is {{ data | getPronoun }} address in the UK or overseas?</h1>{% endif %}
+    {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Is data["full-name"]'s address in the UK or overseas?'</h1>{% endif %}
+    {% endset %}
+  <!------------HEADLINE------------>
+
+  {% if data["who-is-caller"] == "Citizen" %}
+
+        {{ govukRadios({
+          idPrefix: "address-check",
+          name: "address-check",
+          fieldset: {
+            legend: {
+              html: legend,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {
+              value: "United Kingdom",
+              text: "United Kingdom",
+              checked: data['address-check'] == "United Kingdom"
+            },
+          {
+            value: "Overseas",
+            text: "Overseas",
+            checked: data['address-check'] == "Overseas"
+          }
+          ]
+        }) }}
+
+        {% endif %}
+
+<!--------------------------------------------------------------------------------------------------->
+  {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}
+
+<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Corporate or personal acting body details</h1>
+
+
+        {{ govukInput({
+          label: {
+            html: "Contact name"
+            },
+            classes: "govuk-input--width-30",
+            hint: {
+              text: ""
+            },
+          id: "address-check-name",
+          name: "address-check-name",
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+
+        {{ govukInput({
+          label: {
+            html: "Company / Organisation name"
+            },
+            classes: "govuk-input--width-30",
+            hint: {
+              text: ""
+            },
+          id: "address-check-name",
+          name: "address-check-name",
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
+
+
+
+        {{ govukRadios({
+          idPrefix: "address-check",
+          name: "address-check",
+          fieldset: {
+            legend: {
+              text: "Is the address within the United Kingdom or overseas?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "United Kingdom",
+              text: "United Kingdom",
+              checked: data['address-check'] == "United Kingdom"
+            },
+          {
+            value: "Overseas",
+            text: "Overseas",
+            checked: data['address-check'] == "Overseas"
+          }
+          ]
+        }) }}
+
+        {% endif %}
+
+<br>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+{% endblock %}

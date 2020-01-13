@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What is your National Insurance number? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <form action="telephone-cope-check-router" method="post">
+
+          <div class="govuk-panel--agent govuk-!-margin-bottom-6">
+            <span class="govuk-caption-m">Telephone enquiry</span>
+
+            <h2 class="govuk-heading-xl"><span class="agent-action">Adviser: Look in OLE NIRS and determine COPE status</h2>
+
+              <!------------HEADLINE------------>
+                {% set legend %}
+                <h1 class="govuk-heading-m govuk-!-margin-bottom-0">Does {{ data["full-name"] }} have Contracted Out Pension Equivalent (COPE)?</h1>
+                {% endset %}
+              <!------------HEADLINE------------>
+
+
+          <h2 class="govuk-body govuk-!-font-size-24">Step 1</h2>
+
+
+          <h2 class="govuk-body govuk-!-font-size-24">Step 2</h2>
+
+
+          <h2 class="govuk-body govuk-!-font-size-24">Step 3</h2>
+          <h2 class="govuk-body govuk-!-font-size-24">Step 4</h2>
+
+
+              {{ govukRadios({
+                classes: "govuk-radios",
+                idPrefix: "telephone-cope-check",
+                name: "telephone-cope-check",
+                fieldset: {
+                  legend: {
+                    html: legend,
+
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                hint: {
+                    text: ""
+                },
+
+                items: [
+                {
+                    value: "Yes",
+                    text: "Yes",
+                    checked: (data["telephone-cope-check"] == "Yes")
+                  },
+                  {
+                    value: "No",
+                    text: "No",
+                    checked: (data["telephone-cope-check"] == "No")
+                  }
+                ]
+              }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+</div>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
