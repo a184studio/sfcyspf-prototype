@@ -183,6 +183,41 @@ router.post('/fpc1-check-router', (req, res, next) => {
   }
 })
 
+router.post('/telephone-enquiry-type-router', (req, res, next) => {
+  const enquiryType = req.session.data['telephone-enquiry-type']
+
+  if (enquiryType === 'I want to improve my State Pension') {
+    res.redirect('telephone-vnics-a')
+  } else if (enquiryType === 'Help with a forecast I have seen') {
+    res.redirect('telephone-overview-b')
+  } else {
+    res.redirect('telephone-ni-status')
+  }
+})
+
+router.post('/telephone-rre-marital-status-router', (req, res, next) => {
+  const rreMaritalStatus = req.session.data['telephone-rre-marital-status']
+
+  if (rreMaritalStatus === 'Married') {
+    res.redirect('telephone-rre-partner')
+  } else if (rreMaritalStatus === 'Civil partnership') {
+    res.redirect('telephone-rre-partner')
+  } else if (rreMaritalStatus === 'Widowed') {
+    res.redirect('telephone-rre-partner')
+  } else if (rreMaritalStatus === 'Divorced') {
+    res.redirect('telephone-rre-partner-cope')
+  } else if (rreMaritalStatus === 'Dissolution') {
+    res.redirect('telephone-rre-partner-cope')
+  } else {
+    res.redirect('telephone-rre-partner-cope')
+  }
+})
+
+
+
+
+
+
 
 
 

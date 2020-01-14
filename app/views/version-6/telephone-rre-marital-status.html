@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  XXX - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <form action="telephone-rre-marital-status-router" method="post" class="form">
+
+      <input type="hidden" name="benefits-complete" value="in-progress"/>
+
+
+  {{ govukRadios({
+    classes: "govuk-radios",
+    idPrefix: "telephone-rre-marital-status",
+    name: "telephone-rre-marital-status",
+    fieldset: {
+      legend: {
+        html: "What is the marital status?",
+
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    hint: {
+        text: ""
+    },
+
+    items: [
+    {
+      value: "Married",
+      text: "Married",
+      checked: (data["telephone-rre-marital-status"] == "Married"),
+      hint: {
+        text: ""
+      }
+    },
+      {
+        value: "Civil partnership",
+          text: "Civil partnership",
+          checked: (data["telephone-rre-marital-status"] == "Civil partnership"),
+          hint: {
+            text: ""
+          }
+        },
+          {
+            value: "Widowed",
+              text: "Widowed",
+              checked: (data["telephone-rre-marital-status"] == "Widowed"),
+              hint: {
+                text: ""
+              }
+            },
+      {
+        value: "Divorced",
+          text: "Divorced",
+          checked: (data["telephone-rre-marital-status"] == "Divorced"),
+          hint: {
+            text: ""
+          }
+        },
+        {
+        value: "Dissolution",
+        text: "Dissolution",
+        checked: (data["telephone-rre-marital-status"] == "Dissolution"),
+        hint: {
+          text: ""
+        }
+      },
+        {
+          value: "X",
+            text: "X",
+            checked: (data["telephone-rre-marital-status"] == "X"),
+            hint: {
+              text: ""
+            }
+          }
+    ]
+  }) }}
+
+
+
+<br>
+
+{{ govukButton({
+  text: "Continue",
+  classes: "govuk-!-margin-right-1"
+}) }}
+
+    </form>
+
+    <p class="govuk-body"><a href="exit-check">Exit the service</a></p>
+
+
+  </div>
+</div>
+{% endblock %}
