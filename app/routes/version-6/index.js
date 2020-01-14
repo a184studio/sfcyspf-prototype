@@ -107,7 +107,7 @@ const router = new express.Router()
     if (paperCOPEcheck === 'Yes') {
       res.redirect('paper-who-is-caller')
     } else {
-      res.redirect('paper-overview')
+      res.redirect('paper-overview-b')
     }
   })
 
@@ -117,9 +117,7 @@ const router = new express.Router()
   router.post('/paper-overview-continue-router', (req, res, next) => {
     const paperOverviewContinue = req.session.data['paper-overview-continue']
 
-    if (paperOverviewContinue === 'Personalisation') {
-      res.redirect('Personalisation')
-    } else if (paperOverviewContinue === 'Create forecast') {
+    if (paperOverviewContinue === 'Create forecast') {
       res.redirect('paper-who-is-caller')
     } else if (paperOverviewContinue === 'End call') {
       res.redirect('outcome-done')
@@ -175,7 +173,15 @@ router.post('/telephone-overview-ab-router', (req, res, next) => {
   }
 })
 
+router.post('/fpc1-check-router', (req, res, next) => {
+  const fpc1Check = req.session.data['fpc1-check']
 
+  if (fpc1Check === 'Yes') {
+    res.redirect('download-fpc1')
+  } else {
+    res.redirect('outcome-done')
+  }
+})
 
 
 
