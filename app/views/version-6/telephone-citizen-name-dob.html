@@ -29,6 +29,8 @@
         }) }}
 
 
+{% if data["telephone-cope-check"] == "Yes" %}
+
         {{ govukDateInput({
           id: "date-of-birth",
           name: "date-of-birth",
@@ -59,6 +61,7 @@
           ]
         }) }}
 
+{% endif %}
 
 <br>
 
