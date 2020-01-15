@@ -37,7 +37,7 @@ const router = new express.Router()
     } else if (telephoneNIcheck === 'E10') {
       res.redirect('exclusion-10')
     } else if (telephoneNIcheck === 'RRE') {
-      res.redirect('telephone-rre')
+      res.redirect('telephone-enquiry-type')
     } else if (telephoneNIcheck === 'MAN') {
       res.redirect('exclustion-isle-of-man')
     } else if (telephoneNIcheck === 'NOCOPE') {
@@ -47,9 +47,9 @@ const router = new express.Router()
     } else if (telephoneNIcheck === 'MISSINGNI') {
       res.redirect('exclustion-missing-ni')
     } else if (telephoneNIcheck === 'NI00112233A') {
-      res.redirect('XXX')
+      res.redirect('telephone-enquiry-type')
     } else {
-      res.redirect('validation')
+      res.redirect('exclusion-validation')
     }
   })
 
@@ -77,7 +77,7 @@ const router = new express.Router()
     } else if (paperNIcheck === 'E10') {
       res.redirect('exclusion-10')
     } else if (paperNIcheck === 'RRE') {
-      res.redirect('paper-rre')
+      res.redirect('paper-enquiry-type')
     } else if (paperNIcheck === 'MAN') {
       res.redirect('exclustion-isle-of-man')
     } else if (paperNIcheck === 'NOCOPE') {
@@ -87,9 +87,9 @@ const router = new express.Router()
     } else if (paperNIcheck === 'MISSINGNI') {
       res.redirect('exclustion-missing-ni')
     } else if (paperNIcheck === 'NI00112233A') {
-      res.redirect('XXX')
+      res.redirect('paper-enquiry-type')
     } else {
-      res.redirect('validation')
+      res.redirect('exclusion-validation')
     }
   })
 
@@ -98,9 +98,9 @@ const router = new express.Router()
   router.post('/telephone-cope-check-router', (req, res, next) => {
     const telephoneCOPEcheck = req.session.data['telephone-cope-check']
 
-    if (telephoneCOPEcheck === 'No') {
-      res.redirect('telephone-enquiry-type')
-    } else if (telephoneCOPEcheck === 'Yes') {
+    if (telephoneCOPEcheck === 'Yes') {
+      res.redirect('telephone-who-is-caller')
+    } else if (telephoneCOPEcheck === 'No') {
       res.redirect('telephone-enquiry-type')
     } else {
       res.redirect('xxx')

@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout-id-bar.html" %}
 
 {% block pageTitle %}
   What’s the postcode? - Pension Credit
@@ -14,7 +14,7 @@
 
     <!------------TELEPHONE HEADLINE------------>
       {% if data["start-work"] == "Telephone" %}
-        {% if data["start-work"] == "Telephone" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Find {{ data | getPronoun }} address</h1>{% endif %}
+        {% if data["start-work"] == "Telephone" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">What is {{ data | getPronoun }} address?</h1>{% endif %}
         {% if data["start-work"] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">What is the Corporate or personal acting body's postcode?</h1>{% endif %}
       {% endif %}
     <!------------PAPER HEADLINE------------>
@@ -57,7 +57,7 @@
 
     <ul class="govuk-list">
       <li>
-        <a class="govuk-link" href="paper-address-manual">Enter your address manually</a>
+        <a class="govuk-link" href="paper-address-manual">Enter address manually</a>
       </li>
     </ul>
 
