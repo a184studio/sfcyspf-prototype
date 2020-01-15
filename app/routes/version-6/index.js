@@ -209,13 +209,13 @@ router.post('/telephone-rre-marital-status-router', (req, res, next) => {
   } else if (rreMaritalStatus === 'Civil partnership') {
     res.redirect('telephone-rre-partner')
   } else if (rreMaritalStatus === 'Widowed') {
-    res.redirect('telephone-rre-partner')
+    res.redirect('telephone-rre-partner-cope')
   } else if (rreMaritalStatus === 'Divorced') {
     res.redirect('telephone-rre-partner-cope')
   } else if (rreMaritalStatus === 'Dissolution') {
     res.redirect('telephone-rre-partner-cope')
   } else {
-    res.redirect('telephone-rre-partner-cope')
+    res.redirect('telephone-rre-if')
   }
 })
 
