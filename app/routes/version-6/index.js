@@ -38,10 +38,16 @@ const router = new express.Router()
       res.redirect('exclusion-10')
     } else if (telephoneNIcheck === 'RRE') {
       res.redirect('telephone-rre')
+    } else if (telephoneNIcheck === 'MAN') {
+      res.redirect('exclustion-isle-of-man')
     } else if (telephoneNIcheck === 'NOCOPE') {
       res.redirect('telephone-cope-check')
+    } else if (telephoneNIcheck === 'YESCOPE') {
+      res.redirect('telephone-enquiry-type')
+    } else if (telephoneNIcheck === 'MISSINGNI') {
+      res.redirect('exclustion-missing-ni')
     } else if (telephoneNIcheck === 'NI00112233A') {
-      res.redirect('telephone-cope-check')
+      res.redirect('XXX')
     } else {
       res.redirect('validation')
     }
@@ -81,7 +87,7 @@ const router = new express.Router()
     } else if (paperNIcheck === 'MISSINGNI') {
       res.redirect('exclustion-missing-ni')
     } else if (paperNIcheck === 'NI00112233A') {
-      res.redirect('contact-formats')
+      res.redirect('XXX')
     } else {
       res.redirect('validation')
     }
@@ -93,9 +99,9 @@ const router = new express.Router()
     const telephoneCOPEcheck = req.session.data['telephone-cope-check']
 
     if (telephoneCOPEcheck === 'No') {
-      res.redirect('telephone-forecast-enquiry')
+      res.redirect('telephone-enquiry-type')
     } else if (telephoneCOPEcheck === 'Yes') {
-      res.redirect('telephone-forecast-enquiry')
+      res.redirect('telephone-enquiry-type')
     } else {
       res.redirect('xxx')
     }

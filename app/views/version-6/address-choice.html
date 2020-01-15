@@ -15,35 +15,40 @@
 
     <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Select address</h1>
 
-    <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-1">Postcode:<strong> {{data["postcode"]}}</strong></p>
-    <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-6"><a class="govuk-link" href="address-postcode">Change</a></p>
+    <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-1"><strong>Two</strong> addresses found for <strong> {{data["building-number"]}} </strong> and <strong> {{data["postcode"]}}</strong></p>
+    <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-2"><a class="govuk-link" href="address-postcode">Change</a></p>
 
-      {{ govukSelect({
-        id: "address",
+      {{ govukRadios({
+        classes: "govuk-radios",
+        idPrefix: "address",
         name: "address",
-        label: {
-          text: "Select an address"
+        fieldset: {
+          legend: {
+            html: "",
+
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
         },
+        hint: {
+            text: ""
+        },
+
         items: [
-          {
-            value: "address-count",
-            text: "3 addresses found",
-            selected: (data["address"] == "address-count")
+        {
+            value: "221A Baker Street",
+            text: "221A, Baker Street",
+            checked: (data["address"] == "221a")
           },
           {
-            value: "221a",
-            text: "221A Baker Street",
-            selected: (data["address"] == "221a")
+            value: "221B Baker Street",
+            text: "221B, Baker Street",
+            checked: (data["address"] == "221b")
           },
           {
-            value: "221b",
-            text: "221B Baker Street",
-            selected: (data["address"] == "221b")
-          },
-          {
-            value: "222",
-            text: "222 Baker Street",
-            selected: (data["address"] == "222")
+            value: "Address is not listed",
+            text: "Address is not listed",
+            checked: (data["address"] == "Address is not listed")
           }
         ]
       }) }}
@@ -57,7 +62,6 @@
     </form>
 
     <ul class="govuk-list">
-      <li><a class="govuk-link" href="address-manual-uk">Not found in list</a></li>
       <li><a class="govuk-link" href="telephone-rre-marital-status">RRE flag</a></li>
 
 

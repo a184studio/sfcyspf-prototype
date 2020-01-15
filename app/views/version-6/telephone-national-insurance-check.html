@@ -20,29 +20,26 @@
 
         <!------------HEADLINE------------>
           {% set legend %}
-          {% if data["who-is-caller"] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">What is {{ data | getPronoun }} National Insurance number?</h1>{% endif %}
-          {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">What is {{ data["full-name"] }} National Insurance number?</h1>{% endif %}
+          {% if data["start-work"] == "Telephone" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">What is {{ data | getPronoun }} National Insurance number?</h1>{% endif %}
+          {% if data["start-work"] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">What is {{ data["full-name"] }} National Insurance number?</h1>{% endif %}
           {% endset %}
         <!------------HEADLINE------------>
 
 
-{{ govukInput({
-label: {
-html: legend
-},
-classes: "govuk-input--width-10",
-hint: {
-  html: ""
-},
-id: "telephone-national-insurance-check",
-name: "telephone-national-insurance-check",
-attributes: {
-spellcheck: "false"
-}
-}) }}
-
-
-
+  {{ govukInput({
+    label: {
+      html: legend
+    },
+    classes: "govuk-input--width-10",
+      hint: {
+        html: ""
+      },
+      id: "telephone-national-insurance-check",
+      name: "telephone-national-insurance-check",
+        attributes: {
+          spellcheck: "false"
+        }
+    }) }}
 
         {{ govukButton({
           text: "Search"
