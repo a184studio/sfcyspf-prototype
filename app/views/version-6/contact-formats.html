@@ -123,10 +123,15 @@
 
 
     <h2 class="govuk-heading-m govuk-!-margin-bottom-2 govuk-!-padding-top-2">Call to action</h2>
-
+{% if data["address-check"] == "United Kingdom" %}
     <p class="govuk-body govuk-!-padding-top-0"><a href="outcome-forecast-check-notify">Notifiy</a></p>
+{% endif %}
 
+{% if data["address-check"] == "Overseas" %}
     <p class="govuk-body govuk-!-padding-top-0"><a href="outcome-forecast-check-local">Print local</a></p>
+{% endif %}
+
+/////// <br><br><br>
 
     <p class="govuk-body govuk-!-padding-top-0"><a href="contact-formats-fallout">Cant automate preferences</a></p>
 
