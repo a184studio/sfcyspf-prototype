@@ -10,7 +10,7 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
-      <form action="telephone-rre-cya" method="post">
+      <form action="telephone-rre-cope-check-router" method="post">
 
         <span class="govuk-caption-m">Paper enquiry</span>
 
@@ -34,11 +34,11 @@
 
               {{ govukRadios({
                 classes: "govuk-radios",
-                idPrefix: "telephone-rre-partner-cope",
-                name: "telephone-rre-partner-cope",
+                idPrefix: "telephone-rre-cope-check",
+                name: "telephone-rre-cope-check",
                 fieldset: {
                   legend: {
-                    html: "Does the partner have Contracted Out Pension Equivalent (COPE)?",
+                    html: "Does they have Contracted Out Pension Equivalent (COPE)?",
 
                     isPageHeading: true,
                     classes: "govuk-fieldset__legend--l"
@@ -52,12 +52,12 @@
                 {
                     value: "Yes",
                     text: "Yes",
-                    checked: (data["telephone-rre-partner-cope"] == "Yes")
+                    checked: (data["telephone-rre-cope-check"] == "Yes")
                   },
                   {
                     value: "No",
                     text: "No",
-                    checked: (data["telephone-rre-partner-cope"] == "No")
+                    checked: (data["telephone-rre-cope-check"] == "No")
                   }
                 ]
               }) }}

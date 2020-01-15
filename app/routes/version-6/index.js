@@ -77,7 +77,7 @@ const router = new express.Router()
     } else if (paperNIcheck === 'NOCOPE') {
       res.redirect('paper-cope-check')
     } else if (paperNIcheck === 'YESCOPE') {
-      res.redirect('paper-overview')
+      res.redirect('paper-enquiry-type')
     } else if (paperNIcheck === 'MISSINGNI') {
       res.redirect('exclustion-missing-ni')
     } else if (paperNIcheck === 'NI00112233A') {
@@ -212,6 +212,19 @@ router.post('/telephone-rre-marital-status-router', (req, res, next) => {
     res.redirect('telephone-rre-partner-cope')
   }
 })
+
+
+
+router.post('/telephone-rre-cope-check-router', (req, res, next) => {
+  const rreCopeCheck = req.session.data['telephone-rre-cope-check']
+
+  if (rreCopeCheck === 'Yes') {
+    res.redirect('telephone-rre-citizen-dob')
+  } else {
+    res.redirect('contact-formats')
+  }
+})
+
 
 
 

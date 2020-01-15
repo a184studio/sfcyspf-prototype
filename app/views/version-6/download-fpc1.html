@@ -12,7 +12,7 @@
     <div class="govuk-grid-column-two-thirds">
       <form action="outcome-done" method="post">
 
-    <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Check details for FPC1</h1>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Check your answers: FPC1</h1>
 
     <!------------------------------- STATE PENSION PAID INTO ------------------------------------------------------>
 
@@ -29,8 +29,8 @@
         actions: {
           items: [
             {
-              href: "x",
-              text: "",
+              href: "Change",
+              text: "Change",
               visuallyHiddenText: "X"
             }
           ]
@@ -46,8 +46,8 @@
         actions: {
           items: [
             {
-              href: "x",
-              text: "",
+              href: "Change",
+              text: "Change",
               visuallyHiddenText: "X"
             }
           ]
@@ -63,8 +63,8 @@
         actions: {
           items: [
             {
-              href: "x",
-              text: "",
+              href: "Change",
+              text: "Change",
               visuallyHiddenText: "X"
             }
           ]
@@ -80,8 +80,8 @@
         actions: {
           items: [
             {
-              href: "x",
-              text: "",
+              href: "Change",
+              text: "Change",
               visuallyHiddenText: "X"
             }
           ]
@@ -97,25 +97,8 @@
         actions: {
           items: [
             {
-              href: "x",
-              text: "",
-              visuallyHiddenText: "X"
-            }
-          ]
-        }
-      },
-        {
-          key: {
-          text: "Letters in Welsh"
-        },
-        value: {
-          text: "Yes/No"
-        },
-        actions: {
-          items: [
-            {
-              href: "x",
-              text: "",
+              href: "Change",
+              text: "Change",
               visuallyHiddenText: "X"
             }
           ]
@@ -132,70 +115,135 @@
           items: [
             {
               href: "x",
-              text: "",
+              text: "Change",
               visuallyHiddenText: "X"
             }
           ]
         }
-      },
-      
-      {
-        key: {
-          text: "Department"
-        },
-        value: {
-          text: "DWP / Longbenton"
-        },
-        actions: {
-          items: [
-            {
-              href: "x",
-              text: "",
-              visuallyHiddenText: "X"
-            }
-          ]
-        }
-      },
-      {
-        key: {
-        text: "Date"
-      },
-      value: {
-        text: "DD MM YYYY"
-      },
-      actions: {
-        items: [
-          {
-            href: "x",
-            text: "",
-            visuallyHiddenText: "X"
-          }
-        ]
       }
-    },
+
+      ]
+    }) }}
+
+    {{ govukSummaryList({
+      rows: [
+
       {
           key: {
-          text: "Time"
+          text: "Marital status"
         },
         value: {
-          text: "00:00:00"
+          text: data["telephone-rre-marital-status"]
         },
         actions: {
           items: [
             {
-              href: "x",
-              text: "",
+              href: "telephone-rre-marital-status",
+              text: "Change",
               visuallyHiddenText: "X"
             }
           ]
         }
-      },
-        {
-          key: {
-            text: "Agent"
+      }
+
+
+      ]
+    }) }}
+
+
+    <div class="govuk-!-margin-top-6 govuk-!-margin-bottom-0">
+      <h2 class="govuk-heading-m"><span class="agent-action">Partner details</h2>
+
+
+        {{ govukSummaryList({
+          rows: [
+
+          {
+              key: {
+              text: "Name"
+            },
+            value: {
+              text: data["partner-full-name"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "telephone-rre-partner",
+                  text: "Change",
+                  visuallyHiddenText: "X"
+                }
+              ]
+            }
+          },
+            {
+              key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: "DD Month YYYY"
+            },
+            actions: {
+              items: [
+                {
+                  href: "x",
+                  text: "Change",
+                  visuallyHiddenText: "X"
+                }
+              ]
+            }
+          },
+            {
+              key: {
+              text: "Gender"
+            },
+            value: {
+              text: data["telephone-partner-gender"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "x",
+                  text: "Change",
+                  visuallyHiddenText: "X"
+                }
+              ]
+            }
+          }
+
+          ]
+        }) }}
+
+        <div class="govuk-!-margin-top-6 govuk-!-margin-bottom-0">
+          <h2 class="govuk-heading-m"><span class="agent-action">Service details</h2>
+
+
+
+        {{ govukSummaryList({
+          rows: [
+
+          {
+            key: {
+              text: "Department"
+            },
+            value: {
+              text: "DWP / Longbenton"
+            },
+            actions: {
+              items: [
+                {
+                  href: "x",
+                  text: "",
+                  visuallyHiddenText: "X"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+            text: "Date"
           },
           value: {
-            text: "Full name"
+            text: "DD MM YYYY"
           },
           actions: {
             items: [
@@ -208,11 +256,11 @@
           }
         },
           {
-            key: {
-              text: "Team"
+              key: {
+              text: "Time"
             },
             value: {
-              text: "Rouge One"
+              text: "00:00:00"
             },
             actions: {
               items: [
@@ -223,12 +271,45 @@
                 }
               ]
             }
-          }
+          },
+            {
+              key: {
+                text: "Agent"
+              },
+              value: {
+                text: "Full name"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "x",
+                    text: "",
+                    visuallyHiddenText: "X"
+                  }
+                ]
+              }
+            },
+              {
+                key: {
+                  text: "Team"
+                },
+                value: {
+                  text: "Rouge One"
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "x",
+                      text: "",
+                      visuallyHiddenText: "X"
+                    }
+                  ]
+                }
+              }
 
 
-      ]
-    }) }}
-
+          ]
+        }) }}
 
 
     <div class="govuk-panel--agent govuk-!-margin-top-9">
