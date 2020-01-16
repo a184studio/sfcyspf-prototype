@@ -113,7 +113,7 @@ const router = new express.Router()
     if (paperCOPEcheck === 'Yes') {
       res.redirect('paper-who-is-caller')
     } else {
-      res.redirect('paper-overview-b')
+      res.redirect('telephone-overview-ab')
     }
   })
 
@@ -195,7 +195,7 @@ router.post('/telephone-enquiry-type-router', (req, res, next) => {
   if (enquiryType === 'I want to improve my State Pension') {
     res.redirect('telephone-vnics-a')
   } else if (enquiryType === 'Help with a forecast I have seen') {
-    res.redirect('telephone-overview-b')
+    res.redirect('telephone-overview-ab')
   } else {
     res.redirect('telephone-ni-status')
   }
