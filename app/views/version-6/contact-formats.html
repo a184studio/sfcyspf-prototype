@@ -122,19 +122,18 @@
       }) }} -->
 
 
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-2 govuk-!-padding-top-2">Call to action</h2>
-{% if data["address-check"] == "United Kingdom" %}
-    <p class="govuk-body govuk-!-padding-top-0"><a href="outcome-forecast-check-notify">Notifiy</a></p>
-{% endif %}
+    <div class="govuk-panel--router">
+      <p class="govuk-!-font-weight-bold govuk-!-font-size-19 govuk-!-margin-bottom-0">Service router (conditional call to action based on choice)</p>
+      <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-4"></p>
 
-{% if data["address-check"] == "Overseas" %}
-    <p class="govuk-body govuk-!-padding-top-0"><a href="outcome-forecast-check-local">Print local</a></p>
-{% endif %}
+        <ul class="govuk-list">
 
-/////// <br><br><br>
+        {% if data["address-check"] == "Overseas" %}<li><a href="outcome-forecast-check-local">Print local</a></li>{% endif %}
+        {% if data["address-check"] == "United Kingdom" %}<li><a href="outcome-forecast-check-notify">Choice can be done using Notifiy</a></li>{% endif %}
+        <li><a href="contact-formats-fallout">Manual intervention needed by an agent to fulfill a contract choice</a></li>
 
-    <p class="govuk-body govuk-!-padding-top-0"><a href="contact-formats-fallout">Cant automate preferences</a></p>
-
+      </ul>
+    </div>
 
 
 

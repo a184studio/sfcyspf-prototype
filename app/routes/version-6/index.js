@@ -77,17 +77,17 @@ const router = new express.Router()
     } else if (paperNIcheck === 'E10') {
       res.redirect('exclusion-10')
     } else if (paperNIcheck === 'RRE') {
-      res.redirect('paper-enquiry-type')
+      res.redirect('paper-who-is-caller')
     } else if (paperNIcheck === 'MAN') {
       res.redirect('exclustion-isle-of-man')
     } else if (paperNIcheck === 'NOCOPE') {
       res.redirect('paper-cope-check')
     } else if (paperNIcheck === 'YESCOPE') {
-      res.redirect('paper-enquiry-type')
+      res.redirect('paper-who-is-caller')
     } else if (paperNIcheck === 'MISSINGNI') {
       res.redirect('exclustion-missing-ni')
     } else if (paperNIcheck === 'NI00112233A') {
-      res.redirect('paper-enquiry-type')
+      res.redirect('paper-who-is-caller')
     } else {
       res.redirect('exclusion-validation')
     }
@@ -113,7 +113,7 @@ const router = new express.Router()
     if (paperCOPEcheck === 'Yes') {
       res.redirect('paper-who-is-caller')
     } else {
-      res.redirect('telephone-overview-ab')
+      res.redirect('paper-who-is-caller')
     }
   })
 
@@ -201,6 +201,18 @@ router.post('/telephone-enquiry-type-router', (req, res, next) => {
   }
 })
 
+router.post('/paper-enquiry-type-router', (req, res, next) => {
+  const paperEnquiryType = req.session.data['paper-enquiry-type']
+
+  if (paperEnquiryType === 'I want to improve my State Pension') {
+    res.redirect('telephone-vnics-a')
+  } else if (paperEnquiryType === 'Help with a forecast I have seen') {
+    res.redirect('telephone-overview-ab')
+  } else {
+    res.redirect('telephone-ni-status')
+  }
+})
+
 router.post('/telephone-rre-marital-status-router', (req, res, next) => {
   const rreMaritalStatus = req.session.data['telephone-rre-marital-status']
 
@@ -209,15 +221,43 @@ router.post('/telephone-rre-marital-status-router', (req, res, next) => {
   } else if (rreMaritalStatus === 'Civil partnership') {
     res.redirect('telephone-rre-partner')
   } else if (rreMaritalStatus === 'Widowed') {
-    res.redirect('telephone-rre-partner-cope')
+    res.redirect('telephone-rre-scenarios-continued')
   } else if (rreMaritalStatus === 'Divorced') {
-    res.redirect('telephone-rre-partner-cope')
+    res.redirect('telephone-rre-scenarios-continued')
   } else if (rreMaritalStatus === 'Dissolution') {
-    res.redirect('telephone-rre-partner-cope')
+    res.redirect('contact-formats')
   } else {
-    res.redirect('telephone-rre-if')
+    res.redirect('telephone-rre-scenarios-continued')
   }
 })
+
+
+
+router.post('/telephone-rre-scenarios-router', (req, res, next) => {
+  const rreScenarios = req.session.data['telephone-rre-scenarios']
+
+  if (rreScenarios === 'RRE FLAG senario B') {
+    res.redirect('telephone-rre-marital-status')
+  } else if (rreScenarios === 'RRE FLAG senario C') {
+    res.redirect('telephone-rre-marital-status')
+  } else {
+    res.redirect('contact-formats')
+  }
+})
+
+router.post('/telephone-rre-scenarios-continued-router', (req, res, next) => {
+  const rreScenariosContinued = req.session.data['telephone-rre-scenarios-continued']
+
+  if (rreScenariosContinued === 'RRE FLAG senario D') {
+    res.redirect('telephone-rre-cope-check')
+  } else if (rreScenariosContinued === 'RRE FLAG senario F') {
+    res.redirect('telephone-rre-marital-status')
+  } else {
+    res.redirect('contact-formats')
+  }
+})
+
+
 
 
 

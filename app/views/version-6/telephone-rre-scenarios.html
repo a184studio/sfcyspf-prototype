@@ -1,0 +1,79 @@
+{% extends "layout-id-bar.html" %}
+
+{% block pageTitle %}
+  XXX - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <form action="telephone-rre-scenarios-router" method="post" class="form">
+
+      <div class="govuk-panel--router-large">
+
+      <input type="hidden" name="benefits-complete" value="in-progress"/>
+      <span class="govuk-caption-m">Internal only</span>
+
+
+  {{ govukRadios({
+    classes: "govuk-radios",
+    idPrefix: "telephone-rre-scenarios",
+    name: "telephone-rre-scenarios",
+    fieldset: {
+      legend: {
+        html: "RRE FLAG scenario selection: Married, civil partnership, widowed, divorced and dissolution",
+
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    hint: {
+        text: ""
+    },
+
+    items: [
+    {
+      value: "RRE FLAG senario A",
+      text: "RRE FLAG senario A",
+      checked: (data["telephone-rre-scenarios"] == "RRE FLAG senario A"),
+      hint: {
+        text: "IF current is greater THAN divorced/widowed AND COPE is Greater than 0"
+      }
+    },
+      {
+        value: "RRE FLAG senario B",
+          text: "RRE FLAG senario B",
+          checked: (data["telephone-rre-scenarios"] == "RRE FLAG senario B"),
+          hint: {
+            text: "IF current is greater THAN divorced/widowed AND COPE=0"
+          }
+        },
+          {
+            value: "RRE FLAG senario C",
+              text: "RRE FLAG senario C",
+              checked: (data["telephone-rre-scenarios"] == "RRE FLAG senario C"),
+              hint: {
+                text: "IF current is less THAN divorced/widowed"
+              }
+            }
+
+    ]
+  }) }}
+
+</div>
+
+<br>
+
+{{ govukButton({
+  text: "Continue",
+  classes: "govuk-!-margin-right-1"
+}) }}
+
+    </form>
+
+  </div>
+</div>
+{% endblock %}
