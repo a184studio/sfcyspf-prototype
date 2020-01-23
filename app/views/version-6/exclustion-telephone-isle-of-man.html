@@ -1,0 +1,45 @@
+{% extends "layout-id-bar.html" %}
+
+{% block pageTitle %}
+  What is your National Insurance number? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="start-work" method="post">
+
+        <div class="govuk-panel--agent govuk-!-margin-bottom-6">
+          <h2 class="govuk-heading-m"><span class="agent-action">Excluded: The Isle of Man customer</h2>
+        </div>
+
+
+
+  <span class="govuk-caption-m govuk-!-margin-bottom-2">Telephone enquires</span>
+          <h2 class="govuk-heading-l govuk-!-margin-bottom-4"><span class="agent-action">OK, I can see that you’ve paid National Insurance in The Isle of Man</h2>
+
+          <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-6">We need to take a look at your record, to make sure it’s been updated. As soon as it’s ready, we’ll send a forecast out to you.</p>
+
+
+      <p class="govuk-panel--agent govuk-heading-s govuk-!-margin-bottom-9"><span class="agent-action">Adviser action: Compete the E-BR19 during call<br> and pass it to the specialist team.</p>
+
+
+
+<!--------------------------————-------->
+
+
+
+{{ govukButton({
+  text: "End enquiry",
+  classes: "govuk-button--warning"
+}) }}
+
+
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
