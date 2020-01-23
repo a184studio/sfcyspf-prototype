@@ -41,7 +41,7 @@ const router = new express.Router()
     } else if (telephoneNIcheck === 'RRE') {
       res.redirect('telephone-enquiry-type')
     } else if (telephoneNIcheck === 'MAN') {
-      res.redirect('exclustion-telephone-isle-of-man')
+      res.redirect('exclusion-telephone-isle-of-man')
     } else if (telephoneNIcheck === 'NOCOPE') {
       res.redirect('telephone-cope-check')
     } else if (telephoneNIcheck === 'YESCOPE') {
@@ -83,7 +83,7 @@ const router = new express.Router()
     } else if (paperNIcheck === 'RRE') {
       res.redirect('paper-who-is-caller')
     } else if (paperNIcheck === 'MAN') {
-      res.redirect('exclustion-paper-isle-of-man')
+      res.redirect('exclusion-paper-isle-of-man')
     } else if (paperNIcheck === 'NOCOPE') {
       res.redirect('paper-cope-check')
     } else if (paperNIcheck === 'YESCOPE') {
