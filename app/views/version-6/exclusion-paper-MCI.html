@@ -1,0 +1,44 @@
+{% extends "layout-id-bar.html" %}
+
+{% block pageTitle %}
+  What is your National Insurance number? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="start-work" method="post">
+
+<div class="govuk-panel--agent">
+      <div class="govuk-!-margin-bottom-6">
+        <h2 class="govuk-heading-m"><span class="agent-action">Excluded: Manual Correspondence Indicator (MCI)</h2>
+      </div>
+
+
+<span class="govuk-caption-m govuk-!-margin-bottom-2">Paper enquires</span>
+      <h2 class="govuk-heading-l govuk-!-margin-bottom-4"><span class="agent-action">This customer has a Manual Correspondence Indicator (MCI) on
+their National Insurance record.</h2>
+
+      <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-2"></p>
+
+  <p class="govuk-heading-s govuk-!-margin-bottom-2"><span class="agent-action">You cannot deal with this enquiry with this service.</p>
+    <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-9">Instead, you need to issue a letter, advising the customer to contact HMRC to remove the MCI.</p>
+</div>
+
+
+  <!--------------------------————-------->
+
+{{ govukButton({
+  text: "End enquiry",
+  classes: "govuk-button--warning"
+}) }}
+
+
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

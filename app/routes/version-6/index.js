@@ -36,6 +36,8 @@ const router = new express.Router()
       res.redirect('exclusion-9')
     } else if (telephoneNIcheck === 'E10') {
       res.redirect('exclusion-10')
+    } else if (telephoneNIcheck === 'MCI') {
+      res.redirect('exclusion-telephone-MCI')
     } else if (telephoneNIcheck === 'RRE') {
       res.redirect('telephone-enquiry-type')
     } else if (telephoneNIcheck === 'MAN') {
@@ -76,6 +78,8 @@ const router = new express.Router()
       res.redirect('exclusion-9')
     } else if (paperNIcheck === 'E10') {
       res.redirect('exclusion-10')
+    } else if (paperNIcheck === 'MCI') {
+      res.redirect('exclusion-paper-MCI')
     } else if (paperNIcheck === 'RRE') {
       res.redirect('paper-who-is-caller')
     } else if (paperNIcheck === 'MAN') {
