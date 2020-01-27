@@ -71,15 +71,15 @@
               hint: {
                 text: "IF married, SPa is after partner: AND current less than married value"
               }
-        },
-          {
-            value: "RRE FLAG senario I",
-              text: "RRE FLAG senario I",
-              checked: (data["telephone-rre-scenarios-continued"] == "RRE FLAG senario I"),
-              hint: {
-                text: "IF divorced/widowed / AND current is less than divorced/widowed value"
-              }
-        }
+            },
+                {
+                  value: "No flag",
+                    text: "No flag / auto routing",
+                    checked: (data["telephone-rre-scenarios-continued"] == "No flag"),
+                    hint: {
+                      text: "No flag"
+                    }
+                  }
 
     ]
   }) }}

@@ -178,8 +178,17 @@ router.post('/telephone-overview-ab-router', (req, res, next) => {
 
   if (overViewAB === 'A') {
     res.redirect('telephone-overview-a')
-  } else {
+  }
+  if (overViewAB === 'A1') {
+    res.redirect('telephone-overview-a1')
+  }
+  if (overViewAB === 'B') {
     res.redirect('telephone-overview-b')
+  }
+  if (overViewAB === 'B1') {
+    res.redirect('telephone-overview-b1')
+  } else {
+    res.redirect('XXX')
   }
 })
 
@@ -221,17 +230,17 @@ router.post('/telephone-rre-marital-status-router', (req, res, next) => {
   const rreMaritalStatus = req.session.data['telephone-rre-marital-status']
 
   if (rreMaritalStatus === 'Married') {
-    res.redirect('telephone-rre-partner')
+    res.redirect('telephone-rre-scenarios-continued')
   } else if (rreMaritalStatus === 'Civil partnership') {
-    res.redirect('telephone-rre-partner')
+    res.redirect('telephone-rre-scenarios-continued')
   } else if (rreMaritalStatus === 'Widowed') {
-    res.redirect('telephone-rre-scenarios-continued')
+    res.redirect('telephone-rre-scenarios-separated')
   } else if (rreMaritalStatus === 'Divorced') {
-    res.redirect('telephone-rre-scenarios-continued')
+    res.redirect('telephone-rre-scenarios-separated')
   } else if (rreMaritalStatus === 'Dissolution') {
-    res.redirect('contact-formats')
+    res.redirect('telephone-rre-scenarios-separated')
   } else {
-    res.redirect('telephone-rre-scenarios-continued')
+    res.redirect('contact-formats')
   }
 })
 
@@ -260,6 +269,20 @@ router.post('/telephone-rre-scenarios-continued-router', (req, res, next) => {
     res.redirect('contact-formats')
   }
 })
+
+router.post('/telephone-rre-scenarios-separated-router', (req, res, next) => {
+  const rreScenariosSeparated = req.session.data['telephone-rre-scenarios-continued']
+
+  if (rreScenariosSeparated === 'RRE FLAG senario D') {
+    res.redirect('telephone-rre-cope-check')
+  } else if (rreScenariosSeparated === 'RRE FLAG senario F') {
+    res.redirect('telephone-rre-marital-status')
+  } else {
+    res.redirect('contact-formats')
+  }
+})
+
+
 
 
 
