@@ -106,6 +106,23 @@
       },
         {
           key: {
+          text: "Address country"
+        },
+        value: {
+          text: data["comtact-check"]
+        },
+        actions: {
+          items: [
+            {
+              href: "address-check",
+              text: "",
+              visuallyHiddenText: "X"
+            }
+          ]
+        }
+      },
+        {
+          key: {
           text: "Address"
         },
         value: {
@@ -114,7 +131,7 @@
         actions: {
           items: [
             {
-              href: "x",
+              href: "address-postcode",
               text: "Change",
               visuallyHiddenText: "X"
             }
@@ -150,6 +167,89 @@
       ]
     }) }}
 
+
+            {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}
+
+    <div class="govuk-!-margin-top-6 govuk-!-margin-bottom-0">
+      <h2 class="govuk-heading-m"><span class="agent-action">Corporate or Personal Acting Body</h2>
+
+
+        {{ govukSummaryList({
+          rows: [
+
+          {
+              key: {
+              text: "Contact name"
+            },
+            value: {
+              text: data["comtact-name"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "address-check",
+                  text: "Change",
+                  visuallyHiddenText: "X"
+                }
+              ]
+            }
+          },
+            {
+              key: {
+              text: "Company / Organisation name"
+            },
+            value: {
+              text: data["comtact-company-name"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "x",
+                  text: "",
+                  visuallyHiddenText: "X"
+                }
+              ]
+            }
+          },
+            {
+              key: {
+              text: "Address country"
+            },
+            value: {
+              text: data["address-check"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "address-check",
+                  text: "Change",
+                  visuallyHiddenText: "X"
+                }
+              ]
+            }
+          },
+            {
+              key: {
+              text: "Address"
+            },
+            value: {
+              html: "221b Baker street<br>London<br>NE16 6QG"
+            },
+            actions: {
+              items: [
+                {
+                  href: "address-postcode",
+                  text: "Change",
+                  visuallyHiddenText: "X"
+                }
+              ]
+            }
+          }
+
+          ]
+        }) }}
+
+{% endif %}
 
     <div class="govuk-!-margin-top-6 govuk-!-margin-bottom-0">
       <h2 class="govuk-heading-m"><span class="agent-action">Partner details</h2>
@@ -212,6 +312,7 @@
 
           ]
         }) }}
+
 
         <div class="govuk-!-margin-top-6 govuk-!-margin-bottom-0">
           <h2 class="govuk-heading-m"><span class="agent-action">Service details</h2>
