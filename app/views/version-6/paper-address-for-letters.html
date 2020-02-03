@@ -17,7 +17,7 @@
 
     <!------------HEADLINE------------>
       {% set legend %}
-      {% if data["who-is-caller"] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Where do your letters need to go?</h1>{% endif %}
+      {% if data["who-is-caller"] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Where do {{ data["full-name"] }}'s letters need to go?</h1>{% endif %}
       {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Where do {{ data["full-name"] }}'s letters need to go?</h1>{% endif %}
       {% if data["who-is-caller"] == "Third party" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Where do {{ data["full-name"] }}'s letters need to go?</h1>{% endif %}
 
@@ -40,7 +40,7 @@
               items: [
                 {
                   value: "Citizen",
-                  text: "My address",
+                  text: "Use " + data ['full-name'] + "' address",
                   checked: data['paper-address-for-letters'] == "Citizen"
                 },
               {
@@ -75,9 +75,9 @@
               checked: data['paper-address-for-letters'] == "Citizen"
             },
           {
-            value: "Third party",
+            value: "Corporate or Personal Acting Body",
             text: "Use Corporate or Personal Acting Body' address",
-            checked: data['paper-address-for-letters'] == "Third party"
+            checked: data['paper-address-for-letters'] == "Corporate or Personal Acting Body"
           }
           ]
         }) }}
@@ -105,7 +105,7 @@
               text: "Use " + data ['full-name'] + "' address",
               checked: data['paper-address-for-letters'] == "Citizen",
                 label: {
-                  classes: "govuk-label--s"
+                  classes: ""
                 },
                 hint: {
                   text: ""
@@ -116,10 +116,10 @@
             text: "Use Third party's address",
             checked: data['paper-address-for-letters'] == "Third party",
             label: {
-              classes: "govuk-label--s"
+              classes: ""
             },
             hint: {
-              text: "This means if you want it to go to the citizens address"
+              text: ""
             }
           }
           ]
