@@ -9,43 +9,31 @@
 {% include "includes/js-back-link.html" %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-grid-column-two-thirds">
       <form action="paper-cope-check-router" method="post">
 
-        <span class="govuk-caption-m">Paper enquiry</span>
-
-          <div class="govuk-panel--agent govuk-!-margin-top-2 govuk-!-margin-bottom-6">
-            <h2 class="govuk-heading-xl"><span class="agent-action">Adviser: Look in OLE NIRS and determine COPE status</h2>
 
 
-          <!------------HEADLINE------------>
-            {% set legend %}
-            <h1 class="govuk-heading-m govuk-!-margin-bottom-0">Does {{ data["full-name"] }} have Contracted Out Pension Equivalent (COPE)?</h1>
-            {% endset %}
-          <!------------HEADLINE------------>
+          <div class="govuk-panel--agent govuk-!-margin-top-2 govuk-!-margin-bottom-0">
+
+            <h1 class="govuk-heading-m">Adviser: There is no COPE on this record</h1>
 
 
-      <h2 class="govuk-body govuk-!-font-size-24">There is no COPE on the record. Are there contracted out schemes in OLE/NIRS?</h2>
-      <h2 class="govuk-body govuk-!-font-size-24">Step 2</h2>
-      <h2 class="govuk-body govuk-!-font-size-24">Step 3</h2>
-      <h2 class="govuk-body govuk-!-font-size-24">Step 4</h2>
-
-      </div>
-
+              <span class="govuk-caption-m">Paper enquiry</span>
               {{ govukRadios({
                 classes: "govuk-radios",
                 idPrefix: "paper-cope-check",
                 name: "paper-cope-check",
                 fieldset: {
                   legend: {
-                    html: "Do " + data | getPronoun + " have Contracted Out Pension Equivalent (COPE)?",
+                    html: "Are there any contracted out schemes listed in OLE?",
 
                     isPageHeading: true,
                     classes: "govuk-fieldset__legend--l"
                   }
                 },
                 hint: {
-                    text: ""
+                    text: "Contracted out schemes: COD, GMP, CR, PP, ASS, RPA, INW."
                 },
 
                 items: [
@@ -63,9 +51,11 @@
               }) }}
 
         {{ govukButton({
+          classes: "govuk-!-margin-bottom-0",
           text: "Continue"
         }) }}
 
+</div>
 
       </form>
     </div>

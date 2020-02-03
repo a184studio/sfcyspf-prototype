@@ -13,18 +13,17 @@
       <form action="telephone-cope-check-router" method="post">
 
           <div class="govuk-panel--agent govuk-!-margin-bottom-6">
-            <span class="govuk-caption-m">Telephone enquiry</span>
 
-            <h2 class="govuk-heading-xl"><span class="agent-action">Adviser: There is noCOPE flagged on this record</h2>
+            <h2 class="govuk-heading-m"><span class="agent-action">Adviser: There is no COPE on this record</h2>
 
               <!------------HEADLINE------------>
                 {% set legend %}
-                <h1 class="govuk-heading-m govuk-!-margin-bottom-0">Does NIRS show Contracted Out Pension Equivalent (COPE)?</h1>
+                <h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Are there any contracted out schemes listed in OLE?</h1>
                 {% endset %}
               <!------------HEADLINE------------>
 
 
-          <h2 class="govuk-body govuk-!-font-size-24">Step 1: Look in OLE NIRS and determine COPE status</h2>
+          <span class="govuk-caption-m">Telephone enquiry</span>
 
               {{ govukRadios({
                 classes: "govuk-radios",
@@ -39,7 +38,7 @@
                   }
                 },
                 hint: {
-                    text: ""
+                    text: "Contracted out schemes: COD, GMP, CR, PP, ASS, RPA, INW."
                 },
 
                 items: [

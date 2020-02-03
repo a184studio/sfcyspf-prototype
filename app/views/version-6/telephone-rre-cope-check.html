@@ -13,9 +13,8 @@
       <form action="telephone-rre-cope-check-router" method="post">
         <div class="govuk-panel--agent govuk-!-margin-top-2 govuk-!-margin-bottom-6">
 
-        <span class="govuk-caption-m">Paper enquiry</span>
 
-            <h2 class="govuk-heading-xl"><span class="agent-action">Adviser: Look in OLE NIRS and determine COPE status</h2>
+            <h2 class="govuk-heading-m"><span class="agent-action">Adviser: Look in OLE NIRS and determine COPE status</h2>
 
 
           <!------------HEADLINE------------>
@@ -31,6 +30,7 @@
       <h2 class="govuk-body govuk-!-font-size-24">Step 4</h2>
 
       </div>
+      <span class="govuk-caption-m">Paper enquiry</span>
 
               {{ govukRadios({
                 classes: "govuk-radios",
@@ -62,9 +62,10 @@
                 ]
               }) }}
 
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+              {{ govukButton({
+                classes: "govuk-!-margin-bottom-0",
+                text: "Continue"
+              }) }}
 
 
       </form>
