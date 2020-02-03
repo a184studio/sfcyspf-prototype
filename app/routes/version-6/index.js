@@ -48,7 +48,7 @@ const router = new express.Router()
       res.redirect('telephone-enquiry-type')
     } else if (telephoneNIcheck === 'MISSINGNI') {
       res.redirect('exclustion-missing-ni')
-    } else if (telephoneNIcheck === 'NI00112233A') {
+    } else if (telephoneNIcheck === 'NI001122A') {
       res.redirect('telephone-enquiry-type')
     } else {
       res.redirect('exclusion-validation')
@@ -90,7 +90,7 @@ const router = new express.Router()
       res.redirect('paper-who-is-caller')
     } else if (paperNIcheck === 'MISSINGNI') {
       res.redirect('exclustion-missing-ni')
-    } else if (paperNIcheck === 'NI00112233A') {
+    } else if (paperNIcheck === 'NI001122A') {
       res.redirect('paper-who-is-caller')
     } else {
       res.redirect('exclusion-validation')
