@@ -38,26 +38,33 @@
                   }
                 },
                 hint: {
-                    text: "Contracted out schemes: COD, GMP, CR, PP, ASS, RPA, INW."
+                    text: ""
                 },
 
                 items: [
                 {
                     value: "Yes",
                     text: "Yes",
-                    checked: (data["telephone-cope-check"] == "Yes")
-                  },
-                  {
+                    checked: (data["telephone-cope-check"] == "Yes"),
+                      label: {
+                        classes: "govuk-label--s"
+                      },
+                      hint: {
+                        text: "Contracted out schemes: COD, GMP, CR, PP, ASS, RPA, INW."
+                      }
+                    },
+                    {
                     value: "No",
-                    text: "No",
+                    html: "<strong>No</strong>",
                     checked: (data["telephone-cope-check"] == "No")
                   }
                 ]
               }) }}
 
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+              {{ govukButton({
+                classes: "govuk-!-margin-bottom-0",
+                text: "Continue"
+              }) }}
 
 </div>
 
