@@ -15,7 +15,47 @@
 
   <!--------------------------------------------------------------------------------------------------->
 
-    <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Where do the letters for {{ data ['full-name'] }} need to go?</h1>
+    <!------------HEADLINE------------>
+      {% set legend %}
+      {% if data["who-is-caller"] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Where do your letters need to go?</h1>{% endif %}
+      {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Where do {{ data["full-name"] }}'s letters need to go?</h1>{% endif %}
+      {% if data["who-is-caller"] == "Third party" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Where do {{ data["full-name"] }}'s letters need to go?</h1>{% endif %}
+
+      {% endset %}
+    <!------------HEADLINE------------>
+
+    {% if data["who-is-caller"] == "Citizen" %}
+
+
+            {{ govukRadios({
+              idPrefix: "paper-address-for-letters",
+              name: "paper-address-for-letters",
+              fieldset: {
+                legend: {
+                  html: legend,
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--xl"
+                }
+              },
+              items: [
+                {
+                  value: "Citizen",
+                  text: "My address",
+                  checked: data['paper-address-for-letters'] == "Citizen"
+                },
+              {
+                value: "Third party",
+                text: "Use Third party's address",
+                checked: data['paper-address-for-letters'] == "Third party"
+              }
+              ]
+            }) }}
+
+            {% endif %}
+
+  <!--------------------------------------------------------------------------------------------------->
+
+  {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}
 
 
         {{ govukRadios({
@@ -35,13 +75,57 @@
               checked: data['paper-address-for-letters'] == "Citizen"
             },
           {
-            value: "Corporate or Personal Acting Body",
-            text: "Use Corporate or Personal Acting Body's address",
-            checked: data['paper-address-for-letters'] == "Corporate or Personal Acting Body"
+            value: "Third party",
+            text: "Use Corporate or Personal Acting Body' address",
+            checked: data['paper-address-for-letters'] == "Third party"
           }
           ]
         }) }}
 
+{% endif %}
+        <!--------------------------------------------------------------------------------------------------->
+
+
+        {% if data["who-is-caller"] == "Third party" %}
+
+
+        {{ govukRadios({
+          idPrefix: "paper-address-for-letters",
+          name: "paper-address-for-letters",
+          fieldset: {
+            legend: {
+              html: legend,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {
+              value: "Citizen",
+              text: "Use " + data ['full-name'] + "' address",
+              checked: data['paper-address-for-letters'] == "Citizen",
+                label: {
+                  classes: "govuk-label--s"
+                },
+                hint: {
+                  text: ""
+                }
+              },
+              {
+            value: "Third party",
+            text: "Use Third party's address",
+            checked: data['paper-address-for-letters'] == "Third party",
+            label: {
+              classes: "govuk-label--s"
+            },
+            hint: {
+              text: "This means if you want it to go to the citizens address"
+            }
+          }
+          ]
+        }) }}
+
+        {% endif %}
 
 
 <br>

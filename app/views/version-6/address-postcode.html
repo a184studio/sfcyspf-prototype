@@ -19,8 +19,9 @@
       {% endif %}
     <!------------PAPER HEADLINE------------>
     {% if data["start-work"] == "Paper" %}
-        {% if data["who-is-caller"] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">What is {{ data | getPronoun }} postcode?</h1>{% endif %}
-        {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">What is the Corporate or personal acting body's postcode?</h1>{% endif %}
+        {% if data["paper-address-for-letters"] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">What is {{ data | getPronoun }} postcode?</h1>{% endif %}
+        {% if data["paper-address-for-letters"] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">What is the Corporate or personal acting body's postcode?</h1>{% endif %}
+        {% if data["paper-address-for-letters"] == "Third party" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">What is the Third party's postcode?</h1>{% endif %}
       {% endif %}
     <!--------------------------————-------->
 
