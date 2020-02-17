@@ -12,10 +12,16 @@
   <div class="govuk-grid-column-two-thirds">
     <form action="start-work" method="post">
 
-<div class="govuk-panel--agent">
-      <div class="govuk-!-margin-bottom-6">
+    <div class="govuk-panel--agent">
+      <!-- <div class="govuk-!-margin-bottom-6">
         <h2 class="govuk-body govuk-!-font-size-24"><span class="agent-action"><strong>NI 11 22 33 A</strong> is excluded</h2>
-      </div>
+      </div> -->
+
+      {{ govukTag({
+        text: "Excluded",
+        classes:"govuk-!-margin-bottom-4"
+      }) }}
+
 
 
 <!--<span class="govuk-caption-m govuk-!-margin-bottom-2">Paper enquires</span>-->

@@ -222,7 +222,7 @@ router.post('/telephone-enquiry-type-router', (req, res, next) => {
   } else if (enquiryType === 'Help with a forecast I have seen') {
     res.redirect('telephone-overview-ab')
   } else {
-    res.redirect('telephone-ni-status')
+    res.redirect('telephone-who-is-caller')
   }
 })
 

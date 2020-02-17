@@ -17,7 +17,7 @@
 
   <!------------HEADLINE------------>
     {% set legend %}
-    {% if data["paper-address-for-letters"] == "Citizen" or data['who-is-caller'] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Is {{ data | getPronoun }} address in the UK or overseas?</h1>{% endif %}
+    {% if data["paper-address-for-letters"] == "Citizen" or data['who-is-caller'] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Where is this forecast being sent?</h1>{% endif %}
     {% if data["paper-address-for-letters"] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Is data["full-name"]'s address in the UK or overseas?'</h1>{% endif %}
     {% if data["paper-address-for-letters"] == "Third party" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Is data["full-name"]'s address in the UK or overseas?'</h1>{% endif %}
 

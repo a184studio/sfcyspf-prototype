@@ -19,7 +19,7 @@
             <h1 class="govuk-heading-m">Adviser: There is no COPE on this record</h1>
 
 
-              <span class="govuk-caption-m">Paper enquiry</span>
+              <!-- <span class="govuk-caption-m">Paper enquiry</span> -->
               {{ govukRadios({
                 classes: "govuk-radios",
                 idPrefix: "paper-cope-check",
@@ -45,7 +45,7 @@
                       classes: "govuk-label--s"
                     },
                     hint: {
-                      text: "Contracted out schemes: COD, GMP, CR, PP, ASS, RPA, INW."
+                      text: ""
                     }
                   },
                   {
@@ -56,10 +56,14 @@
               ]
             }) }}
 
+            <!-- Contracted out schemes: COD, GMP, CR, PP, ASS, RPA, INW. -->
+
         {{ govukButton({
           classes: "govuk-!-margin-bottom-0",
           text: "Continue"
         }) }}
+
+
 
 </div>
 

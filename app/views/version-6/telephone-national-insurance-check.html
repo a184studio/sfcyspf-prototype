@@ -11,7 +11,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form action="telephone-national-insurance-check-router" method="post">
-        <span class="govuk-caption-m">Telephone enquiry</span>
+        <!-- <span class="govuk-caption-m">Telephone enquiry</span> -->
 
 
         <!--<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">What is {{ data["full-name"] }} National Insurance number</h1>
@@ -20,8 +20,8 @@
 
         <!------------HEADLINE------------>
           {% set legend %}
-          {% if data["start-work"] == "Telephone" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">What is {{ data | getPronoun }} National Insurance number?</h1>{% endif %}
-          {% if data["start-work"] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">What is {{ data["full-name"] }} National Insurance number?</h1>{% endif %}
+
+          {% if data["start-work"] == "Telephone" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Enter the National Insurance number</h1>{% endif %}
           {% endset %}
         <!------------HEADLINE------------>
 
@@ -59,6 +59,7 @@
 
 -->
 
+<!--
 <div class="govuk-panel--router">
   <p class="govuk-!-font-weight-bold govuk-!-font-size-19 govuk-!-margin-bottom-2">Service router</p>
 
@@ -91,7 +92,7 @@
   </ul>
 </details>
 </div>
-
+-->
 
 
       </form>
