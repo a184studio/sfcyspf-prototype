@@ -38,11 +38,17 @@ const router = new express.Router()
       res.redirect('exclusion-10')
     } else if (telephoneNIcheck === 'MCI') {
       res.redirect('exclusion-telephone-MCI')
+    } else if (telephoneNIcheck === 'NI001122B') {
+      res.redirect('exclusion-telephone-MCI')
     } else if (telephoneNIcheck === 'RRE') {
       res.redirect('telephone-enquiry-type')
     } else if (telephoneNIcheck === 'MAN') {
       res.redirect('exclusion-telephone-isle-of-man')
+    } else if (telephoneNIcheck === 'NI001122C') {
+      res.redirect('exclusion-telephone-isle-of-man')
     } else if (telephoneNIcheck === 'NOCOPE') {
+      res.redirect('telephone-cope-check')
+    } else if (telephoneNIcheck === 'NI001122D') {
       res.redirect('telephone-cope-check')
     } else if (telephoneNIcheck === 'YESCOPE') {
       res.redirect('telephone-enquiry-type')
@@ -80,11 +86,17 @@ const router = new express.Router()
       res.redirect('exclusion-10')
     } else if (paperNIcheck === 'MCI') {
       res.redirect('exclusion-paper-MCI')
+    } else if (paperNIcheck === 'NI001122B') {
+      res.redirect('exclusion-paper-MCI')
     } else if (paperNIcheck === 'RRE') {
       res.redirect('paper-who-is-caller')
     } else if (paperNIcheck === 'MAN') {
       res.redirect('exclusion-paper-isle-of-man')
+    } else if (paperNIcheck === 'NI001122C') {
+      res.redirect('exclusion-paper-isle-of-man')
     } else if (paperNIcheck === 'NOCOPE') {
+      res.redirect('paper-cope-check')
+    } else if (paperNIcheck === 'NI001122D') {
       res.redirect('paper-cope-check')
     } else if (paperNIcheck === 'YESCOPE') {
       res.redirect('paper-who-is-caller')
