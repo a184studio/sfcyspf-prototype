@@ -38,24 +38,26 @@ const router = new express.Router()
       res.redirect('exclusion-10')
     } else if (telephoneNIcheck === 'MCI') {
       res.redirect('exclusion-telephone-MCI')
-    } else if (telephoneNIcheck === 'NI001122B') {
+    } else if (telephoneNIcheck === 'NI 00 11 22 B') {
       res.redirect('exclusion-telephone-MCI')
     } else if (telephoneNIcheck === 'RRE') {
       res.redirect('telephone-enquiry-type')
     } else if (telephoneNIcheck === 'MAN') {
       res.redirect('exclusion-telephone-isle-of-man')
-    } else if (telephoneNIcheck === 'NI001122C') {
+    } else if (telephoneNIcheck === 'NI 00 11 22 C') {
       res.redirect('exclusion-telephone-isle-of-man')
     } else if (telephoneNIcheck === 'NOCOPE') {
       res.redirect('telephone-cope-check')
-    } else if (telephoneNIcheck === 'NI001122D') {
+    } else if (telephoneNIcheck === 'NI 00 11 22 D') {
       res.redirect('telephone-cope-check')
     } else if (telephoneNIcheck === 'YESCOPE') {
       res.redirect('telephone-enquiry-type')
     } else if (telephoneNIcheck === 'MISSINGNI') {
       res.redirect('exclustion-missing-ni')
-    } else if (telephoneNIcheck === 'NI001122A') {
+    } else if (telephoneNIcheck === 'NI 00 11 22 A') {
       res.redirect('telephone-enquiry-type')
+    } else if (telephoneNIcheck === 'NI 00 11 22 E') {
+      res.redirect('exclusion-telephone-DEAD')
     } else {
       res.redirect('exclusion-validation')
     }
@@ -86,24 +88,33 @@ const router = new express.Router()
       res.redirect('exclusion-10')
     } else if (paperNIcheck === 'MCI') {
       res.redirect('exclusion-paper-MCI')
-    } else if (paperNIcheck === 'NI001122B') {
+    } else if (paperNIcheck === 'NI 00 11 22 B') {
       res.redirect('exclusion-paper-MCI')
     } else if (paperNIcheck === 'RRE') {
       res.redirect('paper-who-is-caller')
     } else if (paperNIcheck === 'MAN') {
       res.redirect('exclusion-paper-isle-of-man')
-    } else if (paperNIcheck === 'NI001122C') {
+    } else if (paperNIcheck === 'NI 00 11 22 C') {
       res.redirect('exclusion-paper-isle-of-man')
     } else if (paperNIcheck === 'NOCOPE') {
       res.redirect('paper-cope-check')
-    } else if (paperNIcheck === 'NI001122D') {
+
+    } else if (paperNIcheck === 'NI 00 11 22 D') {
       res.redirect('paper-cope-check')
+
     } else if (paperNIcheck === 'YESCOPE') {
       res.redirect('paper-who-is-caller')
+
     } else if (paperNIcheck === 'MISSINGNI') {
       res.redirect('exclustion-missing-ni')
-    } else if (paperNIcheck === 'NI001122A') {
+
+    } else if (paperNIcheck === 'NI 00 11 22 A') {
       res.redirect('paper-who-is-caller')
+
+    } else if (paperNIcheck === 'NI 00 11 22 E') {
+      res.redirect('exclusion-paper-DEAD')
+
+
     } else {
       res.redirect('exclusion-validation')
     }
