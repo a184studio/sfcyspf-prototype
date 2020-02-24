@@ -49,13 +49,13 @@
 {
           value: "Audio form",
           text: "Audio form",
-          checked: (disabilities.includes("Audio"))
+          checked: (disabilities.includes("Audioform"))
         },
         {
 
           value: "Audio CD, cassette or MP3",
-          text: "Audio CD, cassette or MP3",
-          checked: (accessability.includes("Audioform"))
+          text: "Audio (Audio CD, cassette or MP3)",
+          checked: (accessability.includes("Audio"))
         },
 
           {
@@ -69,12 +69,6 @@
             checked: (disabilities.includes("Large print"))
           },
           {
-            value: "Letters in Welsh",
-            text: "Letters in Welsh",
-            checked: (disabilities.includes("Letters in Welsh"))
-          },
-
-          {
             value: "TexBox",
             text: "TexBox",
             checked: (disabilities.includes("TexBox"))
@@ -85,6 +79,22 @@
             checked: (disabilities.includes("TypeTalk"))
           }
         ]
+      }) }}
+
+      {{ govukTextarea({
+        label: {
+          classes: "govuk-label--s",
+          html: "Details of other formats"
+        },
+        hint:{
+          html: "@MM add more boxes"
+        },
+        id: "contact-formats-other",
+        name: "contact-formats-other",
+        classes: "govuk-input--width-1}00",
+        attributes: {
+          maxlength: 200
+        }
       }) }}
 
 
@@ -119,9 +129,9 @@
 
 
 
-      <!-- {{ govukButton({
+      {{ govukButton({
         text: "Continue"
-      }) }} -->
+      }) }}
 
 
     <div class="govuk-panel--router">

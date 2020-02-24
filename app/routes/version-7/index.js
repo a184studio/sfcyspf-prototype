@@ -186,6 +186,20 @@ const router = new express.Router()
 
 
 
+
+router.post('/contact-accessible-check-router', (req, res, next) => {
+  const accessibleCheck = req.session.data['contact-accessible-check']
+
+  if (accessibleCheck === 'Yes') {
+    res.redirect('contact-formats')
+  } else if (accessibleCheck === 'No') {
+    res.redirect('outcome-forecast-check-notify')
+  } else {
+    res.redirect('XXX')
+  }
+})
+
+
 router.post('/telephone-statement-check-router', (req, res, next) => {
   const telephoneStatementCheck = req.session.data['telephone-statement-check']
 

@@ -17,7 +17,7 @@
 
     <!------------HEADLINE------------>
       {% set legend %}
-      {% if data["who-is-caller"] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Where does the letter need to go?</h1>{% endif %}
+      {% if data["who-is-caller"] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Where is the forecast being sent?</h1>{% endif %}
       {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Where do {{ data["full-name"] }}'s letters need to go?</h1>{% endif %}
       {% if data["who-is-caller"] == "Third party" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Where do {{ data["full-name"] }}'s letters need to go?</h1>{% endif %}
 
@@ -40,12 +40,12 @@
               items: [
                 {
                   value: "Citizen",
-                  text: "Use " + data ['full-name'] + "' address",
+                  text: "Use citizen's address",
                   checked: data['paper-address-for-letters'] == "Citizen"
                 },
               {
                 value: "Third party",
-                text: "Use Third party's address",
+                text: "Use third party's address",
                 checked: data['paper-address-for-letters'] == "Third party"
               }
               ]

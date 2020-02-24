@@ -11,17 +11,14 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <span class="govuk-caption-m">All enquires</span>
-    <form action="contact-welsh" method="post" class="form">
+    <form action="contact-accessible-check-router" method="post" class="form">
 
-    <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Select address</h1>
-
-    <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-1"><strong>2</strong> addresses found for <strong> {{data["building-number"]}} </strong> and <strong> {{data["postcode"]}}</strong></p>
-    <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-4"><a class="govuk-link" href="address-postcode"></a></p>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-0">contact-accessible-check YN</h1>
 
       {{ govukRadios({
         classes: "govuk-radios",
-        idPrefix: "address",
-        name: "address",
+        idPrefix: "contact-accessible-check",
+        name: "contact-accessible-check",
         fieldset: {
           legend: {
             html: "",
@@ -36,22 +33,17 @@
 
         items: [
         {
-            value: "221A Baker Street",
-            text: "221A, Baker Street, town, city",
-            checked: (data["address"] == "221a")
+            value: "Yes",
+            text: "Yes",
+            checked: (data["contact-accessible-check"] == "Yes")
           },
           {
-            value: "221B Baker Street",
-            text: "221B, Baker Street, town, city",
-            checked: (data["address"] == "221b")
+            value: "No",
+            text: "No",
+            checked: (data["contact-accessible-check"] == "No")
           }
         ]
       }) }}
-
-      <ul class="govuk-list">
-        <li><a class="govuk-link" href="address-manual-uk">Address not on this list</a></li>
-      </ul>
-
 
       <br>
 
