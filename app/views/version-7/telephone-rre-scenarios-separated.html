@@ -1,0 +1,71 @@
+{% extends "layout-id-bar.html" %}
+
+{% block pageTitle %}
+  XXX - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <form action="telephone-rre-scenarios-separated-router" method="post" class="form">
+
+      <div class="govuk-panel--router-large govuk-!-margin-bottom-6">
+      <span class="govuk-caption-m">Internal only</span>
+
+  {{ govukRadios({
+    classes: "govuk-radios",
+    idPrefix: "telephone-rre-scenarios-separated",
+    name: "telephone-rre-scenarios-separated",
+    fieldset: {
+      legend: {
+        html: "RRE FLAG scenario selection: Married, civil partnership, widowed and divorced",
+
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    hint: {
+        text: ""
+    },
+
+    items: [
+    {
+      value: "RRE FLAG senario I",
+        text: "RRE FLAG senario I",
+        checked: (data["telephone-rre-scenarios-separated"] == "RRE FLAG senario I"),
+        hint: {
+          text: "IF divorced/widowed / AND current is less than divorced/widowed value"
+      }
+  },
+      {
+        value: "No flag",
+          text: "No flag / auto routing",
+          checked: (data["telephone-rre-scenarios-separated"] == "No flag"),
+          hint: {
+            text: "No flag"
+          }
+        }
+
+
+    ]
+  }) }}
+
+  </div>
+
+
+
+<br>
+
+{{ govukButton({
+  text: "Continue",
+  classes: "govuk-!-margin-right-1"
+}) }}
+
+    </form>
+
+  </div>
+</div>
+{% endblock %}

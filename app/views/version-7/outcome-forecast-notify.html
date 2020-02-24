@@ -1,0 +1,55 @@
+{% extends "layout-id-bar.html" %}
+
+{% block pageTitle %}
+  What is your National Insurance number? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <form action="fpc1-check" method="post">
+
+      <div class="govuk-grid-row govuk-!-margin-bottom-9">
+  <div class="govuk-grid-column-full">
+
+  <div class="govuk-panel--agent">
+        <h1 class="govuk-heading-l govuk-!-margin-bottom-3">Adviser: Forecast was sent using Notifiy</h1>
+        <h2 class="govuk-body govuk-!-font-size-19">Promote the online use, this may help them in the future</h2>
+  </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters">
+
+        <div class="govuk-panel--agent govuk-!-margin-bottom-6">
+        </div>
+          <h2 class="govuk-heading-xl govuk-!-margin-bottom-6"><span class="agent-action">You might be able to do some of this online, we have the following options that may help</h2>
+
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Option A</h2>
+            <p class="govuk-body govuk-!-margin-bottom-0">This is appropriate dummy text that is being employed in order to ascertain an approximate length </p>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+{{ govukButton({
+  text: "End call and continue"
+}) }}
+
+
+
+      </form>
+
+
+
+            </div>
+    </div>
+  </div>
+{% endblock %}

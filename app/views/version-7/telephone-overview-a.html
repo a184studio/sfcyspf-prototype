@@ -1,0 +1,145 @@
+{% extends "layout-id-bar.html" %}
+
+{% block pageTitle %}
+  Overview - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <form action="telephone-vnics-a" method="post">
+        <span class="govuk-caption-m">Telephone enquiry</span>
+
+<!--
+        <div class="govuk-panel--agent govuk-!-margin-bottom-6">
+          <h2 class="govuk-heading-m"><span class="agent-action">National Insrance number: </span>{{ data["yourself-national-insurance"] }}</h2>
+        </div>
+
+-->
+
+            <h2 class="govuk-heading-xl govuk-!-margin-bottom-6"><span class="agent-action">Overview / Standard</h2>
+
+              <!---<p class="govuk-body govuk-!-font-size-24">GOV have a bunch of cool data we can share with you so that you can make the best choies:</p>-->
+
+              {{ govukAccordion({
+                id: "accordion-default",
+                items: [
+                  {
+                    heading: {
+                      html: "<p class='govuk-body-overview govuk-!-font-size-24'>You can get your State Pension on: <strong>7 February 2033</strong></p>"
+                    },
+                    content: {
+                      html: "
+                      <p class='govuk-body govuk-!-font-size-19 govuk-!-padding-bottom-0'>This is the content for Writing well for the web.</p>
+                      <p class='govuk-body govuk-!-font-size-19 govuk-!-padding-bottom-6'><a href='call-type'>gov.uk/statePensionAgeCalculator</a> (Opens in a new window)</p>
+                      "
+                    }
+                  },
+                  {
+                    heading: {
+                      html: "<p class='govuk-body-overview govuk-!-font-size-24'>Estimated State Pension amount 2018/2019: <strong>£147.08 a week</strong></p>"
+                    },
+                    content: {
+                      html: "
+                      <p class='govuk-body govuk-!-font-size-19 govuk-!-padding-bottom-0'>This is appropriate dummy text that is being employed in order to ascertain an approximate length because the actual copy has not yet been received.</p>
+                      <p class='govuk-body govuk-!-font-size-19 govuk-!-padding-bottom-6'><strong>£3,016.44 </strong> a year <br><strong>38 qualifying years</strong> to 2018/2019</p>
+                      "
+                    }
+                  },
+                    {
+                    heading: {
+                      html: "<p class='govuk-body-overview govuk-!-font-size-24'>Forecast to State Pension age: <strong>£168.60 a week</strong></p>"
+                    },
+                    content: {
+                      html: "
+                      <p class='govuk-body govuk-!-font-size-19 govuk-!-padding-bottom-0'>Contribute all four years future to achieve forecast</p>
+                      <p class='govuk-body govuk-!-font-size-19 govuk-!-padding-bottom-0'><strong>£4,021.92</strong> a year</p>
+                      <p class='govuk-body govuk-!-font-size-19 govuk-!-padding-bottom-6'>Future years needed: <strong>5</strong></p>
+
+                      "
+                    }
+                  },
+                    {
+                    heading: {
+                      html: "<p class='govuk-body-overview govuk-!-font-size-24'>Most you can get: <strong>£168.60 a week</strong></p>"
+                    },
+                    content: {
+                      html: "
+                      <p class='govuk-body govuk-!-font-size-19 govuk-!-padding-bottom-0'>This can be achieved through a mix of filling gaps and contributing for future years.</p>
+                      <p class='govuk-body govuk-!-font-size-19 govuk-!-padding-bottom-6'><strong>£6,032.36 </strong> a year</p>
+                      "
+                    }
+                  },
+                    {
+                    heading: {
+                      html: "<p class='govuk-body-overview govuk-!-font-size-24'>COPE estimate: <strong>£5768 a week</strong></p>"
+                    },
+                    content: {
+                      html: "<p class='govuk-body govuk-!-font-size-19 govuk-!-padding-bottom-6'>The COPE amount is based on your National Insurance contribution record up to 5 April 2016 used to calculate your Starting Amount for the new State Pension.  <br><br>We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post.</p>"
+                    }
+                  },
+                    {
+                    heading: {
+                      html: "<p class='govuk-body-overview govuk-!-font-size-24'>(Conditional) for RRE</p>"
+                    },
+                    content: {
+                      html: "<p class='govuk-body govuk-!-font-size-19 govuk-!-padding-bottom-6'>Reduced rate National Insurance for married women this section is conditional based on RRE flag.</p>"
+                    }
+                  }
+                ]
+              }) }}
+
+
+
+<br><br>
+
+
+        {{ govukButton({
+          text: "Fill in gaps",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+
+
+        <div class="govuk-panel--router">
+          <p class="govuk-!-font-weight-bold govuk-!-font-size-19 govuk-!-margin-bottom-2">Service router</p>
+
+            <ul class="govuk-list">
+            <li class="govuk-body"><a href="yourself-find-claimant">Fill in gaps</a></li>
+            <li class="govuk-body"><a href="yourself-find-claimant">Create forecast</a></li>
+            <li class="govuk-body"><a href="call-type">Help with another enquriy</a></li>
+          </ul>
+        </div>
+
+
+<!---
+State Pension date: 19 November 2022
+Calculation State Pension age
+
+Adviser: Help gov.uk/statePensionAgeCalculator
+
+Estimated 2018 – 2019: £57.81 a week
+12 qualifying years to 2018/2019
+£3,016.44 a year
+
+Forecast to State Pension age: £77.08 a week
+Contribute all four years future to achieve forecast
+£4,021.92 a year
+
+Most they can get: £115.61
+This can be achieved through a mix of filling gaps and contributing for future years.
+£6,032.36 a year
+
+There is contracting out (COPE) on their record
+-->
+
+
+
+
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

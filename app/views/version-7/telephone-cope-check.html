@@ -1,0 +1,77 @@
+{% extends "layout-id-bar.html" %}
+
+{% block pageTitle %}
+  COPE check - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <form action="telephone-cope-check-router" method="post">
+
+          <div class="govuk-panel--agent govuk-!-margin-bottom-6">
+
+            <h2 class="govuk-heading-m"><span class="agent-action">Adviser: There is no COPE on this record</h2>
+
+              <!------------HEADLINE------------>
+                {% set legend %}
+                <h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Are there any contracted out schemes listed in OLE?</h1>
+                {% endset %}
+              <!------------HEADLINE------------>
+
+
+          <!-- <span class="govuk-caption-m">Telephone enquiry</span> -->
+
+              {{ govukRadios({
+                classes: "govuk-radios",
+                idPrefix: "telephone-cope-check",
+                name: "telephone-cope-check",
+                fieldset: {
+                  legend: {
+                    html: legend,
+
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                hint: {
+                    text: ""
+                },
+
+                items: [
+                {
+                    value: "Yes",
+                    text: "Yes",
+                    checked: (data["telephone-cope-check"] == "Yes"),
+                      label: {
+                        classes: "govuk-label--s"
+                      },
+                      hint: {
+                        text: ""
+                      }
+                    },
+                    {
+                    value: "No",
+                    html: "<strong>No</strong>",
+                    checked: (data["telephone-cope-check"] == "No")
+                  }
+                ]
+              }) }}
+
+              {{ govukButton({
+                classes: "govuk-!-margin-bottom-0",
+                text: "Continue"
+              }) }}
+
+              <!-- text: "Contracted out schemes: COD, GMP, CR, PP, ASS, RPA, INW." -->
+
+
+</div>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

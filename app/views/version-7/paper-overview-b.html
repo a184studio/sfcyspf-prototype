@@ -1,0 +1,183 @@
+{% extends "layout-id-bar.html" %}
+
+{% block pageTitle %}
+  Overview - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <form action="paper-overview-continue-router" method="post">
+        <span class="govuk-caption-m">Paper enquiry</span>
+
+<!--
+        <div class="govuk-panel--agent govuk-!-margin-bottom-6">
+          <h2 class="govuk-heading-m"><span class="agent-action">National Insrance number: </span>{{ data["yourself-national-insurance"] }}</h2>
+        </div>
+
+-->
+
+            <h2 class="govuk-heading-xl govuk-!-margin-bottom-6"><span class="agent-action">Overview</h2>
+
+              <!---<p class="govuk-body govuk-!-font-size-24">GOV have a bunch of cool data we can share with you so that you can make the best choies:</p>-->
+
+              <p class="govuk-body govuk-!-font-size-24">You can get your State Pension on: <strong>19 November 2022</strong></p>
+
+              <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    More information about their State Pension age
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  This is appropriate dummy text that is being employed in order to ascertain an approximate length because the actual copy has not yet been received.
+
+                  <br><br>
+                  <strong>Adviser: the climant may want to check their State Pension age.</strong>
+
+                  <br><p class="govuk-body govuk-!-padding-top-0"><a href="call-type">gov.uk/statePensionAgeCalculator</a> (Opens in a new window)</p>
+
+
+            </div>
+              </details>
+
+<!-----><hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+<p class="govuk-body govuk-!-font-size-24">Estimated State Pension amount 2018/2019: <strong>£57.81 a week</strong></p>
+            <details class="govuk-details" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  More details about the estimated
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body govuk-!-font-size-19">This is appropriate dummy text that is being employed in order to ascertain an approximate length because the actual copy has not yet been received.</p>
+                <p class="govuk-body govuk-!-font-size-19"><strong>£3,016.44 </strong> a year <br><strong>12 qualifying years</strong> to 2018/2019</p>
+              </div>
+
+
+            </details>
+
+<!-----><hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+            <p class="govuk-body govuk-!-font-size-24">Forecast to State Pension age: <strong>£77.08 a week</strong></p>
+
+
+            <details class="govuk-details" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  More details the forecast
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p class="govuk-body govuk-!-font-size-19">Contribute all four years future to achieve forecast</p>
+                <p class="govuk-body govuk-!-font-size-19"><strong>£4,021.92</strong> a year</p>
+              </div>
+            </details>
+
+            <!-----><hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+                        <p class="govuk-body govuk-!-font-size-24">Most you can get:<strong> £115.61 a week</strong></p>
+
+
+                        <details class="govuk-details" data-module="govuk-details">
+                          <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">
+                              More details about the most they can get
+                            </span>
+                          </summary>
+                          <div class="govuk-details__text">
+                            <p class="govuk-body govuk-!-font-size-19">This can be achieved through a mix of filling gaps and contributing for future years.</p>
+                            <p class="govuk-body govuk-!-font-size-19"><strong>£6,032.36 </strong> a year</p>
+                          </div>
+
+                        </details>
+
+            <!-----><hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+            <p class="govuk-body govuk-!-font-size-24">Contracted out pension equivalent (COPE) <strong></strong></p>
+
+            <details class="govuk-details" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Show more details about COPE
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                The COPE amount is based on your National Insurance contribution record up to 5 April 2016 used to calculate your Starting Amount for the new State Pension.  <br><br>We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post.
+
+            </div>
+          </details>
+
+          <!-----><hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+          <p class="govuk-body govuk-!-font-size-24">(Conditional) for RRE <strong></strong></p>
+
+          <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Show more details about Reduced rate National Insurance for married women
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            Reduced rate National Insurance for married women this section is conditional based on RRE flag.
+
+          </div>
+          </details>
+
+<br><br>
+
+        {{ govukRadios({
+          idPrefix: "paper-overview-continue",
+          name: "paper-overview-continue",
+          fieldset: {
+            legend: {
+              text: "Next steps",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+          {
+            value: "Create forecast",
+            text: "Create forecast",
+            checked: data['paper-overview-continue'] == "Create forecast"
+            },
+          {
+            value: "X",
+            text: "X",
+            checked: data['paper-overview-continue'] == "X"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+
+
+        <!--
+          <h2 class="govuk-heading-m govuk-!-margin-bottom-2 govuk-!-padding-top-2">Actions</h2>
+
+          <p class="govuk-body govuk-!-padding-top-0"><a href="yourself-find-claimant">Personalisation</a></p>
+
+          <p class="govuk-body govuk-!-padding-top-0"><a href="yourself-find-claimant">Create forecast</a></p>
+
+          <p class="govuk-body govuk-!-padding-top-0"><a href="call-type">Help with another enquriy</a></p>
+
+          <p class="govuk-body govuk-!-padding-top-0"><a href="exit-check">End call</a></p>
+
+        -->
+
+
+
+
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

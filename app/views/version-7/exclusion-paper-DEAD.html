@@ -1,0 +1,46 @@
+{% extends "layout-id-bar.html" %}
+
+{% block pageTitle %}
+  What is your National Insurance number? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <form action="start-work" method="post">
+
+      <!-- <div class="govuk-!-margin-bottom-6">
+        <h2 class="govuk-body govuk-!-font-size-24"><span class="agent-action"><strong>NI 11 22 33 A</strong> is excluded</h2>
+      </div> -->
+
+      {{ govukTag({
+        text: "Dead",
+        classes:"govuk-!-margin-bottom-4"
+      }) }}
+
+
+
+<!--<span class="govuk-caption-m govuk-!-margin-bottom-2">Paper enquires</span>-->
+      <h2 class="govuk-heading-xl govuk-!-margin-bottom-4"><span class="agent-action">Paper dead</h2>
+
+      <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-2"></p>
+
+  <p class="govuk-heading-s govuk-!-font-size-24 govuk-!-margin-bottom-2"><span class="agent-action">XXX</p>
+    <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-9">XXX</p>
+
+
+  <!--------------------------————-------->
+
+{{ govukButton({
+  text: "End enquiry"
+}) }}
+
+
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends "layout-id-bar.html" %}
+
+{% block pageTitle %}
+  What is your home address? - Pension Credit
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-m">All enquires</span>
+    <form action="contact-formats" method="post" class="form">
+
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Select address</h1>
+
+    <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-1"><strong>2</strong> addresses found for <strong> {{data["building-number"]}} </strong> and <strong> {{data["postcode"]}}</strong></p>
+    <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-2"><a class="govuk-link" href="address-postcode">Change</a></p>
+
+      {{ govukRadios({
+        classes: "govuk-radios",
+        idPrefix: "address",
+        name: "address",
+        fieldset: {
+          legend: {
+            html: "",
+
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        hint: {
+            text: ""
+        },
+
+        items: [
+        {
+            value: "221A Baker Street",
+            text: "221A, Baker Street",
+            checked: (data["address"] == "221a")
+          },
+          {
+            value: "221B Baker Street",
+            text: "221B, Baker Street",
+            checked: (data["address"] == "221b")
+          }
+        ]
+      }) }}
+
+      <ul class="govuk-list">
+        <li><a class="govuk-link" href="address-manual-uk">Enter address manually</a></li>
+      </ul>
+
+
+      <br>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form>
+
+    <!--
+
+    <div class="govuk-panel--router">
+      <p class="govuk-!-font-weight-bold govuk-!-font-size-19 govuk-!-margin-bottom-0">Service router</p>
+      <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-4">Continue will follow route without RRE flag</p>
+
+        <ul class="govuk-list">
+        <li><a class="govuk-link" href="telephone-rre-scenarios">RRE FLAG scenarios</a></li>
+        <li><a class="govuk-link" href="address-missing">No address found</a></li>
+      </ul>
+    </div>
+
+-->
+
+  </div>
+</div>
+{% endblock %}

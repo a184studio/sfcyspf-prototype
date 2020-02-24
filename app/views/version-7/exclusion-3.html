@@ -1,0 +1,51 @@
+{% extends "layout-id-bar.html" %}
+
+{% block pageTitle %}
+  What is your National Insurance number? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <form action="start-work" method="post">
+
+        <div class="govuk-panel--agent govuk-!-margin-bottom-6">
+          <h2 class="govuk-heading-m"><span class="agent-action">Exclusion code: </span>exclusion-1</h2>
+        </div>
+
+        <span class="govuk-caption-m govuk-!-margin-bottom-2">All enquires</span>
+            <h2 class="govuk-heading-xl govuk-!-margin-bottom-6"><span class="agent-action">Customer over State Pension age</h2>
+
+              <p class="govuk-body govuk-!-font-size-24">GOV have a bunch of cool data in here</p>
+
+
+              <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+              <h2 class="govuk-heading-m govuk-!-padding-top-0">What happens next</h2>
+                <ul class="govuk-list govuk-list">
+                <li>Telephone: 0800 731 0297</li>
+                <li>Telephone: 0800 XXX</li>
+                    <li>Monday to Friday, 8am to 6pm</li>
+                    <li><a href="https://www.gov.uk/XXX" class="govuk-link govuk-link--no-visited-state">Find out about call charges (Opens in new window)</a></li>
+                </ul>
+
+
+
+
+<br><br>
+
+
+{{ govukButton({
+  text: "Exit and close",
+  classes: "govuk-button--warning"
+}) }}
+
+
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

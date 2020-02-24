@@ -1,0 +1,124 @@
+{% extends "layout-id-bar.html" %}
+
+{% block pageTitle %}
+  XXX - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <form action="telephone-rre-cope-check" method="post" class="form">
+
+      <input type="hidden" name="benefits-complete" value="in-progress"/>
+
+      <span class="govuk-caption-m">Telephone enquiry</span>
+
+        <div class="govuk-!-margin-top-2 govuk-!-margin-bottom-6">
+          <h1 class="govuk-heading-xl"><span class="agent-action">Check your answers: Marital status and partner details</h1>
+
+
+      {{ govukSummaryList({
+        rows: [
+
+        {
+            key: {
+            text: "Marital status"
+          },
+          value: {
+            text: data["telephone-rre-marital-status"]
+          },
+          actions: {
+            items: [
+              {
+                href: "telephone-rre-marital-status",
+                text: "Change",
+                visuallyHiddenText: "X"
+              }
+            ]
+          }
+        }
+
+
+        ]
+      }) }}
+
+      <div class="govuk-!-margin-top-6 govuk-!-margin-bottom-0">
+        <h2 class="govuk-heading-m"><span class="agent-action">Partner details</h2>
+
+
+      {{ govukSummaryList({
+        rows: [
+
+        {
+            key: {
+            text: "Name"
+          },
+          value: {
+            text: data["partner-full-name"]
+          },
+          actions: {
+            items: [
+              {
+                href: "telephone-rre-partner",
+                text: "Change",
+                visuallyHiddenText: "X"
+              }
+            ]
+          }
+        },
+          {
+            key: {
+            text: "Date of birth"
+          },
+          value: {
+            text: "DD Month YYYY"
+          },
+          actions: {
+            items: [
+              {
+                href: "x",
+                text: "",
+                visuallyHiddenText: "X"
+              }
+            ]
+          }
+        },
+          {
+            key: {
+            text: "Gender"
+          },
+          value: {
+            text: data["telephone-partner-gender"]
+          },
+          actions: {
+            items: [
+              {
+                href: "x",
+                text: "",
+                visuallyHiddenText: "X"
+              }
+            ]
+          }
+        }
+
+        ]
+      }) }}
+
+
+
+<br><br><br>
+
+{{ govukButton({
+  text: "Continue",
+  classes: "govuk-!-margin-right-1"
+}) }}
+
+    </form>
+
+
+  </div>
+</div>
+{% endblock %}

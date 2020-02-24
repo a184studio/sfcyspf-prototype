@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Overview (A) (B) test - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="telephone-overview-ab-router" method="post">
+        <div class="govuk-panel--router-large">
+
+        <span class="govuk-caption-m">Internal only</span>
+
+        {{ govukRadios({
+          idPrefix: "telephone-overview-ab",
+          name: "telephone-overview-ab",
+          fieldset: {
+            legend: {
+              text: "Overview (A) (B) test",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+          {
+            value: "A",
+            text: "A / Standard",
+            checked: data['telephone-overview-ab'] == "A",
+              label: {
+                classes: ""
+              },
+              hint: {
+                text: ""
+              }
+          },
+            {
+              value: "A1",
+              text: "A / Complex",
+              checked: data['telephone-overview-ab'] == "A1",
+                label: {
+                  classes: ""
+                },
+                hint: {
+                  html: ""
+                }
+            },
+            {
+              value: "B",
+              text: "B / Standard",
+              checked: data['telephone-overview-ab'] == "B",
+                label: {
+                  classes: ""
+                },
+                hint: {
+                  text: ""
+                }
+            },
+            {
+              value: "B1",
+              text: "B / Complex",
+              checked: data['telephone-overview-ab'] == "B1",
+                label: {
+                  classes: ""
+                },
+                hint: {
+                  text: ""
+                }
+            }
+          ]
+        }) }}
+
+        <!-- Corporate Acting Body (CAB) <br>Personal Acting Body (PAB) -->
+</div>
+
+<br>
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+{% endblock %}

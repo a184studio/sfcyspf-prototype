@@ -1,0 +1,36 @@
+{% extends "layout-id-bar.html" %}
+
+{% block pageTitle %}
+  What is your National Insurance number? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="telephone-who-is-caller" method="post">
+
+          <div class="govuk-panel--agent govuk-!-margin-bottom-6">
+            <h2 class="govuk-heading-m"><span class="agent-action">Adviser: </span><strong>This persion has a status attached to their NI</strong></h2>
+          </div>
+          <span class="govuk-caption-m">Telephone enquiry (telephone-online-prompt-forecast)</span>
+            <h2 class="govuk-heading-xl govuk-!-margin-bottom-6"><span class="agent-action">You have filled in all of your gaps and you are at the maximum State Pension</h2>
+
+              <h2 class="govuk-body govuk-!-font-size-24">GOV have a bunch of options:</h2>
+
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Fact A</h2>
+              <p class="govuk-body govuk-!-margin-bottom-6">This is appropriate dummy text that is being employed in order to ascertain an approximate length </p>
+
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

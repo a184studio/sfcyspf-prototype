@@ -1,0 +1,171 @@
+{% extends "layout-id-bar.html" %}
+
+{% block pageTitle %}
+  What is your National Insurance number? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <form action="outcome-done" method="post">
+        <span class="govuk-caption-m">Telephone enquiry</span>
+
+<!--
+        <div class="govuk-panel--agent govuk-!-margin-bottom-6">
+          <h2 class="govuk-heading-m"><span class="agent-action">National Insrance number: </span>{{ data["yourself-national-insurance"] }}</h2>
+        </div>
+
+-->
+
+            <h2 class="govuk-heading-xl govuk-!-margin-bottom-6"><span class="agent-action">How to fill in gaps</h2>
+
+              <!--<p class="govuk-body govuk-!-font-size-24">GOV have a bunch of cool data we can share with you so that you can make the best choies:</p>-->
+
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-2">State Pension date:</h2>
+              <p class="govuk-heading-l govuk-!-margin-bottom-6">19 November 2022</p>
+
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-2">XXX</h2>
+              <p class="govuk-heading-l govuk-!-margin-bottom-6">X years</p>
+
+              <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+              <h2 class="govuk-heading-xm govuk-!-padding-top-0 govuk-!-margin-bottom-0">XXX</h2>
+
+
+              {{ govukTable({
+                caption: "",
+                firstCellIsHeader: false,
+                head: [
+                  {
+                    text: "",
+                    classes: 'govuk-table-item-name'
+                  },
+                  {
+                    text: "Per week",
+                    classes: 'govuk-table-item-1'
+                  },
+                  {
+                    html: "A year",
+                    classes: 'govuk-table-item-2'
+                  }
+                ],
+                rows: [
+                  [
+                    {
+                      html: "XXX"
+                    },
+                    {
+                      html: "<strong>£XXX</strong>"
+                    },
+                    {
+                      html: "<strong>£XXX</strong>"
+                    }
+                  ],
+                  [
+                    {
+                      text: "XXX"
+                    },
+                    {
+                      html: "<strong>£XXX</strong>"
+                    },
+                    {
+                      html: "<strong>£XXX</strong>"
+                    }
+                    ],
+                    [
+                    {
+                      text: "XXX"
+                    },
+                    {
+                      html: "<strong>£XXX</strong>"
+                    },
+                    {
+                      html: "<strong>£XXX</strong>"
+                    }
+                  ]
+                ]
+              }) }}
+
+
+              <h2 class="govuk-heading-xm govuk-!-padding-top-6 govuk-!-margin-bottom-0">XXX</h2>
+
+              {{ govukTable({
+                caption: "",
+                firstCellIsHeader: false,
+                head: [
+                  {
+                    text: "",
+                    classes: 'govuk-table-item-name'
+                  },
+                  {
+                    text: "Years",
+                    classes: 'govuk-table-item-1'
+                  },
+                  {
+                    text: "",
+                    classes: 'govuk-table-item-2'
+                  }
+                ],
+                rows: [
+                  [
+                    {
+                      html: "XXX"
+                    },
+                    {
+                      html: "<strong>30</strong>"
+                    },
+                    {
+                      html: ""
+                    }
+                  ],
+                  [
+                    {
+                      text: "XXX"
+                    },
+                    {
+                      html: "<strong>32</strong> "
+                    },
+                    {
+                      html: ""
+                    }
+                    ],
+                    [
+                    {
+                      text: "XXX"
+                    },
+                    {
+                      html: "<strong>35</strong> "
+                    },
+                    {
+                      html: ""
+                    }
+                  ]
+                ]
+              }) }}
+
+<!--
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Contracted Out (COPE)</h2>
+              <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-9">There is COPE on the record.</p>
+
+-->
+
+<br><br>
+
+
+        {{ govukButton({
+          text: "Continue",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+
+
+
+
+
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

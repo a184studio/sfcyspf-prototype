@@ -1,0 +1,50 @@
+{% extends "layout-id-bar.html" %}
+
+{% block pageTitle %}
+  What is your National Insurance number? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="start-work" method="post">
+
+      <div class="govuk-panel--agent govuk-!-margin-bottom-6">
+        <h2 class="govuk-heading-m"><span class="agent-action">Excluded: Manual Correspondence Indicator (MCI)</h2>
+      </div>
+
+
+<span class="govuk-caption-m govuk-!-margin-bottom-2">Telephone enquires</span>
+        <h2 class="govuk-heading-l govuk-!-margin-bottom-4"><span class="agent-action">OK, HMRC have restricted access to your National Insurance record</h2>
+
+        <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-6">This means I can’t access your record. You need to speak to HMRC directly. I’ve got the telephone numbers here for you, they’ll be able help.
+</p>
+
+<h2 class="govuk-heading-m govuk-!-padding-top-0">What happens next</h2>
+  <ul class="govuk-list govuk-list">
+  <li>United Kingdom Telephone: 0300 200 3300</li>
+  <li>Overseas Telephone: +44 135 535 9022</li>
+  <li>Textphone: 18001 then 0300 200 3300 (UK only)</li>
+  <li>Monday to Friday, 8am to 8pm (except public holidays)</li>
+  <li>Saturday 8am to 4pm</li>
+  <li><a href="https://www.gov.uk/XXX" class="govuk-link govuk-link--no-visited-state">Find out about call charges (Opens in new window)</a></li>
+  </ul>
+
+      <p class="govuk-panel--agent govuk-heading-s govuk-!-margin-bottom-9"><span class="agent-action">Adviser action: ?????</p>
+
+  <!--------------------------————-------->
+
+{{ govukButton({
+  text: "End enquiry",
+  classes: "govuk-button--warning"
+}) }}
+
+
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
