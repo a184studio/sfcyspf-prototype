@@ -17,7 +17,7 @@
 
     <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Select address</h1>
 
-    <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-1"><strong>2</strong> addresses found for <strong> {{data["building-number"]}} </strong> and <strong> {{data["postcode"]}}</strong></p>
+    <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-1"><strong>5</strong> addresses found for <strong> {{data["building-number"]}} </strong> and <strong> {{data["postcode"]}}</strong></p>
     <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-4"><a class="govuk-link" href="address-postcode"></a></p>
 
       {{ govukRadios({
@@ -38,14 +38,29 @@
 
         items: [
         {
-            value: "221A Baker Street",
-            text: "221A, Baker Street, town, city",
-            checked: (data["address"] == "221a")
+            value: "1 Wood Street, Burnopfield, Newcastle Upon Tyne",
+            text: "1 Wood Street, Burnopfield, Newcastle Upon Tyne",
+            checked: (data["address"] == "1 Wood Street, Burnopfield, Newcastle Upon Tyne")
           },
           {
-            value: "221B Baker Street",
-            text: "221B, Baker Street, town, city",
-            checked: (data["address"] == "221b")
+            value: "2 Wood Street, Burnopfield, Newcastle Upon Tyne",
+            text: "2 Wood Street, Burnopfield, Newcastle Upon Tyne",
+            checked: (data["address"] == "2 Wood Street, Burnopfield, Newcastle Upon Tyne")
+          },
+          {
+            value: "3 Wood Street, Burnopfield, Newcastle Upon Tyne",
+            text: "3 Wood Street, Burnopfield, Newcastle Upon Tyne",
+            checked: (data["address"] == "3 Wood Street, Burnopfield, Newcastle Upon Tyne")
+          },
+          {
+            value: "4 Wood Street, Burnopfield, Newcastle Upon Tyne",
+            text: "4 Wood Street, Burnopfield, Newcastle Upon Tyne",
+            checked: (data["address"] == "4 Wood Street, Burnopfield, Newcastle Upon Tyne")
+          },
+          {
+            value: "5 Wood Street, Burnopfield, Newcastle Upon Tyne",
+            text: "5 Wood Street, Burnopfield, Newcastle Upon Tyne",
+            checked: (data["address"] == "5 Wood Street, Burnopfield, Newcastle Upon Tyne")
           }
         ]
       }) }}
@@ -61,6 +76,9 @@
         text: "Continue"
       }) }}
     </form><p class="SFC-enquiry">All enquires</p>
+
+
+
 
     <!--
 
