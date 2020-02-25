@@ -10,10 +10,9 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <span class="govuk-caption-m">All enquires</span>
 
     {% if data["telephone-national-insurance-check"] == "NI 00 11 22 A" %}<form action="contact-welsh" method="post" class="form">{% endif %}
-    {% if data["telephone-national-insurance-check"] == "NI 00 11 22 R" %}<form action="telephone-rre-scenarios" method="post" class="form">{% endif %}
+    {% if data["telephone-national-insurance-check"] == "NI 00 11 22 F" %}<form action="telephone-rre-scenarios" method="post" class="form">{% endif %}
 
 
 
@@ -62,7 +61,7 @@
       {{ govukButton({
         text: "Continue"
       }) }}
-    </form>
+    </form><p class="SFC-enquiry">All enquires</p>
 
     <!--
 
