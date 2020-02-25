@@ -22,8 +22,8 @@
 
               {{ govukRadios({
                 classes: "govuk-radios",
-                idPrefix: "paper-cope-check",
-                name: "paper-cope-check",
+                idPrefix: "telephone-cope-check",
+                name: "telephone-cope-check",
                 fieldset: {
                   legend: {
                     html: "Are there any contracted out schemes listed in OLE?",
@@ -40,7 +40,7 @@
                 {
                   value: "Yes",
                   text: "Yes",
-                  checked: (data["paper-cope-check"] == "Yes"),
+                  checked: (data["telephone-cope-check"] == "Yes"),
                     label: {
                       classes: "govuk-label--s"
                     },
@@ -51,7 +51,7 @@
                   {
                   value: "No",
                   html: "<strong>No</strong>",
-                  checked: (data["paper-cope-check"] == "No")
+                  checked: (data["telephone-cope-check"] == "No")
                 }
               ]
             }) }}
