@@ -1,0 +1,168 @@
+{% extends "layout-id-bar.html" %}
+
+{% block pageTitle %}
+  Select address - Pension Credit
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% if data["telephone-national-insurance-check"] == "NI 00 11 22 A" %}<form action="contact-welsh" method="post" class="form">{% endif %}
+    {% if data["telephone-national-insurance-check"] == "NI 00 11 22 F" %}<form action="telephone-rre-scenarios" method="post" class="form">{% endif %}
+    {% if data["paper-national-insurance-check"] == "NI 00 11 22 A" %}<form action="contact-welsh" method="post" class="form">{% endif %}
+
+
+
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Select address</h1>
+
+    <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-1"><strong>2</strong> addresses found for <strong> {{data["building-number"]}} </strong> and <strong> {{data["postcode"]}}</strong></p>
+    <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-4"><a class="govuk-link" href="address-postcode"></a></p>
+
+      {{ govukRadios({
+        classes: "govuk-radios",
+        idPrefix: "address",
+        name: "address",
+        fieldset: {
+          legend: {
+            html: "",
+
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        hint: {
+            text: ""
+        },
+
+        items: [
+        {
+            value: "11 Brownlie Street, Glasgow",
+            text: "11 Brownlie Street, Glasgow",
+            checked: (data["address"] == "11 Brownlie Street, Glasgow")
+          },
+          {
+            value: "15 Brownlie Street, Glasgow",
+            text: "15 Brownlie Street, Glasgow",
+            checked: (data["address"] == "15 Brownlie Street, Glasgow")
+          },
+          {
+            value: "0/2, 17 Brownlie Street, Glasgow",
+            text: "0/2, 17 Brownlie Street, Glasgow",
+            checked: (data["address"] == "0/2, 17 Brownlie Street, Glasgow")
+          },
+          {
+            value: "1/1, 17 Brownlie Street, Glasgow",
+            text: "1/1, 17 Brownlie Street, Glasgow",
+            checked: (data["address"] == "1/1, 17 Brownlie Street, Glasgow")
+          },
+          {
+            value: "1/2, 17 Brownlie Street, Glasgow",
+            text: "1/2, 17 Brownlie Street, Glasgow",
+            checked: (data["address"] == "1/2, 17 Brownlie Street, Glasgow")
+          },
+          {
+            value: "2/1, 17 Brownlie Street, Glasgow",
+            text: "2/1, 17 Brownlie Street, Glasgow",
+            checked: (data["address"] == "2/1, 17 Brownlie Street, Glasgow")
+          },
+          {
+            value: "2/2, 17 Brownlie Street, Glasgow",
+            text: "2/2, 17 Brownlie Street, Glasgow",
+            checked: (data["address"] == "2/2, 17 Brownlie Street, Glasgow")
+          },
+          {
+            value: "3/1, 17 Brownlie Street, Glasgow",
+            text: "3/1, 17 Brownlie Street, Glasgow",
+            checked: (data["address"] == "3/1, 17 Brownlie Street, Glasgow")
+          },
+          {
+            value: "3/2, 17 Brownlie Street, Glasgow",
+            text: "3/2, 17 Brownlie Street, Glasgow",
+            checked: (data["address"] == "3/2, 17 Brownlie Street, Glasgow")
+          },
+          {
+            value: "0/1, 19 Brownlie Street, Glasgow",
+            text: "0/1, 19 Brownlie Street, Glasgow",
+            checked: (data["address"] == "0/1, 19 Brownlie Street, Glasgow")
+          },
+          {
+            value: "0/2, 19 Brownlie Street, Glasgow",
+            text: "0/2, 19 Brownlie Street, Glasgow",
+            checked: (data["address"] == "0/2, 19 Brownlie Street, Glasgow")
+          },
+          {
+            value: "25 Brownlie Street, Glasgow",
+            text: "25 Brownlie Street, Glasgow",
+            checked: (data["address"] == "25 Brownlie Street, Glasgow")
+          },
+          {
+            value: "0/2, 27 Brownlie Street, Glasgow",
+            text: "0/2, 27 Brownlie Street, Glasgow",
+            checked: (data["address"] == "0/2, 27 Brownlie Street, Glasgow")
+          },
+          {
+            value: "1/1, 27 Brownlie Street, Glasgow",
+            text: "1/1, 27 Brownlie Street, Glasgow",
+            checked: (data["address"] == "1/1, 27 Brownlie Street, Glasgow")
+          },
+          {
+            value: "1/2, 27 Brownlie Street, Glasgow",
+            text: "1/2, 27 Brownlie Street, Glasgow",
+            checked: (data["address"] == "1/2, 27 Brownlie Street, Glasgow")
+          },
+          {
+            value: "2/1, 27 Brownlie Street, Glasgow",
+            text: "2/1, 27 Brownlie Street, Glasgow",
+            checked: (data["address"] == "2/1, 27 Brownlie Street, Glasgow")
+          },
+          {
+            value: "3/1, 27 Brownlie Street, Glasgow",
+            text: "3/1, 27 Brownlie Street, Glasgow",
+            checked: (data["address"] == "3/1, 27 Brownlie Street, Glasgow")
+          },
+          {
+            value: "3/2, 27 Brownlie Street, Glasgow",
+            text: "3/2, 27 Brownlie Street, Glasgow",
+            checked: (data["address"] == "3/2, 27 Brownlie Street, Glasgow")
+          },
+          {
+            value: "29 Brownlie Street, Glasgow",
+            text: "29 Brownlie Street, Glasgow",
+            checked: (data["address"] == "29 Brownlie Street, Glasgow")
+          }
+        ]
+      }) }}
+
+      <ul class="govuk-list">
+        <li><a class="govuk-link" href="address-manual-uk">Address not on this list</a></li>
+      </ul>
+
+
+      <br>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form><p class="SFC-enquiry">All enquires</p>
+
+    <!--
+
+    <div class="govuk-panel--router">
+      <p class="govuk-!-font-weight-bold govuk-!-font-size-19 govuk-!-margin-bottom-0">Service router</p>
+      <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-4">Continue will follow route without RRE flag</p>
+
+        <ul class="govuk-list">
+        <li><a class="govuk-link" href="telephone-rre-scenarios">RRE FLAG scenarios</a></li>
+        <li><a class="govuk-link" href="address-missing">No address found</a></li>
+      </ul>
+    </div>
+
+-->
+
+  </div>
+</div>
+{% endblock %}

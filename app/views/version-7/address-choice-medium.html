@@ -1,0 +1,173 @@
+{% extends "layout-id-bar.html" %}
+
+{% block pageTitle %}
+  Select address - Pension Credit
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% if data["telephone-national-insurance-check"] == "NI 00 11 22 A" %}<form action="contact-welsh" method="post" class="form">{% endif %}
+    {% if data["telephone-national-insurance-check"] == "NI 00 11 22 F" %}<form action="telephone-rre-scenarios" method="post" class="form">{% endif %}
+    {% if data["paper-national-insurance-check"] == "NI 00 11 22 A" %}<form action="contact-welsh" method="post" class="form">{% endif %}
+
+
+
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Select address</h1>
+
+    <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-1"><strong>2</strong> addresses found for <strong> {{data["building-number"]}} </strong> and <strong> {{data["postcode"]}}</strong></p>
+    <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-4"><a class="govuk-link" href="address-postcode"></a></p>
+
+      {{ govukRadios({
+        classes: "govuk-radios",
+        idPrefix: "address",
+        name: "address",
+        fieldset: {
+          legend: {
+            html: "",
+
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        hint: {
+            text: ""
+        },
+
+        items: [
+        {
+            value: "P1, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            text: "P1, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            checked: (data["address"] == "P1, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+          },
+          {
+            value: "P2, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            text: "P2, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            checked: (data["address"] == "P2, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+          },
+          {
+            value: "P3, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            text: "P3, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            checked: (data["address"] == "P3, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+          },
+          {
+            value: "P4, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            text: "P4, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            checked: (data["address"] == "P4, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+          },
+          {
+            value: "P5, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            text: "P5, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            checked: (data["address"] == "P5, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+          },
+          {
+            value: "P6, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            text: "P6, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            checked: (data["address"] == "P6, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+          },
+          {
+            value: "P7, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            text: "P7, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            checked: (data["address"] == "P7, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+          },
+          {
+            value: "P8, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            text: "P8, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            checked: (data["address"] == "P8, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+          },
+          {
+            value: "9/1, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            text: "9/1, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            checked: (data["address"] == "9/1, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+          },
+          {
+            value: "9/10, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            text: "9/10, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            checked: (data["address"] == "9/10, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+          },
+          {
+            value: "9/11, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            text: "9/11, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            checked: (data["address"] == "9/11, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+          },
+          {
+            value: "9/12, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            text: "9/12, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            checked: (data["address"] == "9/12, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+          },
+          {
+            value: "9/13, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            text: "9/13, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            checked: (data["address"] == "9/13, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+          },
+          {
+            value: "9/14, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            text: "9/14, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            checked: (data["address"] == "9/14, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+          },
+          {
+            value: "9/15, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            text: "9/15, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            checked: (data["address"] == "9/15, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+          },
+          {
+            value: "9/16, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            text: "9/16, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            checked: (data["address"] == "9/16, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+          },
+          {
+            value: "9/17, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            text: "9/17, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            checked: (data["address"] == "9/17, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+          },
+          {
+            value: "9/18, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            text: "9/18, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            checked: (data["address"] == "9/18, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+          },
+          {
+            value: "9/19, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            text: "9/19, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            checked: (data["address"] == "9/19, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+          },
+          {
+            value: "9/2, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            text: "9/2, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+            checked: (data["address"] == "9/2, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+          }
+        ]
+      }) }}
+
+      <ul class="govuk-list">
+        <li><a class="govuk-link" href="address-manual-uk">Address not on this list</a></li>
+      </ul>
+
+
+      <br>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form><p class="SFC-enquiry">All enquires</p>
+
+    <!--
+
+    <div class="govuk-panel--router">
+      <p class="govuk-!-font-weight-bold govuk-!-font-size-19 govuk-!-margin-bottom-0">Service router</p>
+      <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-4">Continue will follow route without RRE flag</p>
+
+        <ul class="govuk-list">
+        <li><a class="govuk-link" href="telephone-rre-scenarios">RRE FLAG scenarios</a></li>
+        <li><a class="govuk-link" href="address-missing">No address found</a></li>
+      </ul>
+    </div>
+
+-->
+
+  </div>
+</div>
+{% endblock %}

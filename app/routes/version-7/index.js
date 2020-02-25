@@ -67,7 +67,7 @@ const router = new express.Router()
       res.redirect('exclusion-telephone-DEAD')
 
     } else if (telephoneNIcheck === 'NI 00 11 22 F') {
-      res.redirect('telephone-who-is-caller')
+      res.redirect('telephone-enquiry-type')
 
     } else {
       res.redirect('exclusion-validation')
@@ -197,6 +197,22 @@ const router = new express.Router()
     } else {
       res.redirect('XXX')
     }
+  })
+
+
+
+  router.post('/address-choice-router', (req, res, next) => {
+    const postCode = req.session.data['postcode']
+
+  if (postCode.includes('G42 9BT') === true) {
+    res.redirect('address-choice-hard')
+  }
+  else if (postCode.includes('NE1 6BJ') === true) {
+    res.redirect('address-choice-medium')
+  }
+  else {
+    res.redirect('address-choice')
+  }
   })
 
 
