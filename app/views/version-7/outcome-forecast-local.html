@@ -13,13 +13,12 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
-      <form action="fpc1-check" method="post">
 
         {% if data["paper-cope-check"] == "Yes" %}<form action="download-fpc1" method="post" class="form">{% endif %}
-        {% if data["paper-cope-check"] == "No" %}<form action="start" method="post" class="form">{% endif %}
+        {% if data["paper-cope-check"] == "No" %}<form action="outcome-done" method="post" class="form">{% endif %}
 
           {% if data["telephone-cope-check"] == "Yes" %}<form action="download-fpc1" method="post" class="form">{% endif %}
-          {% if data["telephone-cope-check"] == "No" %}<form action="start" method="post" class="form">{% endif %}
+          {% if data["telephone-cope-check"] == "No" %}<form action="outcome-done" method="post" class="form">{% endif %}
 
 
 
