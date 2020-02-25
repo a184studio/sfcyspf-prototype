@@ -13,7 +13,21 @@
     <span class="govuk-caption-m">All enquires</span>
     <form action="contact-accessible-check-router" method="post" class="form">
 
-    <h1 class="govuk-heading-xl govuk-!-margin-bottom-0">contact-accessible-check YN</h1>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Future contact</h1>
+
+    <p class="govuk-heading-m govuk-!-margin-bottom-3">Contact telephone number</p>
+
+    {{ govukInput({
+      label: {
+        html: ""
+      },
+      id: "telephone-number",
+      name: "telephone-number",
+      classes: "govuk-input--width-20",
+      value: data["telephone-number"]
+    }) }}
+
+    <br>
 
       {{ govukRadios({
         classes: "govuk-radios",
@@ -21,14 +35,14 @@
         name: "contact-accessible-check",
         fieldset: {
           legend: {
-            html: "",
+            html: "Alternative format to GOV standard letters?",
 
             isPageHeading: true,
-            classes: "govuk-fieldset__legend--xl"
+            classes: "govuk-fieldset__legend--m"
           }
         },
         hint: {
-            text: ""
+            text: "GOV stanard letters are A4, black text printed on white paper and 14pt text"
         },
 
         items: [

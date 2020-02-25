@@ -10,36 +10,203 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="contact-formats-router" method="post" class="form">
+
+      <!------------ROUTER------------>
+    {% if data["address-check"] == "United Kingdom" %}<form action="contact-formats-router" method="post" class="form">{% endif %}
+    {% if data["address-check"] == "Overseas" %}<form action="outcome-forecast-check-local" method="post" class="form">{% endif %}
+
+      <!------------ROUTER------------>
+
 
       <!------------HEADLINE------------>
-        {% if data["who-is-caller"] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Accessible formats</h1>{% endif %}
+        {% if data["who-is-caller"] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Do you need us to contact you in any of the following formats?</h1>{% endif %}
         {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Does {{data["full-name"]}}'s have any contact formats?</h1>{% endif %}
       <!------------HEADLINE------------>
 
 
+      {% set AudioFormYesHint %}
+      <p class=govuk-hint></p>
+      <ul class="govuk-hint govuk-list govuk-list--bullet govuk-!-margin-bottom-4">
+        <li>???</li>
+        <li>???</li>
+      </ul>
+      {% endset %}
 
-      {{ govukInput({
-        label: {
-          html: "<strong>Contact telephone number</strong>"
-        },
-        id: "telephone-number",
-        name: "telephone-number",
-        classes: "govuk-input--width-20",
-        value: data["telephone-number"]
-      }) }}
+              {% set AudioFormYes %}
+
+                {{ govukTextarea({
+                  label: {
+                    classes: "govuk-label--s",
+                    html: "Include any of the following details"
+                  },
+                  hint: {
+                    html: AudioFormYesHint},
+                  id: "audio-form-yes",
+                  name: "audio-form-yes",
+                  classes: "govuk-input--width-100",
+                  attributes: {
+                    maxlength: 200
+                  }
+                }) }}
+              {% endset %}
+
+      <!-------------------------------------------------------------------------->
+
+      {% set AudioYesHint %}
+      <p class=govuk-hint></p>
+      <ul class="govuk-hint govuk-list govuk-list--bullet govuk-!-margin-bottom-4">
+        <li>???</li>
+        <li>???</li>
+      </ul>
+      {% endset %}
+
+              {% set AudioYes %}
+
+                {{ govukTextarea({
+                  label: {
+                    classes: "govuk-label--s",
+                    html: "Include any of the following details"
+                  },
+                  hint: {
+                    html: AudioYesHint},
+                  id: "audio-yes",
+                  name: "audio-yes",
+                  classes: "govuk-input--width-100",
+                  attributes: {
+                    maxlength: 200
+                  }
+                }) }}
+              {% endset %}
+
+      <!-------------------------------------------------------------------------->
+
+      {% set BrailleYesHint %}
+      <p class=govuk-hint></p>
+      <ul class="govuk-hint govuk-list govuk-list--bullet govuk-!-margin-bottom-4">
+        <li>???</li>
+        <li>???</li>
+      </ul>
+      {% endset %}
+
+              {% set BrailleYes %}
+
+                {{ govukTextarea({
+                  label: {
+                    classes: "govuk-label--s",
+                    html: "Include any of the following details"
+                  },
+                  hint: {
+                    html: BrailleYesHint},
+                  id: "braille-yes",
+                  name: "braille-form-yes",
+                  classes: "govuk-input--width-100",
+                  attributes: {
+                    maxlength: 200
+                  }
+                }) }}
+              {% endset %}
+
+      <!-------------------------------------------------------------------------->
+
+      {% set LargePrintYesHint %}
+      <p class=govuk-hint></p>
+      <ul class="govuk-hint govuk-list govuk-list--bullet govuk-!-margin-bottom-4">
+        <li>???</li>
+        <li>???</li>
+      </ul>
+      {% endset %}
+
+              {% set LargePrintYes %}
+
+                {{ govukTextarea({
+                  label: {
+                    classes: "govuk-label--s",
+                    html: "Include any of the following details"
+                  },
+                  hint: {
+                    html: LargePrintYesHint},
+                  id: "large-print-yes",
+                  name: "large-print-yes",
+                  classes: "govuk-input--width-100",
+                  attributes: {
+                    maxlength: 200
+                  }
+                }) }}
+              {% endset %}
+
+      <!-------------------------------------------------------------------------->
+
+      {% set TexBoxYesHint %}
+      <p class=govuk-hint></p>
+      <ul class="govuk-hint govuk-list govuk-list--bullet govuk-!-margin-bottom-4">
+        <li>???</li>
+        <li>???</li>
+      </ul>
+      {% endset %}
+
+              {% set TexBoxYes %}
+
+                {{ govukTextarea({
+                  label: {
+                    classes: "govuk-label--s",
+                    html: "Include any of the following details"
+                  },
+                  hint: {
+                    html: TexBoxYesHint},
+                  id: "TexBox-yes",
+                  name: "TexBox-yes",
+                  classes: "govuk-input--width-100",
+                  attributes: {
+                    maxlength: 200
+                  }
+                }) }}
+              {% endset %}
+
+      <!-------------------------------------------------------------------------->
+
+      {% set TypeTalkYesHint %}
+      <p class=govuk-hint></p>
+      <ul class="govuk-hint govuk-list govuk-list--bullet govuk-!-margin-bottom-4">
+        <li>???</li>
+        <li>???</li>
+      </ul>
+      {% endset %}
+
+              {% set TypeTalkYes %}
+
+                {{ govukTextarea({
+                  label: {
+                    classes: "govuk-label--s",
+                    html: "Include any of the following details"
+                  },
+                  hint: {
+                    html: TypeTalkYesHint},
+                  id: "TypeTalk-yes",
+                  name: "TypeTalk-yes",
+                  classes: "govuk-input--width-100",
+                  attributes: {
+                    maxlength: 200
+                  }
+                }) }}
+              {% endset %}
+
+      <!-------------------------------------------------------------------------->
+
 
       {% set disabilities = data["disabilities"] or [] %}
       {% set accessability = data["accessibility"] or [] %}
 
+
+
       {{ govukCheckboxes({
-        idPrefix: "disabilities",
-        name: "disabilities",
+        classes: "govuk-!-margin-bottom-4",
+        idPrefix: "contact-formats",
+        name: "contact-formats",
         fieldset: {
           legend: {
-            text: "Contact formats",
+            text: "",
             isPageHeading: true,
-            classes: "govuk-fieldset__legend--s"
+            classes: "govuk-fieldset__legend--xl govuk-!-margin-bottom-6"
           }
         },
         hint: {
@@ -49,95 +216,74 @@
 {
           value: "Audio form",
           text: "Audio form",
-          checked: (disabilities.includes("Audioform"))
+          checked: (data["contact-formats"] == "Audio form"),
+          conditional: {
+            html: AudioFormYes
+          }
         },
         {
 
           value: "Audio CD, cassette or MP3",
-          text: "Audio (Audio CD, cassette or MP3)",
-          checked: (accessability.includes("Audio"))
+          text: "Audio CD, cassette or MP3",
+          checked: (data["contact-formats"] == "Audio CD, cassette or MP3"),
+          conditional: {
+            html: AudioYes
+          }
         },
 
           {
             value: "Braille",
             text: "Braille",
-            checked: (disabilities.includes("Braille"))
+            checked: (data["contact-formats"] == "Braille"),
+            conditional: {
+              html: BrailleYes
+            }
           },
+
           {
             value: "Large print",
             text: "Large print",
-            checked: (disabilities.includes("Large print"))
+            checked: (data["contact-formats"] == "Large print"),
+            conditional: {
+              html: LargePrintYes
+            }
           },
+
           {
             value: "TexBox",
             text: "TexBox",
-            checked: (disabilities.includes("TexBox"))
+            checked: (data["contact-formats"] == "TexBox"),
+            conditional: {
+              html: TexBoxYes
+            }
           },
+
           {
             value: "TypeTalk",
             text: "TypeTalk",
-            checked: (disabilities.includes("TypeTalk"))
-          }
+            checked: (data["contact-formats"] == "TypeTalk"),
+            conditional: {
+              html: TypeTalkYes
+            }
+          },
+
+          {
+            value: "No",
+            text: "No",
+            checked: (data["contact-formats"] == "No")
+            }
         ]
       }) }}
-
-      {{ govukTextarea({
-        label: {
-          classes: "govuk-label--s",
-          html: "Details of other formats"
-        },
-        hint:{
-          html: "@MM add more boxes"
-        },
-        id: "contact-formats-other",
-        name: "contact-formats-other",
-        classes: "govuk-input--width-1}00",
-        attributes: {
-          maxlength: 200
-        }
-      }) }}
-
-
-      <!-- {{ govukRadios({
-        classes: "govuk-radios",
-        idPrefix: "disabilities-welsh-yn",
-        name: "disabilities-welsh-yn",
-        fieldset: {
-          legend: {
-            html: "Do you need letters in Welsh?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--s"
-          }
-        },
-        hint: {
-          text: ""
-        },
-        items: [
-        {
-          value: "Yes",
-          text: "Yes",
-          checked: (data["disabilities-welsh-yn"] == "Yes")
-        },
-        {
-          value: "No",
-          text: "No",
-          checked: (data["disabilities-welsh-yn"] == "No")
-        }
-
-        ]
-      }) }} -->
-
-
 
       {{ govukButton({
         text: "Continue"
       }) }}
 
 
+<!--
     <div class="govuk-panel--router">
       <p class="govuk-!-font-weight-bold govuk-!-font-size-19 govuk-!-margin-bottom-0">Service router (conditional call to action based on choice)</p>
       <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-4"></p>
-
         <ul class="govuk-list">
 
         {% if data["address-check"] == "Overseas" %}<li><a href="outcome-forecast-check-local">Print local</a></li>{% endif %}
@@ -146,7 +292,7 @@
 
       </ul>
     </div>
-
+-->
 
 
 

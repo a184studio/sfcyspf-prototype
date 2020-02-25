@@ -38,26 +38,39 @@ const router = new express.Router()
       res.redirect('exclusion-10')
     } else if (telephoneNIcheck === 'MCI') {
       res.redirect('exclusion-telephone-MCI')
-    } else if (telephoneNIcheck === 'NI 00 11 22 B') {
-      res.redirect('exclusion-telephone-MCI')
+
     } else if (telephoneNIcheck === 'RRE') {
       res.redirect('telephone-enquiry-type')
-    } else if (telephoneNIcheck === 'MAN') {
-      res.redirect('exclusion-telephone-isle-of-man')
-    } else if (telephoneNIcheck === 'NI 00 11 22 C') {
-      res.redirect('exclusion-telephone-isle-of-man')
+
     } else if (telephoneNIcheck === 'NOCOPE') {
       res.redirect('telephone-cope-check')
-    } else if (telephoneNIcheck === 'NI 00 11 22 D') {
-      res.redirect('telephone-cope-check')
+
     } else if (telephoneNIcheck === 'YESCOPE') {
       res.redirect('telephone-enquiry-type')
+
     } else if (telephoneNIcheck === 'MISSINGNI') {
       res.redirect('exclustion-missing-ni')
-    } else if (telephoneNIcheck === 'NI 00 11 22 A') {
-      res.redirect('telephone-enquiry-type')
-    } else if (telephoneNIcheck === 'NI 00 11 22 E') {
+
+    } else if (telephoneNIcheck === 'NI 00 11 22 C') {
+      res.redirect('telephone-cope-check')
+
+    } else if (telephoneNIcheck === 'NI 00 11 22 D') {
       res.redirect('exclusion-telephone-DEAD')
+
+    } else if (telephoneNIcheck === 'NI 00 11 22 I') {
+      res.redirect('exclusion-telephone-isle-of-man')
+
+    } else if (telephoneNIcheck === 'NI 00 11 22 M') {
+      res.redirect('exclusion-telephone-MCI')
+
+    } else if (telephoneNIcheck === 'NI 00 11 22 N') {
+      res.redirect('telephone-who-is-caller') // Normal
+
+    } else if (telephoneNIcheck === 'NI 00 11 22 R') {
+      res.redirect('telephone-who-is-caller')
+
+
+
     } else {
       res.redirect('exclusion-validation')
     }
@@ -88,18 +101,11 @@ const router = new express.Router()
       res.redirect('exclusion-10')
     } else if (paperNIcheck === 'MCI') {
       res.redirect('exclusion-paper-MCI')
-    } else if (paperNIcheck === 'NI 00 11 22 B') {
-      res.redirect('exclusion-paper-MCI')
+
     } else if (paperNIcheck === 'RRE') {
       res.redirect('paper-who-is-caller')
-    } else if (paperNIcheck === 'MAN') {
-      res.redirect('exclusion-paper-isle-of-man')
-    } else if (paperNIcheck === 'NI 00 11 22 C') {
-      res.redirect('exclusion-paper-isle-of-man')
-    } else if (paperNIcheck === 'NOCOPE') {
-      res.redirect('paper-cope-check')
 
-    } else if (paperNIcheck === 'NI 00 11 22 D') {
+    } else if (paperNIcheck === 'NOCOPE') {
       res.redirect('paper-cope-check')
 
     } else if (paperNIcheck === 'YESCOPE') {
@@ -108,12 +114,23 @@ const router = new express.Router()
     } else if (paperNIcheck === 'MISSINGNI') {
       res.redirect('exclustion-missing-ni')
 
-    } else if (paperNIcheck === 'NI 00 11 22 A') {
-      res.redirect('paper-who-is-caller')
+    } else if (paperNIcheck === 'NI 00 11 22 C') {
+      res.redirect('paper-cope-check')
 
-    } else if (paperNIcheck === 'NI 00 11 22 E') {
+    } else if (paperNIcheck === 'NI 00 11 22 D') {
       res.redirect('exclusion-paper-DEAD')
 
+    } else if (paperNIcheck === 'NI 00 11 22 I') {
+      res.redirect('exclusion-paper-isle-of-man')
+
+    } else if (paperNIcheck === 'NI 00 11 22 M') {
+      res.redirect('exclusion-paper-MCI')
+
+    } else if (paperNIcheck === 'NI 00 11 22 N') {
+      res.redirect('paper-who-is-caller') // Normal
+
+    } else if (paperNIcheck === 'NI 00 11 22 R') {
+      res.redirect('paper-who-is-caller')
 
     } else {
       res.redirect('exclusion-validation')
@@ -267,9 +284,9 @@ router.post('/telephone-rre-marital-status-router', (req, res, next) => {
   const rreMaritalStatus = req.session.data['telephone-rre-marital-status']
 
   if (rreMaritalStatus === 'Married') {
-    res.redirect('telephone-rre-scenarios-continued')
+    res.redirect('telephone-rre-partner')
   } else if (rreMaritalStatus === 'Civil partnership') {
-    res.redirect('telephone-rre-scenarios-continued')
+    res.redirect('telephone-rre-partner')
   } else if (rreMaritalStatus === 'Widowed') {
     res.redirect('telephone-rre-scenarios-separated')
   } else if (rreMaritalStatus === 'Divorced') {
@@ -334,6 +351,42 @@ router.post('/telephone-rre-cope-check-router', (req, res, next) => {
     res.redirect('contact-formats')
   }
 })
+
+
+router.post('/contact-formats-router', (req, res, next) => {
+  const contactFormats = req.session.data['contact-formats']
+
+if (contactFormats.includes('Audio form') === true) {
+  res.redirect('contact-formats-fallout')
+}
+else if (contactFormats.includes('Audio CD, cassette or MP3') === true) {
+  res.redirect('contact-formats-fallout')
+}
+else if (contactFormats.includes('Braille') === true) {
+  res.redirect('contact-formats-fallout')
+}
+else if (contactFormats.includes('Large print') === true) {
+  res.redirect('contact-formats-fallout')
+}
+else if (contactFormats.includes('Letters in Welsh') === true) {
+  res.redirect('contact-formats-fallout')
+}
+else if (contactFormats.includes('TexBox') === true) {
+  res.redirect('contact-formats-fallout')
+}
+else if (contactFormats.includes('TypeTalk') === true) {
+  res.redirect('contact-formats-fallout')
+}
+else {
+  res.redirect('outcome-forecast-check-notify')
+}
+})
+
+
+
+
+
+
 
 
 

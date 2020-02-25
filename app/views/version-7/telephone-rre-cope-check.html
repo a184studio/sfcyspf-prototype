@@ -11,11 +11,6 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
       <form action="telephone-rre-cope-check-router" method="post">
-        <div class="govuk-panel--agent govuk-!-margin-top-2 govuk-!-margin-bottom-6">
-
-
-            <h2 class="govuk-heading-m"><span class="agent-action">Adviser: Look in OLE NIRS and determine COPE status</h2>
-
 
           <!------------HEADLINE------------>
             {% set legend %}
@@ -23,52 +18,53 @@
             {% endset %}
           <!------------HEADLINE------------>
 
+      {{ govukRadios({
+        classes: "govuk-radios",
+        idPrefix: "paper-cope-check",
+        name: "paper-cope-check",
+        fieldset: {
+          legend: {
+            html: "Are there any contracted out schemes listed in OLE?",
 
-      <h2 class="govuk-body govuk-!-font-size-24">There is no COPE on the record. Are there contracted out schemes in OLE/NIRS?</h2>
-      <h2 class="govuk-body govuk-!-font-size-24">Step 2</h2>
-      <h2 class="govuk-body govuk-!-font-size-24">Step 3</h2>
-      <h2 class="govuk-body govuk-!-font-size-24">Step 4</h2>
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        hint: {
+            text: ""
+        },
 
-      </div>
-      <span class="govuk-caption-m">Paper enquiry</span>
+        items: [
+        {
+          value: "Yes",
+          text: "Yes",
+          checked: (data["paper-cope-check"] == "Yes"),
+            label: {
+              classes: "govuk-label--s"
+            },
+            hint: {
+              text: "Contracted out schemes: COD, GMP, CR, PP, ASS, RPA, INW."
+            }
+          },
+          {
+          value: "No",
+          html: "<strong>No</strong>",
+          checked: (data["paper-cope-check"] == "No")
+        }
+      ]
+    }) }}
 
-              {{ govukRadios({
-                classes: "govuk-radios",
-                idPrefix: "telephone-rre-cope-check",
-                name: "telephone-rre-cope-check",
-                fieldset: {
-                  legend: {
-                    html: "Does they have Contracted Out Pension Equivalent (COPE)?",
-
-                    isPageHeading: true,
-                    classes: "govuk-fieldset__legend--l"
-                  }
-                },
-                hint: {
-                    text: ""
-                },
-
-                items: [
-                {
-                    value: "Yes",
-                    text: "Yes",
-                    checked: (data["telephone-rre-cope-check"] == "Yes")
-                  },
-                  {
-                    value: "No",
-                    text: "No",
-                    checked: (data["telephone-rre-cope-check"] == "No")
-                  }
-                ]
-              }) }}
-
-              {{ govukButton({
-                classes: "govuk-!-margin-bottom-0",
-                text: "Continue"
-              }) }}
+{{ govukButton({
+  classes: "govuk-!-margin-bottom-0",
+  text: "Continue"
+}) }}
 
 
       </form>
+      <p class="SFC-enquiry">Paper enquiry</p>
+
     </div>
   </div>
+
+
 {% endblock %}
