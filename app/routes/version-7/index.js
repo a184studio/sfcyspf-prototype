@@ -305,7 +305,7 @@ router.post('/telephone-rre-marital-status-router', (req, res, next) => {
     res.redirect('telephone-rre-scenarios-separated')
   } else if (rreMaritalStatus === 'Divorced') {
     res.redirect('telephone-rre-scenarios-separated')
-  } else if (rreMaritalStatus === 'Dissolution') {
+  } else if (rreMaritalStatus === 'Dissolved civil partnership') {
     res.redirect('telephone-rre-scenarios-separated')
   } else {
     res.redirect('contact-welsh')

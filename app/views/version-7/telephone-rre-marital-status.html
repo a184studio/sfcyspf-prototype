@@ -33,6 +33,14 @@
 
     items: [
     {
+      value: "Never been married / Civil Partnered",
+      text: "Never been married / Civil Partnered",
+      checked: (data["telephone-rre-marital-status"] == "Never been married / Civil Partnered"),
+      hint: {
+        text: ""
+      }
+    },
+    {
       value: "Married",
       text: "Married",
       checked: (data["telephone-rre-marital-status"] == "Married"),
@@ -65,9 +73,9 @@
           }
         },
         {
-        value: "Dissolution",
-        text: "Dissolution",
-        checked: (data["telephone-rre-marital-status"] == "Dissolution"),
+        value: "Dissolved civil partnership",
+        text: "Dissolved civil partnership",
+        checked: (data["telephone-rre-marital-status"] == "Dissolved civil partnership"),
         hint: {
           text: ""
         }

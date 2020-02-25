@@ -12,9 +12,7 @@
     <div class="govuk-grid-column-three-quarters">
       <form action="telephone-cope-check-router" method="post">
 
-          <div class="govuk-panel--agent govuk-!-margin-bottom-6">
-
-            <h2 class="govuk-heading-m"><span class="agent-action">Adviser: There is no COPE on this record</h2>
+          <h2 class="govuk-heading-m"><span class="agent-action">Adviser: There is no COPE on this record</h2>
 
               <!------------HEADLINE------------>
                 {% set legend %}
@@ -24,14 +22,14 @@
 
               {{ govukRadios({
                 classes: "govuk-radios",
-                idPrefix: "telephone-cope-check",
-                name: "telephone-cope-check",
+                idPrefix: "paper-cope-check",
+                name: "paper-cope-check",
                 fieldset: {
                   legend: {
-                    html: legend,
+                    html: "Are there any contracted out schemes listed in OLE?",
 
                     isPageHeading: true,
-                    classes: "govuk-fieldset__legend--m"
+                    classes: "govuk-fieldset__legend--xl"
                   }
                 },
                 hint: {
@@ -40,23 +38,23 @@
 
                 items: [
                 {
-                    value: "Yes",
-                    text: "Yes",
-                    checked: (data["telephone-cope-check"] == "Yes"),
-                      label: {
-                        classes: "govuk-label--s"
-                      },
-                      hint: {
-                        text: ""
-                      }
+                  value: "Yes",
+                  text: "Yes",
+                  checked: (data["paper-cope-check"] == "Yes"),
+                    label: {
+                      classes: "govuk-label--s"
                     },
-                    {
-                    value: "No",
-                    html: "<strong>No</strong>",
-                    checked: (data["telephone-cope-check"] == "No")
-                  }
-                ]
-              }) }}
+                    hint: {
+                      text: "Contracted out schemes: COD, GMP, CR, PP, ASS, RPA, INW."
+                    }
+                  },
+                  {
+                  value: "No",
+                  html: "<strong>No</strong>",
+                  checked: (data["paper-cope-check"] == "No")
+                }
+              ]
+            }) }}
 
               {{ govukButton({
                 classes: "govuk-!-margin-bottom-0",
@@ -66,7 +64,7 @@
               <!-- text: "Contracted out schemes: COD, GMP, CR, PP, ASS, RPA, INW." -->
 
 
-</div>
+
 
       </form><p class="SFC-enquiry">Telephone enquires</p>
     </div>
