@@ -15,6 +15,8 @@
     {% if data["telephone-national-insurance-check"] == "NI 00 11 22 F" %}<form action="telephone-rre-scenarios" method="post" class="form">{% endif %}
     {% if data["paper-national-insurance-check"] == "NI 00 11 22 A" %}<form action="contact-welsh" method="post" class="form">{% endif %}
 
+      {% if data["telephone-national-insurance-check"] != " " %}<form action="contact-welsh" method="post" class="form">{% endif %}
+
 
 
     <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Select address</h1>

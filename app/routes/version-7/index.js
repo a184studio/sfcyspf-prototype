@@ -391,6 +391,9 @@ else if (contactFormats.includes('TexBox') === true) {
 else if (contactFormats.includes('TypeTalk') === true) {
   res.redirect('contact-formats-fallout')
 }
+else if (contactFormats.includes('X') != true) {
+  res.redirect('contact-formats-fallout')
+}
 else {
   res.redirect('outcome-forecast-check-notify')
 }
