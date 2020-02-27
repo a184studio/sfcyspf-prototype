@@ -23,6 +23,18 @@
         {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Does {{data["full-name"]}}'s have any contact formats?</h1>{% endif %}
       <!------------HEADLINE------------>
 
+      <p class="govuk-heading-m govuk-!-margin-bottom-3"></p>
+
+      {{ govukInput({
+        label: {
+          html: "Contact telephone number"
+        },
+        id: "telephone-number",
+        name: "telephone-number",
+        classes: "govuk-input--width-20",
+        value: data["telephone-number"]
+      }) }}
+
 
       {% set AudioFormYesHint %}
       <p class=govuk-hint></p>

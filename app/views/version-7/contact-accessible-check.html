@@ -12,21 +12,7 @@
   <div class="govuk-grid-column-two-thirds">
     <form action="contact-accessible-check-router" method="post" class="form">
 
-    <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Future contact</h1>
-
-    <p class="govuk-heading-m govuk-!-margin-bottom-3">Contact telephone number</p>
-
-    {{ govukInput({
-      label: {
-        html: ""
-      },
-      id: "telephone-number",
-      name: "telephone-number",
-      classes: "govuk-input--width-20",
-      value: data["telephone-number"]
-    }) }}
-
-    <br>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-0"></h1>
 
       {{ govukRadios({
         classes: "govuk-radios",
@@ -37,7 +23,7 @@
             html: "Alternative format to GOV standard letters?",
 
             isPageHeading: true,
-            classes: "govuk-fieldset__legend--m"
+            classes: "govuk-fieldset__legend--xl"
           }
         },
         hint: {
