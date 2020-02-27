@@ -368,7 +368,7 @@ router.post('/telephone-rre-cope-check-router', (req, res, next) => {
 
 
 router.post('/contact-formats-router', (req, res, next) => {
-  const contactFormats = req.session.data['contact-formats']
+  const contactFormats = req.session.data['contact-formats'] || []
 
 if (contactFormats.includes('Audio form') === true) {
   res.redirect('contact-formats-fallout')
@@ -389,9 +389,6 @@ else if (contactFormats.includes('TexBox') === true) {
   res.redirect('contact-formats-fallout')
 }
 else if (contactFormats.includes('TypeTalk') === true) {
-  res.redirect('contact-formats-fallout')
-}
-else if (contactFormats.includes('X') != true) {
   res.redirect('contact-formats-fallout')
 }
 else {
