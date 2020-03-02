@@ -12,12 +12,14 @@
     <div class="govuk-grid-column-two-thirds">
       <form action="telephone-citizen-name-dob" method="post">
 
+        Agent action
+
         {{ govukRadios({
           idPrefix: "who-is-caller",
           name: "who-is-caller",
           fieldset: {
             legend: {
-              text: "Who is making this enquiry?",
+              text: "Select the caller type",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
@@ -36,7 +38,7 @@
           },
             {
               value: "Corporate or Personal Acting Body",
-              text: "Corporate or Personal Acting Body",
+              text: "Personal Acting Body (PAB) or Corporate Acting Body (CAB)",
               checked: data['who-is-caller'] == "Corporate or Personal Acting Body",
                 label: {
                   classes: ""

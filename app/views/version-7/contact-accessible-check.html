@@ -14,20 +14,24 @@
 
     <h1 class="govuk-heading-xl govuk-!-margin-bottom-0"></h1>
 
+    Telephone Both: It is a printed forecast we send to you. Can we adjust something to make it accessible for you?
+    Telephone Both / Hint: For example, larger print
+
+
       {{ govukRadios({
         classes: "govuk-radios",
         idPrefix: "contact-accessible-check",
         name: "contact-accessible-check",
         fieldset: {
           legend: {
-            html: "Alternative format to GOV standard letters?",
+            html: "Has an alternative format been requested?",
 
             isPageHeading: true,
             classes: "govuk-fieldset__legend--xl"
           }
         },
         hint: {
-            text: "GOV stanard letters are A4, black text printed on white paper and 14pt text"
+            text: ""
         },
 
         items: [

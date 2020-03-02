@@ -16,7 +16,7 @@
 
   <!------------HEADLINE------------>
     {% set legend %}
-    {% if data["paper-address-for-letters"] == "Citizen" or data['who-is-caller'] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Where is this forecast being sent?</h1>{% endif %}
+    {% if data["paper-address-for-letters"] == "Citizen" or data['who-is-caller'] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Where is the address?</h1>{% endif %}
     {% if data["paper-address-for-letters"] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Is data["full-name"]'s address in the UK or overseas?'</h1>{% endif %}
     {% if data["paper-address-for-letters"] == "Third party" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Is data["full-name"]'s address in the UK or overseas?'</h1>{% endif %}
 
@@ -38,7 +38,7 @@
           items: [
             {
               value: "United Kingdom",
-              text: "United Kingdom",
+              text: "UK",
               checked: data['address-check'] == "United Kingdom"
             },
           {
@@ -54,7 +54,9 @@
 <!--------------------------------------------------------------------------------------------------->
   {% if data["paper-address-for-letters"] == "Corporate or Personal Acting Body" or data['who-is-caller'] == "Corporate or Personal Acting Body" %}
 
-<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Corporate or personal acting body details</h1>
+<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Personal Acting Body (PAB) or Corporate Acting Body (CAB)</h1>
+
+ Telephone: Can I take your full name?
 
 
         {{ govukInput({
@@ -72,9 +74,14 @@
           }
         }) }}
 
+        Telephone: conditional Can I check if you are representing a company?
+        Yes: And can I take the name of the company? (Box)
+        No:
+
+
         {{ govukInput({
           label: {
-            html: "Company / Organisation name"
+            html: "Company or organisation name"
             },
             classes: "govuk-input--width-30",
             hint: {
@@ -87,22 +94,24 @@
           }
         }) }}
 
+<br>
 
+Telephone: Is your address in the UK?
 
         {{ govukRadios({
           idPrefix: "address-check",
           name: "address-check",
           fieldset: {
             legend: {
-              text: "Is the address within the United Kingdom or overseas?",
+              text: "Where is the address?",
               isPageHeading: true,
-              classes: "govuk-fieldset__legend--s"
+              classes: "govuk-fieldset__legend--m"
             }
           },
           items: [
             {
               value: "United Kingdom",
-              text: "United Kingdom",
+              text: "UK",
               checked: data['address-check'] == "United Kingdom"
             },
           {
@@ -117,7 +126,7 @@
 
         {% if data["paper-address-for-letters"] == "Third party" %}
 
-      <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Third party</h1>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Third party details</h1>
 
 
               {{ govukInput({
@@ -137,7 +146,7 @@
 
               {{ govukInput({
                 label: {
-                  html: "Company / Organisation name"
+                  html: "Company or organisation name"
                   },
                   classes: "govuk-input--width-30",
                   hint: {
@@ -157,15 +166,15 @@
                 name: "address-check",
                 fieldset: {
                   legend: {
-                    text: "Is the address within the United Kingdom or overseas?",
+                    text: "Where is the address?",
                     isPageHeading: true,
-                    classes: "govuk-fieldset__legend--s"
+                    classes: "govuk-fieldset__legend--m"
                   }
                 },
                 items: [
                   {
                     value: "United Kingdom",
-                    text: "United Kingdom",
+                    text: "UK",
                     checked: data['address-check'] == "United Kingdom"
                   },
                 {

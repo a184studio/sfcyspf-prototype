@@ -18,7 +18,7 @@
 
   {% call govukFieldset({
     legend: {
-      text: "What is your address?",
+      text: "What is the address?",
       classes: "govuk-fieldset__legend--xl",
       isPageHeading: true
     }
@@ -26,7 +26,7 @@
 
     {{ govukInput({
       label: {
-        html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
+        html: '<span class="govuk-visually-hidden">line 1 of 2</span>'
       },
       id: "address-line-1",
       name: "address-line-1"
@@ -51,7 +51,7 @@
 
     {{ govukInput({
       label: {
-        text: "Country"
+        text: "County"
       },
       classes: "govuk-!-width-two-thirds",
       id: "address-country",

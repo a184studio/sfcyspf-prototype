@@ -25,7 +25,7 @@
                 name: "telephone-enquiry-type",
                 fieldset: {
                   legend: {
-                    html: "What is the the enquiry about?",
+                    html: "How can I help you today?",
 
                     isPageHeading: true,
                     classes: "govuk-fieldset__legend--xl"
@@ -38,7 +38,7 @@
                 items: [
                 {
                   value: "I want to improve my State Pension",
-                  text: "I want to improve my State Pension",
+                  text: "Information about their State Pension (Contional: Have you seen a State Pension forecast? YN)",
                   checked: (data["telephone-enquiry-type"] == "I want to improve my State Pension"),
                   hint: {
                     text: ""
@@ -46,7 +46,7 @@
                 },
                   {
                     value: "Help with a forecast I have seen",
-                      text: "Help with a forecast I have seen",
+                      text: "Understanding their State Pension forecast",
                       checked: (data["telephone-enquiry-type"] == "Help with a forecast I have seen"),
                       hint: {
                         text: ""
@@ -54,7 +54,7 @@
                     },
                     {
                     value: "Request a forecast",
-                    text: "Request a forecast",
+                    text: "Improve their State Pension (Contional: Have you seen a State Pension forecast? YN)",
                     checked: (data["telephone-enquiry-type"] == "Request a forecast"),
                     hint: {
                       text: ""

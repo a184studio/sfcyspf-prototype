@@ -12,11 +12,11 @@
     <div class="govuk-grid-column-three-quarters">
       <form action="telephone-cope-check-router" method="post">
 
-          <h2 class="govuk-heading-m"><span class="agent-action">Adviser: There is no COPE on this record</h2>
+          <h2 class="govuk-heading-xl"><span class="agent-action">Bare with me I'm just getting into our systems now.</h2>
 
               <!------------HEADLINE------------>
                 {% set legend %}
-                <h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Are there any contracted out schemes listed in OLE?</h1>
+                <h1 class="govuk-heading-m govuk-!-margin-bottom-0">Are there any contracted out schemes listed in OLE?</h1>
                 {% endset %}
               <!------------HEADLINE------------>
 
@@ -26,14 +26,14 @@
                 name: "telephone-cope-check",
                 fieldset: {
                   legend: {
-                    html: "Are there any contracted out schemes listed in OLE?",
+                    html: "Grey box: Are there any contracted out schemes listed on OLE?",
 
                     isPageHeading: true,
-                    classes: "govuk-fieldset__legend--xl"
+                    classes: "govuk-fieldset__legend--m"
                   }
                 },
                 hint: {
-                    text: ""
+                    text: "Contracted out schemes: COD, GMP, CR, PP, ASS, RPA, INW."
                 },
 
                 items: [
@@ -45,7 +45,7 @@
                       classes: "govuk-label--s"
                     },
                     hint: {
-                      text: "Contracted out schemes: COD, GMP, CR, PP, ASS, RPA, INW."
+                      text: ""
                     }
                   },
                   {
