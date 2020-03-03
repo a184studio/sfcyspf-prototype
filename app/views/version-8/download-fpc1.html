@@ -1,0 +1,461 @@
+{% extends "layout-id-bar.html" %}
+
+{% block pageTitle %}
+  What is your National Insurance number? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="outcome-done" method="post">
+
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Check your answers: FPC1</h1>
+
+    <!------------------------------- STATE PENSION PAID INTO ------------------------------------------------------>
+
+    {{ govukSummaryList({
+      rows: [
+
+      {
+          key: {
+          text: "National Insurance number"
+        },
+        value: {
+          text: data["telephone-national-insurance-check"]
+        },
+        actions: {
+          items: [
+            {
+              href: "Change",
+              text: "Change",
+              visuallyHiddenText: "X"
+            }
+          ]
+        }
+      },
+        {
+          key: {
+          text: "Name"
+        },
+        value: {
+          text: data["full-name"]
+        },
+        actions: {
+          items: [
+            {
+              href: "Change",
+              text: "Change",
+              visuallyHiddenText: "X"
+            }
+          ]
+        }
+      },
+        {
+          key: {
+          text: "Date of birth"
+        },
+        value: {
+          text: data["date-of-birth"]
+        },
+        actions: {
+          items: [
+            {
+              href: "Change",
+              text: "Change",
+              visuallyHiddenText: "X"
+            }
+          ]
+        }
+      },
+        {
+          key: {
+          text: "Telephone number"
+        },
+        value: {
+          text: data["telephone-number"]
+        },
+        actions: {
+          items: [
+            {
+              href: "Change",
+              text: "Change",
+              visuallyHiddenText: "X"
+            }
+          ]
+        }
+      },
+        {
+          key: {
+          text: "Contact formats"
+        },
+        value: {
+          text: "X, Y and Z"
+        },
+        actions: {
+          items: [
+            {
+              href: "Change",
+              text: "Change",
+              visuallyHiddenText: "X"
+            }
+          ]
+        }
+      },
+        {
+          key: {
+          text: "Address country"
+        },
+        value: {
+          text: data["comtact-check"]
+        },
+        actions: {
+          items: [
+            {
+              href: "address-check",
+              text: "",
+              visuallyHiddenText: "X"
+            }
+          ]
+        }
+      },
+        {
+          key: {
+          text: "Address"
+        },
+        value: {
+          html: "221b Baker street<br>London<br>NE16 6QG"
+        },
+        actions: {
+          items: [
+            {
+              href: "address-postcode",
+              text: "Change",
+              visuallyHiddenText: "X"
+            }
+          ]
+        }
+      }
+
+      ]
+    }) }}
+
+    {{ govukSummaryList({
+      rows: [
+
+      {
+          key: {
+          text: "Marital status"
+        },
+        value: {
+          text: data["telephone-rre-marital-status"]
+        },
+        actions: {
+          items: [
+            {
+              href: "telephone-rre-marital-status",
+              text: "Change",
+              visuallyHiddenText: "X"
+            }
+          ]
+        }
+      }
+
+
+      ]
+    }) }}
+
+
+            {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}
+
+    <div class="govuk-!-margin-top-6 govuk-!-margin-bottom-0">
+      <h2 class="govuk-heading-m"><span class="agent-action">Corporate or Personal Acting Body</h2>
+
+
+        {{ govukSummaryList({
+          rows: [
+
+          {
+              key: {
+              text: "Contact name"
+            },
+            value: {
+              text: data["comtact-name"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "address-check",
+                  text: "Change",
+                  visuallyHiddenText: "X"
+                }
+              ]
+            }
+          },
+            {
+              key: {
+              text: "Company / Organisation name"
+            },
+            value: {
+              text: data["comtact-company-name"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "x",
+                  text: "",
+                  visuallyHiddenText: "X"
+                }
+              ]
+            }
+          },
+            {
+              key: {
+              text: "Address country"
+            },
+            value: {
+              text: data["address-check"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "address-check",
+                  text: "Change",
+                  visuallyHiddenText: "X"
+                }
+              ]
+            }
+          },
+            {
+              key: {
+              text: "Address"
+            },
+            value: {
+              html: "221b Baker street<br>London<br>NE16 6QG"
+            },
+            actions: {
+              items: [
+                {
+                  href: "address-postcode",
+                  text: "Change",
+                  visuallyHiddenText: "X"
+                }
+              ]
+            }
+          }
+
+          ]
+        }) }}
+
+{% endif %}
+
+    <div class="govuk-!-margin-top-6 govuk-!-margin-bottom-0">
+      <h2 class="govuk-heading-m"><span class="agent-action">Partner details</h2>
+
+
+        {{ govukSummaryList({
+          rows: [
+
+          {
+              key: {
+              text: "Name"
+            },
+            value: {
+              text: data["partner-full-name"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "telephone-rre-partner",
+                  text: "Change",
+                  visuallyHiddenText: "X"
+                }
+              ]
+            }
+          },
+            {
+              key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: "DD Month YYYY"
+            },
+            actions: {
+              items: [
+                {
+                  href: "x",
+                  text: "Change",
+                  visuallyHiddenText: "X"
+                }
+              ]
+            }
+          },
+            {
+              key: {
+              text: "Gender"
+            },
+            value: {
+              text: data["telephone-partner-gender"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "x",
+                  text: "Change",
+                  visuallyHiddenText: "X"
+                }
+              ]
+            }
+          }
+
+          ]
+        }) }}
+
+
+        <div class="govuk-!-margin-top-6 govuk-!-margin-bottom-0">
+          <h2 class="govuk-heading-m"><span class="agent-action">Service details</h2>
+
+
+
+        {{ govukSummaryList({
+          rows: [
+
+          {
+            key: {
+              text: "Department"
+            },
+            value: {
+              text: "DWP / Longbenton"
+            },
+            actions: {
+              items: [
+                {
+                  href: "x",
+                  text: "",
+                  visuallyHiddenText: "X"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+            text: "Date"
+          },
+          value: {
+            text: "DD MM YYYY"
+          },
+          actions: {
+            items: [
+              {
+                href: "x",
+                text: "",
+                visuallyHiddenText: "X"
+              }
+            ]
+          }
+        },
+          {
+              key: {
+              text: "Time"
+            },
+            value: {
+              text: "00:00:00"
+            },
+            actions: {
+              items: [
+                {
+                  href: "x",
+                  text: "",
+                  visuallyHiddenText: "X"
+                }
+              ]
+            }
+          },
+            {
+              key: {
+                text: "Agent"
+              },
+              value: {
+                text: "Full name"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "x",
+                    text: "",
+                    visuallyHiddenText: "X"
+                  }
+                ]
+              }
+            },
+              {
+                key: {
+                  text: "Team"
+                },
+                value: {
+                  text: "Rouge One"
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "x",
+                      text: "",
+                      visuallyHiddenText: "X"
+                    }
+                  ]
+                }
+              }
+
+
+          ]
+        }) }}
+
+
+    <div class="govuk-!-margin-top-9">
+
+<h2 class="govuk-heading-m">Before leaving this screen:</h2>
+
+<ul class="govuk-list govuk-list--number govuk-!-margin-bottom-6">
+<li>Download FPC1</li>
+<li>Upload claim to XXX and tag as the following:</li>
+
+<ul class="govuk-list govuk-list">
+  <li>XXX: <strong>XXX</strong></li>
+  <li>XXX: <strong>XXX</strong></li>
+  <li>XXX: <strong>XXX</strong></li>
+  <li>XXX: <strong>XXX</strong></li>
+</ul>
+
+<li>Check item 3</li>
+</ul>
+
+
+      {{ govukCheckboxes({
+      idPrefix: "download-pdf-checkbox",
+      name: "download-pdf-checkbox",
+      fieldset: {
+      legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--s"
+      }
+      },
+      items: [
+      {
+      value: "download-pdf",
+      text: "Confirm that you have read the forecast and it's correct"
+      }
+      ]
+      }) }}
+
+        {{ govukButton({
+          text: "Download"
+        }) }}
+
+      </form><p class="SFC-enquiry">All enquires</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

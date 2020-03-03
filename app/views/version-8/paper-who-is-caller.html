@@ -1,0 +1,62 @@
+{% extends "layout-id-bar.html" %}
+
+{% block pageTitle %}
+  Who are calling for? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="paper-citizen-name-dob" method="post">
+
+        {{ govukRadios({
+          idPrefix: "who-is-caller",
+          name: "who-is-caller",
+          fieldset: {
+            legend: {
+              text: "Who has requested this forecast?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+          {
+            value: "Citizen",
+            text: "Citizen",
+            checked: data['who-is-caller'] == "Citizen",
+              label: {
+                classes: ""
+              },
+              hint: {
+                text: ""
+              }
+          },
+            {
+              value: "Corporate or Personal Acting Body",
+              text: "Personal Acting Body (PAB) or Corporate Acting Body (CAB)",
+              checked: data['who-is-caller'] == "Corporate or Personal Acting Body",
+                label: {
+                  classes: ""
+                },
+                hint: {
+                  html: ""
+                }
+            }
+          ]
+        }) }}
+
+        <!-- Corporate Acting Body (CAB) <br>Personal Acting Body (PAB)      -->
+
+
+<br>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form><p class="SFC-enquiry">Paper enquires</p>
+    </div>
+{% endblock %}

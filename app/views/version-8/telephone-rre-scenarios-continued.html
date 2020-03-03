@@ -1,0 +1,102 @@
+{% extends "layout-id-bar.html" %}
+
+{% block pageTitle %}
+  XXX - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <form action="telephone-rre-scenarios-continued-router" method="post" class="form">
+
+      <div class="govuk-panel--router-large govuk-!-margin-bottom-6">
+      <span class="govuk-caption-m">Internal only</span>
+
+  {{ govukRadios({
+    classes: "govuk-radios",
+    idPrefix: "telephone-rre-scenarios-continued",
+    name: "telephone-rre-scenarios-continued",
+    fieldset: {
+      legend: {
+        html: "RRE FLAG scenario selection: Married & civil partnership",
+
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    hint: {
+        text: ""
+    },
+
+    items: [
+    {
+      value: "RRE FLAG senario D",
+      text: "RRE FLAG senario D",
+      checked: (data["telephone-rre-scenarios-continued"] == "RRE FLAG senario D"),
+      hint: {
+        text: "IF married / AND their SPa is before their partner / AND  COPE=0"
+      }
+    },
+      {
+        value: "RRE FLAG senario E",
+          text: "RRE FLAG senario E",
+          checked: (data["telephone-rre-scenarios-continued"] == "RRE FLAG senario E"),
+          hint: {
+            text: "IF married: AND their SPa is before their partner / AND  COPE greater than 0"
+          }
+        },
+          {
+            value: "RRE FLAG senario F",
+              text: "RRE FLAG senario F",
+              checked: (data["telephone-rre-scenarios-continued"] == "RRE FLAG senario F"),
+              hint: {
+                text: "IF married, SPa is after partner: AND current greater than married value / AND COPE=0"
+              }
+        },
+          {
+            value: "RRE FLAG senario G",
+              text: "RRE FLAG senario G",
+              checked: (data["telephone-rre-scenarios-continued"] == "RRE FLAG senario G"),
+              hint: {
+                text: "IF married, SPa is after partner: AND current greater than married value / AND COPE greater than 0"
+              }
+        },
+          {
+            value: "RRE FLAG senario H",
+              text: "RRE FLAG senario H",
+              checked: (data["telephone-rre-scenarios-continued"] == "RRE FLAG senario H"),
+              hint: {
+                text: "IF married, SPa is after partner: AND current less than married value"
+              }
+            },
+                {
+                  value: "No flag",
+                    text: "No flag / auto routing",
+                    checked: (data["telephone-rre-scenarios-continued"] == "No flag"),
+                    hint: {
+                      text: "No flag"
+                    }
+                  }
+
+    ]
+  }) }}
+
+  </div>
+
+
+
+<br>
+
+{{ govukButton({
+  text: "Continue",
+  classes: "govuk-!-margin-right-1"
+}) }}
+
+    </form><p class="SFC-enquiry">Telephone enquires</p>
+
+  </div>
+</div>
+{% endblock %}

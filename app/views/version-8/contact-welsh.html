@@ -1,0 +1,72 @@
+{% extends "layout-id-bar.html" %}
+
+{% block pageTitle %}
+  What is your home address? - Pension Credit
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="contact-accessible-check" method="post" class="form">
+
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Has Welsh been requested?</h1>
+
+    Telephone Both: Do you need your forecast in Welsh?
+
+      {{ govukRadios({
+        classes: "govuk-radios",
+        idPrefix: "contact-welsh-yn",
+        name: "contact-welsh-yn",
+        fieldset: {
+          legend: {
+            html: "",
+
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        hint: {
+            text: ""
+        },
+
+        items: [
+        {
+            value: "Yes",
+            text: "Yes",
+            checked: (data["contact-welsh-yn"] == "Yes")
+          },
+          {
+            value: "No",
+            text: "No",
+            checked: (data["contact-welsh-yn"] == "No")
+          }
+        ]
+      }) }}
+
+      <br>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form><p class="SFC-enquiry">All enquires</p>
+
+    <!--
+
+    <div class="govuk-panel--router">
+      <p class="govuk-!-font-weight-bold govuk-!-font-size-19 govuk-!-margin-bottom-0">Service router</p>
+      <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-4">Continue will follow route without RRE flag</p>
+
+        <ul class="govuk-list">
+        <li><a class="govuk-link" href="telephone-rre-scenarios">RRE FLAG scenarios</a></li>
+        <li><a class="govuk-link" href="address-missing">No address found</a></li>
+      </ul>
+    </div>
+
+-->
+
+  </div>
+</div>
+{% endblock %}

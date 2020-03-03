@@ -1,0 +1,64 @@
+{% extends "layout-id-bar.html" %}
+
+{% block pageTitle %}
+  What is your National Insurance number? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="paper-cope-check-router" method="post">
+
+          <div class=" govuk-!-margin-top-2 govuk-!-margin-bottom-0">
+
+              <!-- <span class="govuk-caption-m">Paper enquiry</span> -->
+              {{ govukRadios({
+                classes: "govuk-radios",
+                idPrefix: "paper-cope-check",
+                name: "paper-cope-check",
+                fieldset: {
+                  legend: {
+                    html: "Are there any contracted out schemes listed on OLE?",
+
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--xl"
+                  }
+                },
+                hint: {
+                    text: "Contracted out schemes: COD, GMP, CR, PP, ASS, RPA, INW."
+                },
+
+                items: [
+                {
+                  value: "Yes",
+                  text: "Yes",
+                  checked: (data["paper-cope-check"] == "Yes"),
+                    label: {
+                      classes: ""
+                    },
+                    hint: {
+                      text: ""
+                    }
+                  },
+                  {
+                  value: "No",
+                  html: "No",
+                  checked: (data["paper-cope-check"] == "No")
+                }
+              ]
+            }) }}
+
+        {{ govukButton({
+          classes: "govuk-!-margin-bottom-0",
+          text: "Continue"
+        }) }}
+
+
+
+      </form><p class="SFC-enquiry">Paper enquires</p>
+    </div>
+  </div>
+{% endblock %}

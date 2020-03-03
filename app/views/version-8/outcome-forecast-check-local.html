@@ -1,0 +1,29 @@
+{% extends "layout-id-bar.html" %}
+
+{% block pageTitle %}
+  What is your National Insurance number? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="outcome-forecast-local" method="post">
+
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">(Paper) The forecast is ready to print locally</h1>
+
+        Agent action Telephone:The forecast is ready to send to Notify
+
+        <br>
+
+
+            {{ govukButton({
+              text: "Print locally"
+            }) }}
+
+      </form><p class="SFC-enquiry">All enquires</p>
+
+  </div>
+</div>
+{% endblock %}

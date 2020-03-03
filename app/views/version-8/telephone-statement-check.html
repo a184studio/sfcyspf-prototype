@@ -1,0 +1,59 @@
+{% extends "layout-id-bar.html" %}
+
+{% block pageTitle %}
+  What is your National Insurance number? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <form action="telephone-statement-check-router" method="post">
+
+
+              {{ govukRadios({
+                classes: "govuk-radios",
+                idPrefix: "telephone-statement-check",
+                name: "telephone-statement-check",
+                fieldset: {
+                  legend: {
+                    html: "Has a State Pension forecast been seen in the last 12 months?",
+
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--xl"
+                  }
+                },
+                hint: {
+                    text: ""
+                },
+
+                items: [
+                {
+                    value: "Yes",
+                    text: "Yes",
+                    checked: (data["telephone-statement-check"] == "Yes")
+                  },
+                  {
+                    value: "No",
+                    text: "No",
+                    checked: (data["telephone-statement-check"] == "No")
+                  },
+                  {
+                    value: "Don't know",
+                    text: "Don't know",
+                    checked: (data["telephone-statement-check"] == "Dont know")
+                  }
+                ]
+              }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+      </form><p class="SFC-enquiry">Telephone enquires</p>
+    </div>
+  </div>
+{% endblock %}

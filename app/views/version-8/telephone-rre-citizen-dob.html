@@ -1,0 +1,56 @@
+{% extends "layout-id-bar.html" %}
+
+{% block pageTitle %}
+  Citizen details - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="contact-formats" method="post">
+
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-6"><span class="agent-action">Citizen date of birth</h1>
+
+        {{ govukDateInput({
+          id: "date-of-birth",
+          name: "date-of-birth",
+          fieldset: {
+            legend: {
+              html: ""
+            }
+          },
+          hint: {
+            text: "For example, 12 11 2007"
+          },
+          items: [
+            {
+              name: "day",
+              classes: "govuk-input--width-2",
+              value: data["date-of-birth-day"]
+            },
+            {
+              name: "month",
+              classes: "govuk-input--width-2",
+              value: data["date-of-birth-month"]
+            },
+            {
+              name: "year",
+              classes: "govuk-input--width-4",
+              value: data["date-of-birth-year"]
+            }
+          ]
+        }) }}
+
+
+<br>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form><p class="SFC-enquiry">Telephone enquires</p>
+    </div>
+{% endblock %}

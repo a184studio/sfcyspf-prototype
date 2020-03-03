@@ -1,0 +1,29 @@
+{% extends "layout-id-bar.html" %}
+
+{% block pageTitle %}
+  What is your home address? - Pension Credit
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="address-manual-uk" method="post" class="form">
+
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">No addresses found</h1>
+
+    <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-1"><strong>2</strong> addresses found for <strong> {{data["building-number"]}} </strong> and <strong> {{data["postcode"]}}</strong></p>
+    <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-6"><a class="govuk-link" href="address-postcode">Change</a></p>
+
+    <br>
+
+      {{ govukButton({
+        text: "Enter address manually"
+      }) }}
+    </form><p class="SFC-enquiry">All enquires</p>
+
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,301 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Overview - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <form action="telephone-vnics-a" method="post">
+
+<!--
+        <div class="govuk-panel--agent govuk-!-margin-bottom-6">
+          <h2 class="govuk-heading-m"><span class="agent-action">National Insrance number: </span>{{ data["yourself-national-insurance"] }}</h2>
+        </div>
+
+-->
+
+            <h2 class="govuk-heading-xl govuk-!-margin-bottom-6"><span class="agent-action">Overview</h2>
+
+              <!---<p class="govuk-body govuk-!-font-size-24">GOV have a bunch of cool data we can share with you so that you can make the best choies:</p>-->
+
+              <p class="govuk-body govuk-!-font-size-24">You can get your State Pension on: <strong>19 November 2022</strong></p>
+
+              <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    More information about their State Pension age
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  This is appropriate dummy text that is being employed in order to ascertain an approximate length because the actual copy has not yet been received.
+
+                  <br><br>
+                  <strong>Adviser: the climant may want to check their State Pension age.</strong>
+
+                  <br><p class="govuk-body govuk-!-padding-top-0"><a href="call-type">gov.uk/statePensionAgeCalculator</a> (Opens in a new window)</p>
+
+
+            </div>
+              </details>
+
+<!-----><hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+<p class="govuk-body govuk-!-font-size-24">Estimated State Pension amount 2018/2019: <strong>£57.81 a week</strong></p>
+            <details class="govuk-details" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  More details about the Estimated
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post.
+
+
+            {{ govukTable({
+              caption: "",
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "",
+                  classes: 'govuk-table-item-name'
+                },
+                {
+                  text: "A week",
+                  classes: 'govuk-table-item-1'
+                },
+                {
+                  html: "A year",
+                  classes: 'govuk-table-item-2'
+                }
+              ],
+              rows: [
+                [
+                  {
+                    html: "XXX"
+                  },
+                  {
+                    html: "<strong>£XXX</strong>"
+                  },
+                  {
+                    html: "<strong>£XXX</strong>"
+                  }
+                ],
+                [
+                  {
+                    text: "XXX"
+                  },
+                  {
+                    html: "<strong>£XXX</strong>"
+                  },
+                  {
+                    html: "<strong>£XXX</strong>"
+                  }
+                  ],
+                  [
+                  {
+                    text: "XXX"
+                  },
+                  {
+                    html: "<strong>£XXX</strong>"
+                  },
+                  {
+                    html: "<strong>£XXX</strong>"
+                  }
+                ]
+              ]
+            }) }}
+
+            </div>
+            </details>
+
+<!-----><hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+            <p class="govuk-body govuk-!-font-size-24">Most you can get is: <strong>£XXX.XX</strong></p>
+
+
+            <details class="govuk-details" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  More details about this
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post.
+
+
+            {{ govukTable({
+              caption: "",
+              firstCellIsHeader: false,
+              head: [
+                {
+                  text: "",
+                  classes: 'govuk-table-item-name'
+                },
+                {
+                  text: "A week",
+                  classes: 'govuk-table-item-1'
+                },
+                {
+                  html: "A year",
+                  classes: 'govuk-table-item-2'
+                }
+              ],
+              rows: [
+                [
+                  {
+                    html: "XXX"
+                  },
+                  {
+                    html: "<strong>£XXX</strong>"
+                  },
+                  {
+                    html: "<strong>£XXX</strong>"
+                  }
+                ],
+                [
+                  {
+                    text: "XXX"
+                  },
+                  {
+                    html: "<strong>£XXX</strong>"
+                  },
+                  {
+                    html: "<strong>£XXX</strong>"
+                  }
+                  ],
+                  [
+                  {
+                    text: "XXX"
+                  },
+                  {
+                    html: "<strong>£XXX</strong>"
+                  },
+                  {
+                    html: "<strong>£XXX</strong>"
+                  }
+                ]
+              ]
+            }) }}
+
+            </div>
+            </details>
+
+            <!-----><hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+                        <p class="govuk-body govuk-!-font-size-24">XXXX: <strong>£XXX.XX</strong></p>
+
+
+                        <details class="govuk-details" data-module="govuk-details">
+                          <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">
+                              More details about the amount
+                            </span>
+                          </summary>
+                          <div class="govuk-details__text">
+                            We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post.
+
+
+                        {{ govukTable({
+                          caption: "",
+                          firstCellIsHeader: false,
+                          head: [
+                            {
+                              text: "",
+                              classes: 'govuk-table-item-name'
+                            },
+                            {
+                              text: "A week",
+                              classes: 'govuk-table-item-1'
+                            },
+                            {
+                              html: "A year",
+                              classes: 'govuk-table-item-2'
+                            }
+                          ],
+                          rows: [
+                            [
+                              {
+                                html: "XXX"
+                              },
+                              {
+                                html: "<strong>£XXX</strong>"
+                              },
+                              {
+                                html: "<strong>£XXX</strong>"
+                              }
+                            ],
+                            [
+                              {
+                                text: "XXX"
+                              },
+                              {
+                                html: "<strong>£XXX</strong>"
+                              },
+                              {
+                                html: "<strong>£XXX</strong>"
+                              }
+                              ],
+                              [
+                              {
+                                text: "XXX"
+                              },
+                              {
+                                html: "<strong>£XXX</strong>"
+                              },
+                              {
+                                html: "<strong>£XXX</strong>"
+                              }
+                            ]
+                          ]
+                        }) }}
+
+                        </div>
+                        </details>
+
+            <!-----><hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+            <p class="govuk-body govuk-!-font-size-24">Contracted Out Pension Equivalent (COPE) <strong></strong></p>
+
+            <details class="govuk-details" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Show more details about COPE
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                The COPE amount is based on your National Insurance contribution record up to 5 April 2016 used to calculate your Starting Amount for the new State Pension.  <br><br>We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post.
+
+            </div>
+            </details>
+
+<br><br>
+
+
+        {{ govukButton({
+          text: "Fill in gaps",
+          classes: "govuk-!-margin-right-1"
+        }) }}
+
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2 govuk-!-padding-top-2">Other actions</h2>
+
+        <p class="govuk-body govuk-!-padding-top-0"><a href="yourself-find-claimant">Create forecast</a></p>
+
+        <p class="govuk-body govuk-!-padding-top-0"><a href="call-type">Help with another enquriy</a></p>
+
+        <p class="govuk-body govuk-!-padding-top-0"><a href="exit-check">Call drop</a></p>
+
+
+
+
+
+
+
+      </form><p class="SFC-enquiry">Telephone enquires</p>
+    </div>
+  </div>
+{% endblock %}

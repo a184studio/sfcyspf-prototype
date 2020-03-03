@@ -1,0 +1,37 @@
+{% extends "layout-id-bar.html" %}
+
+{% block pageTitle %}
+  XXX - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <form action="telephone-cope-check" method="post" class="form">
+
+      <input type="hidden" name="benefits-complete" value="in-progress"/>
+
+      <div class="govuk-panel--agent">
+        <h1 class="govuk-heading-m govuk-!-margin-bottom-4">Adviser: Reduced rate election (RRE) alert</h1>
+      </div>
+
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">What to do next @Jane</h1>
+
+          <p class=govuk-body>Reduced rate National Insurance for married women (sometimes called the ‘small stamp’).</p>
+
+
+<br>
+
+{{ govukButton({
+  text: "Continue",
+  classes: "govuk-!-margin-right-1"
+}) }}
+
+    </form><p class="SFC-enquiry">Telephone enquires</p>
+
+  </div>
+</div>
+{% endblock %}

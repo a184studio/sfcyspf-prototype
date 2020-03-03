@@ -1,0 +1,77 @@
+{% extends "layout-id-bar.html" %}
+
+{% block pageTitle %}
+  What is your National Insurance number? - Support for Check your State Pension: Forecast
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <form action="telephone-enquiry-type-router" method="post">
+
+<!--
+          <div class="govuk-panel--agent govuk-!-margin-bottom-6">
+            <h2 class="govuk-heading-m"><span class="agent-action">Adviser: X</h2>
+          </div>
+
+        -->
+
+              {{ govukRadios({
+                classes: "govuk-radios",
+                idPrefix: "telephone-enquiry-type",
+                name: "telephone-enquiry-type",
+                fieldset: {
+                  legend: {
+                    html: "How can I help you today?",
+
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--xl"
+                  }
+                },
+                hint: {
+                    text: ""
+                },
+
+                items: [
+                {
+                  value: "I want to improve my State Pension",
+                  text: "Information about their State Pension (Contional: Have you seen a State Pension forecast? YN)",
+                  checked: (data["telephone-enquiry-type"] == "I want to improve my State Pension"),
+                  hint: {
+                    text: ""
+                  }
+                },
+                  {
+                    value: "Help with a forecast I have seen",
+                      text: "Understanding their State Pension forecast",
+                      checked: (data["telephone-enquiry-type"] == "Help with a forecast I have seen"),
+                      hint: {
+                        text: ""
+                      }
+                    },
+                    {
+                    value: "Request a forecast",
+                    text: "Improve their State Pension (Contional: Have you seen a State Pension forecast? YN)",
+                    checked: (data["telephone-enquiry-type"] == "Request a forecast"),
+                    hint: {
+                      text: ""
+                    }
+                  }
+                ]
+              }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+        <!-- <p class="govuk-body"><a href="online-prompt">End call</a></p> -->
+
+
+
+      </form><p class="SFC-enquiry">Telephone enquires</p>
+    </div>
+  </div>
+{% endblock %}
