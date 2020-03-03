@@ -12,9 +12,40 @@
     <div class="govuk-grid-column-two-thirds">
       <form action="paper-address-for-letters" method="post">
 
-        <h1 class="govuk-heading-xl govuk-!-margin-bottom-6"><span class="agent-action">Citizen details</h1>
 
-To make this page dynamic based on citizen name YN and Fp1c flag.
+        <!------------HEADLINE------------>
+
+          {% if data["paper-cope-check"] == "No" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6"><span class="agent-action">What is your full name?</h1>{% endif %}
+          {% if data["paper-cope-check"] == "Yes" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6"><span class="agent-action">Citizen details</h1>{% endif %}
+
+        <!------------HEADLINE------------>
+
+
+        <!----------------------------------------------- FPC1 data COPE CHECK = NO ----------------------------------------------->
+
+
+        {% if data["paper-cope-check"] == "No" %}
+
+
+        {{ govukInput({
+          label: {
+            html: ""
+          },
+          hint: {
+            text: ""
+          },
+          id: "full-name",
+          name: "full-name",
+          classes: "govuk-input--width-20",
+          value: data["full-name"]
+        }) }}
+
+        {% endif %}
+
+        <!----------------------------------------------- FPC1 data COPE CHECK = YES ----------------------------------------------->
+
+
+        {% if data["paper-cope-check"] == "Yes" %}
 
         {{ govukInput({
           label: {
@@ -29,8 +60,6 @@ To make this page dynamic based on citizen name YN and Fp1c flag.
           value: data["full-name"]
         }) }}
 
-        {% if data["paper-cope-check"] == "Yes" %}
-
         {{ govukDateInput({
           id: "date-of-birth",
           name: "date-of-birth",
@@ -40,7 +69,7 @@ To make this page dynamic based on citizen name YN and Fp1c flag.
             }
           },
           hint: {
-            text: "For example, 12 11 2007"
+            text: ""
           },
           items: [
             {
