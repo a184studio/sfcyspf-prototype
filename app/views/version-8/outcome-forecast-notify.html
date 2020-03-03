@@ -16,19 +16,32 @@
         {% if data["telephone-cope-check"] == "Yes" %}<form action="download-fpc1" method="post" class="form">{% endif %}
         {% if data["telephone-cope-check"] == "No" %}<form action="outcome-done" method="post" class="form">{% endif %}
 
-          Telephone Both green box: So thats' all done and i've issued your forecast. You should have it within the week. <br> Thanks for your call today. Just to let you know you can get your forecast online, just visit GOV.uk 
+      <!-------------TELEPHONE HEADLINE------------>
+      {% if data["start-work"] == "Telephone" %}
 
-      {{ govukPanel({
-        titleText: "Forecast has been sent to Notifiy",
-        html: ""
-      }) }}
+      <div class="govuk-!-margin-bottom-6">
 
-<br><br>
+    {{ govukPanel({
+      titleText: "So thats' all done and i've issued your forecast.",
+      html: "You should have it within the week. Thanks for your call today. Just to let you know you can get your forecast online, just visit GOV.uk"
+    }) }}
 
-        <!-- <h2 class="govuk-heading-l govuk-!-margin-top-6 govuk-!-margin-bottom-6"><span class="agent-action">You might be able to do some of this online, we have the following options that may help</h2>
+    </div>
 
-        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Option A</h2>
-        <p class="govuk-body govuk-!-margin-bottom-6">This is appropriate dummy text that is being employed in order to ascertain an approximate length </p> -->
+      {% endif %}
+      <!-----------------PAPER HEADLINE------------>
+      {% if data["start-work"] == "Paper" %}
+      <div class="govuk-!-margin-bottom-6">
+        {{ govukPanel({
+          titleText: "Forecast has been sent to Notifiy",
+          html: ""
+        }) }}
+      </div>
+      {% endif %}
+      <!--------------------------————------------->
+
+
+
 
 
 {{ govukButton({

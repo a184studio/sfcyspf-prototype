@@ -272,27 +272,41 @@ router.post('/fpc1-check-router', (req, res, next) => {
 
 router.post('/telephone-enquiry-type-router', (req, res, next) => {
   const enquiryType = req.session.data['telephone-enquiry-type']
+  const seenAForecastYN = req.session.data['seenAForecast-YN']
+  const seenAForecastYN2 = req.session.data['seenAForecast-YN2']
+
 
   if (enquiryType === 'I want to improve my State Pension') {
-    res.redirect('telephone-vnics-a')
+    if (seenAForecastYN === 'Yes') {
+      res.redirect('telephone-overview-ab')
+    } else {
+      res.redirect('telephone-who-is-caller')
+    }
+
   } else if (enquiryType === 'Help with a forecast I have seen') {
     res.redirect('telephone-overview-ab')
+
+  } else if (enquiryType === 'Request a forecast') {
+  if (seenAForecastYN2 === 'telephone-overview-ab') {
+    res.redirect('seenAForecastYN2Yes')
   } else {
     res.redirect('telephone-who-is-caller')
   }
-})
 
-router.post('/paper-enquiry-type-router', (req, res, next) => {
-  const paperEnquiryType = req.session.data['paper-enquiry-type']
 
-  if (paperEnquiryType === 'I want to improve my State Pension') {
-    res.redirect('telephone-vnics-a')
-  } else if (paperEnquiryType === 'Help with a forecast I have seen') {
-    res.redirect('telephone-overview-ab')
   } else {
-    res.redirect('telephone-ni-status')
+    res.redirect('XXX')
   }
 })
+
+
+
+
+// — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+
+
+
+
 
 router.post('/telephone-rre-marital-status-router', (req, res, next) => {
   const rreMaritalStatus = req.session.data['telephone-rre-marital-status']

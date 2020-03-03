@@ -12,34 +12,33 @@
     <div class="govuk-grid-column-two-thirds">
       <form action="outcome-forecast-notify" method="post">
 
-    <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">(Paper) The forecast is ready to send to Notify</h1>
+  <!-------------TELEPHONE HEADLINE------------>
+  {% if data["start-work"] == "Telephone" %}
 
-    Agent action Telephone:The forecast is ready to send to Notify
+  <div class="govuk-panel--agent-alert govuk-!-margin-bottom-6">
+    {% set warning %}
+      <p class="govuk-heading-xl govuk-!-margin-bottom-0">The forecast is ready to send to Notify</p>
+    {% endset %}
 
-  <br>
+    {{ govukWarningText({
+      html: warning,
+      iconFallbackText: "Warning"
+    }) }}
+  </div>
+
+  {% endif %}
+  <!-----------------PAPER HEADLINE------------>
+  {% if data["start-work"] == "Paper" %}
+  <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">The forecast is ready to send to Notify</h1>
+  {% endif %}
+  <!--------------------------————------------->
+
 
         {{ govukButton({
           text: "Send to Notify"
         }) }}
 
       </form><p class="SFC-enquiry">All enquires</p>
-
-
-
-      {% if data["paper-cope-check"] == "Yes" %}
-          <div class="govuk-panel--router">
-            <p class="govuk-!-font-weight-bold govuk-!-font-size-19 govuk-!-margin-bottom-0">Service router (PAPER COPE FLAG)</p>
-            <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-4"></p>
-
-              <ul class="govuk-list">
-                <li><a href="outcome-done">Contiue</a></li>
-                <li><a href="download-fpc1">FPC1 FLAGED</a></li>
-
-            </ul>
-          </div>
-      {% endif %}
-
-
 
   </div>
 </div>

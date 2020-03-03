@@ -14,47 +14,50 @@
 
   <!--------------------------------------------------------------------------------------------------->
 
-  <!------------HEADLINE------------>
-    {% set legend %}
-    {% if data["paper-address-for-letters"] == "Citizen" or data['who-is-caller'] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Where is the address?</h1>{% endif %}
-    {% if data["paper-address-for-letters"] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Is data["full-name"]'s address in the UK or overseas?'</h1>{% endif %}
-    {% if data["paper-address-for-letters"] == "Third party" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Is data["full-name"]'s address in the UK or overseas?'</h1>{% endif %}
 
-    {% endset %}
-  <!------------HEADLINE------------>
+  <!-------------TELEPHONE HEADLINE------------>
+  {% if data["start-work"] == "Telephone" %}
+  {% if data["paper-address-for-letters"] == "Corporate or Personal Acting Body" or data['who-is-caller'] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">CAB Contact detials?</h1>{% endif %}
+  {% endif %}
+  <!-----------------PAPER HEADLINE------------>
+  {% if data["start-work"] == "Paper" %}
+    {% if data["paper-address-for-letters"] == "Citizen" or data['who-is-caller'] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Is the address in the UK</h1>{% endif %}
+    {% if data["paper-address-for-letters"] == "Corporate or Personal Acting Body" or data['who-is-caller'] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Is the address in the UK?</h1>{% endif %}
+  {% endif %}
+  <!--------------------------————------------->
 
-  {% if data["paper-address-for-letters"] == "Citizen" or data['who-is-caller'] == "Citizen" %}
+  <!--------------------------------------------------------------------------------------------------->
+    {% if data["paper-address-for-letters"] == "Citizen" %}
 
-        {{ govukRadios({
-          idPrefix: "address-check",
-          name: "address-check",
-          fieldset: {
-            legend: {
-              html: legend,
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--xl"
-            }
-          },
-          items: [
-            {
-              value: "United Kingdom",
-              text: "UK",
-              checked: data['address-check'] == "United Kingdom"
-            },
-          {
-            value: "Overseas",
-            text: "Overseas",
-            checked: data['address-check'] == "Overseas"
-          }
-          ]
-        }) }}
+  {{ govukRadios({
+    idPrefix: "address-check",
+    name: "address-check",
+    fieldset: {
+      legend: {
+        text: "",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [
+      {
+        value: "United Kingdom",
+        text: "UK",
+        checked: data['address-check'] == "United Kingdom"
+      },
+    {
+      value: "Overseas",
+      text: "Overseas",
+      checked: data['address-check'] == "Overseas"
+    }
+    ]
+  }) }}
 
-        {% endif %}
+  {% endif %}
+
 
 <!--------------------------------------------------------------------------------------------------->
   {% if data["paper-address-for-letters"] == "Corporate or Personal Acting Body" or data['who-is-caller'] == "Corporate or Personal Acting Body" %}
-
-<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Personal Acting Body (PAB) or Corporate Acting Body (CAB)</h1>
 
  Telephone: Can I take your full name?
 
@@ -79,19 +82,71 @@
         No:
 
 
-        {{ govukInput({
-          label: {
-            html: "Company or organisation name"
-            },
-            classes: "govuk-input--width-30",
+
+<!--------------------------------- representingCompany ------------------------------------->
+{% set representingCompany %}
+
+<div class='govuk-!-font-size-19 govuk-!-padding-top-2'>
+
+
+  {{ govukInput({
+    label: {
+      html: "Company or organisation name"
+      },
+      classes: "govuk-input--width-30",
+      hint: {
+        text: ""
+      },
+    id: "comtact-company-name",
+    name: "comtact-company-name",
+    attributes: {
+      spellcheck: "false"
+    }
+  }) }}
+
+  </div>
+
+{% endset -%}
+<!--------------------------------------------------------------------------------------------->
+
+
+        {{ govukRadios({
+          classes: "govuk-radios",
+          idPrefix: "Representing-Company-yn",
+          name: "Representing-Company-yn",
+          fieldset: {
+            legend: {
+              html: "Can I check if you are representing a company?",
+
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+              text: ""
+          },
+
+          items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            checked: (data["Representing-Company-yn"] == "Yes"),
             hint: {
               text: ""
             },
-          id: "comtact-company-name",
-          name: "comtact-company-name",
-          attributes: {
-            spellcheck: "false"
-          }
+            conditional: {
+              html: representingCompany
+            }
+          },
+            {
+              value: "No",
+                text: "No",
+                checked: (data["Representing-Company-yn"] == "No"),
+                hint: {
+                  text: ""
+                }
+              }
+          ]
         }) }}
 
 <br>
@@ -103,7 +158,7 @@ Telephone: Is your address in the UK?
           name: "address-check",
           fieldset: {
             legend: {
-              text: "Where is the address?",
+              text: "Is your address in the UK?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--m"
             }

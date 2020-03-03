@@ -11,16 +11,25 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
+    <!------------CONDITIONAL ROUTING------------>
     {% if data["telephone-national-insurance-check"] == "NI 00 11 22 A" %}<form action="contact-welsh" method="post" class="form">{% endif %}
     {% if data["telephone-national-insurance-check"] == "NI 00 11 22 F" %}<form action="telephone-rre-scenarios" method="post" class="form">{% endif %}
+    {% if data["telephone-national-insurance-check"] == "NI 00 11 22 D" %}<form action="contact-welsh" method="post" class="form">{% endif %}
+    <!--------------------------————------------->
     {% if data["paper-national-insurance-check"] == "NI 00 11 22 A" %}<form action="contact-welsh" method="post" class="form">{% endif %}
+    <!--------------------------————------------->
 
-      {% if data["telephone-national-insurance-check"] != " " %}<form action="contact-welsh" method="post" class="form">{% endif %}
+    <!-------------TELEPHONE HEADLINE------------>
+    {% if data["start-work"] == "Telephone" %}
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Okay, I am jsut looking up your address now</h1>
+      <h2 class="govuk-heading-l govuk-!-padding-top-4 govuk-!-margin-bottom-4">Select address</h2>
 
-
-
-    <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Select address</h1>
-    Telephone / Both: Okay, I am jsut looking up your address now
+    {% endif %}
+    <!-----------------PAPER HEADLINE------------>
+    {% if data["start-work"] == "Paper" %}
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Select address</h1>
+    {% endif %}
+    <!--------------------------————------------->
 
     <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-1"><strong>66</strong> addresses found for <strong> {{data["building-number"]}} </strong> and <strong> {{data["postcode"]}}</strong></p>
     <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-4"><a class="govuk-link" href="address-postcode"></a></p>

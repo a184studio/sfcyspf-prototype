@@ -11,11 +11,27 @@
     <div class="govuk-grid-column-two-thirds">
       <form action="outcome-forecast-local" method="post">
 
-        <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">(Paper) The forecast is ready to print locally</h1>
 
-        Agent action Telephone:The forecast is ready to send to Notify
+        <!-------------TELEPHONE HEADLINE------------>
+        {% if data["start-work"] == "Telephone" %}
 
-        <br>
+        <div class="govuk-panel--agent-alert govuk-!-margin-bottom-6">
+          {% set warning %}
+            <p class="govuk-heading-xl govuk-!-margin-bottom-0">The forecast is ready to print locally</p>
+          {% endset %}
+
+          {{ govukWarningText({
+            html: warning,
+            iconFallbackText: "Warning"
+          }) }}
+        </div>
+
+        {% endif %}
+        <!-----------------PAPER HEADLINE------------>
+        {% if data["start-work"] == "Paper" %}
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">The forecast is ready to print locally</h1>
+        {% endif %}
+        <!--------------------------————------------->
 
 
             {{ govukButton({

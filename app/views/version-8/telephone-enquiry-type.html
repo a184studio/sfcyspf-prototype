@@ -12,12 +12,79 @@
     <div class="govuk-grid-column-three-quarters">
       <form action="telephone-enquiry-type-router" method="post">
 
-<!--
-          <div class="govuk-panel--agent govuk-!-margin-bottom-6">
-            <h2 class="govuk-heading-m"><span class="agent-action">Adviser: X</h2>
+
+        <!----------------------------------------------- improveSP ----------------------------------------------->
+
+        {% set seenAForecast %}
+
+        <div class='govuk-!-font-size-19 govuk-!-padding-top-2'>
+
+
+          {{ govukRadios({
+            idPrefix: "seenAForecast-YN",
+            name: "seenAForecast-YN",
+            fieldset: {
+              legend: {
+                text: "Have you seen a State Pension forecast?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+            items: [
+              {
+                value: "Yes",
+                text: "Yes",
+                checked: data['seenAForecast-YN'] == "Yes"
+              },
+            {
+              value: "No",
+              text: "No",
+              checked: data['seenAForecast-YN'] == "No"
+            }
+            ]
+          }) }}
+
           </div>
 
-        -->
+        {% endset -%}
+
+        <!----------------------------------------------- forecastHelp ----------------------------------------------->
+        <!----------------------------------------------- RequestForecast ----------------------------------------------->
+        {% set seenAForecast2 %}
+
+        <div class='govuk-!-font-size-19 govuk-!-padding-top-2'>
+
+
+          {{ govukRadios({
+            idPrefix: "seenAForecast-YN2",
+            name: "seenAForecast-YN2",
+            fieldset: {
+              legend: {
+                text: "Have you seen a State Pension forecast?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+            items: [
+              {
+                value: "Yes",
+                text: "Yes",
+                checked: data['seenAForecast-YN2'] == "Yes"
+              },
+            {
+              value: "No",
+              text: "No",
+              checked: data['seenAForecast-YN2'] == "No"
+            }
+            ]
+          }) }}
+
+          </div>
+
+        {% endset -%}
+
+        <!----------------------------------------------- Radios ----------------------------------------------->
+
 
               {{ govukRadios({
                 classes: "govuk-radios",
@@ -38,10 +105,13 @@
                 items: [
                 {
                   value: "I want to improve my State Pension",
-                  text: "Information about their State Pension (Contional: Have you seen a State Pension forecast? YN)",
+                  text: "Information about their State Pension",
                   checked: (data["telephone-enquiry-type"] == "I want to improve my State Pension"),
                   hint: {
                     text: ""
+                  },
+                  conditional: {
+                    html: seenAForecast
                   }
                 },
                   {
@@ -54,10 +124,13 @@
                     },
                     {
                     value: "Request a forecast",
-                    text: "Improve their State Pension (Contional: Have you seen a State Pension forecast? YN)",
+                    text: "Improve their State Pension",
                     checked: (data["telephone-enquiry-type"] == "Request a forecast"),
                     hint: {
                       text: ""
+                    },
+                    conditional: {
+                      html: seenAForecast2
                     }
                   }
                 ]

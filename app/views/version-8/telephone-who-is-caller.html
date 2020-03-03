@@ -12,14 +12,23 @@
     <div class="govuk-grid-column-two-thirds">
       <form action="telephone-citizen-name-dob" method="post">
 
-        Agent action
+        <div class="govuk-panel--agent-alert govuk-!-margin-bottom-2">
+          {% set warning %}
+            <p class="govuk-heading-xl govuk-!-margin-bottom-0">Select the caller type</p>
+          {% endset %}
+
+          {{ govukWarningText({
+            html: warning,
+            iconFallbackText: "Warning"
+          }) }}
+
 
         {{ govukRadios({
           idPrefix: "who-is-caller",
           name: "who-is-caller",
           fieldset: {
             legend: {
-              text: "Select the caller type",
+              text: "",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
@@ -50,8 +59,7 @@
           ]
         }) }}
 
-        <!-- Corporate Acting Body (CAB) <br>Personal Acting Body (PAB) -->
-
+        </div>
 
 <br>
 

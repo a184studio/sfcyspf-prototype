@@ -10,16 +10,35 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="address-check" method="post">
 
-        <h1 class="govuk-heading-xl govuk-!-margin-bottom-6"><span class="agent-action">Citizen details</h1>
+      <!------------CONDITIONAL ROUTING------------>
+        {% if data["who-is-caller"] == "Citizen" %}<form action="contact-welsh" method="post" class="form">{% endif %}
+        {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}<form action="address-check" method="post">{% endif %}
+    <!--------------------------————------------->
 
-H1: PAB / CAB: Can I confirm the full name of the person you represent please?
+        <!------------HEADLINE------------>
+
+        {% if data["who-is-caller"] == "Citizen" %}
+          {% if data["telephone-cope-check"] == "No" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6"><span class="agent-action">(This is correct as there is more than one item on screen) Can I confirm your full name please?</h1>{% endif %}
+          {% if data["telephone-cope-check"] == "Yes" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6"><span class="agent-action">Citizen details</h1>{% endif %}
+        {% endif %}
+
+          {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}
+            {% if data["telephone-cope-check"] == "No" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6"><span class="agent-action">Can I confirm the full name of the person you represent please?</h1>{% endif %}
+            {% if data["telephone-cope-check"] == "Yes" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6"><span class="agent-action">Person you represents details</h1>{% endif %}
+          {% endif %}
+        <!------------HEADLINE------------>
+
+
+        <!----------------------------------------------- FPC1 data COPE CHECK = NO ----------------------------------------------->
+
+
+        {% if data["telephone-cope-check"] == "No" %}
 
 
         {{ govukInput({
           label: {
-            html: "<Strong>H1: Can I confirm your full name please?</Strong>"
+            html: "Full name"
           },
           hint: {
             text: ""
@@ -30,8 +49,25 @@ H1: PAB / CAB: Can I confirm the full name of the person you represent please?
           value: data["full-name"]
         }) }}
 
+        {% endif %}
 
-{% if data["telephone-cope-check"] == "Yes" %}
+        <!----------------------------------------------- FPC1 data COPE CHECK = YES ----------------------------------------------->
+
+
+        {% if data["telephone-cope-check"] == "Yes" %}
+
+        {{ govukInput({
+          label: {
+            html: "<Strong>Full name</Strong>"
+          },
+          hint: {
+            text: ""
+          },
+          id: "full-name",
+          name: "full-name",
+          classes: "govuk-input--width-20",
+          value: data["full-name"]
+        }) }}
 
         {{ govukDateInput({
           id: "date-of-birth",
@@ -42,7 +78,7 @@ H1: PAB / CAB: Can I confirm the full name of the person you represent please?
             }
           },
           hint: {
-            text: "For example, 12 11 2007"
+            text: ""
           },
           items: [
             {
@@ -63,9 +99,37 @@ H1: PAB / CAB: Can I confirm the full name of the person you represent please?
           ]
         }) }}
 
-{% endif %}
+        {% endif %}
 
-<br>
+        {% if data["paper-address-for-letters"] == "Citizen" or data['who-is-caller'] == "Citizen" %}
+
+        <h1 class="govuk-heading-m govuk-!-margin-bottom-4">Is your address in the UK?</h1>
+
+              {{ govukRadios({
+                idPrefix: "address-check",
+                name: "address-check",
+                fieldset: {
+                  legend: {
+                    html: "",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--xl"
+                  }
+                },
+                items: [
+                  {
+                    value: "United Kingdom",
+                    text: "UK",
+                    checked: data['address-check'] == "United Kingdom"
+                  },
+                {
+                  value: "Overseas",
+                  text: "Overseas",
+                  checked: data['address-check'] == "Overseas"
+                }
+                ]
+              }) }}
+
+              {% endif %}
 
         {{ govukButton({
           text: "Continue"

@@ -13,18 +13,18 @@
 
     <!------------TELEPHONE HEADLINE------------>
       {% if data["start-work"] == "Telephone" %}
-        {% if data["who-is-caller"] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">What is the address?</h1>{% endif %}
-        {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">What is the Corporate or personal acting body's postcode?</h1>{% endif %}
+        {% if data["who-is-caller"] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Telehphone PAB, both: UK: Can I confirm your property number and your postcode?</h1>{% endif %}
+        {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Telehphone PAB, both: UK: Can I confirm your property number and your postcode?</h1>{% endif %}
       {% endif %}
     <!------------PAPER HEADLINE------------>
     {% if data["start-work"] == "Paper" %}
-        {% if data["paper-address-for-letters"] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">What is the address?</h1>{% endif %}
-        {% if data["paper-address-for-letters"] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">What is the Corporate or personal acting body's postcode?</h1>{% endif %}
-        {% if data["paper-address-for-letters"] == "Third party" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">What is the Third party's postcode?</h1>{% endif %}
+        {% if data["paper-address-for-letters"] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Confirm property number and your postcode</h1>{% endif %}
+        {% if data["paper-address-for-letters"] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Confirm property number and your postcode</h1>{% endif %}
+        {% if data["paper-address-for-letters"] == "Third party" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Confirm property number and your postcode</h1>{% endif %}
       {% endif %}
     <!--------------------------————-------->
 
-    Telehphone PAB, both: UK: Can I confirm your property number and your postcode?
+
 
     <form action="address-choice-router" method="post" class="form">
 

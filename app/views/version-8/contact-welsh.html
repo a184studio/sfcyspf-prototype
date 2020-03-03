@@ -12,9 +12,15 @@
   <div class="govuk-grid-column-two-thirds">
     <form action="contact-accessible-check" method="post" class="form">
 
-    <h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Has Welsh been requested?</h1>
-
-    Telephone Both: Do you need your forecast in Welsh?
+      <!-------------TELEPHONE HEADLINE------------>
+      {% if data["start-work"] == "Telephone" %}
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Do you need your forecast in Welsh?</h1>
+      {% endif %}
+      <!-----------------PAPER HEADLINE------------>
+      {% if data["start-work"] == "Paper" %}
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Has Welsh been requested?</h1>
+      {% endif %}
+      <!--------------------------————------------->
 
       {{ govukRadios({
         classes: "govuk-radios",
