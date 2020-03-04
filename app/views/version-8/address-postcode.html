@@ -11,6 +11,9 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
+    <form action="address-choice-router" method="post" class="form">
+
+
     <!------------TELEPHONE HEADLINE------------>
       {% if data["start-work"] == "Telephone" %}
         {% if data["who-is-caller"] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Telehphone PAB, both: UK: Can I confirm your property number and your postcode?</h1>{% endif %}
@@ -26,7 +29,6 @@
 
 
 
-    <form action="address-choice-router" method="post" class="form">
 
       {{ govukInput({
         id: "building-number",

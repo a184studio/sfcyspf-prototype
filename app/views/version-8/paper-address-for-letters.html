@@ -10,20 +10,17 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="address-check" method="post">
+      <form action="paper-address-check" method="post">
 
-  <!--------------------------------------------------------------------------------------------------->
 
-    <!------------HEADLINE------------>
-      {% set legend %}
-      {% if data["who-is-caller"] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Where is the forecast being sent?</h1>{% endif %}
-      {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Where is the forecast being sent?</h1>{% endif %}
-      {% if data["who-is-caller"] == "Third party" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Where do {{ data["full-name"] }}'s letters need to go?</h1>{% endif %}
+<!-------------------------------------------------- Citizen ------------------------------------------------------------------------------------>
 
-      {% endset %}
-    <!------------HEADLINE------------>
 
     {% if data["who-is-caller"] == "Citizen" %}
+
+    {% set legend %}
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Where is the forecast being sent?</h1>
+    {% endset %}
 
 
             {{ govukRadios({
@@ -44,7 +41,7 @@
                 },
               {
                 value: "Third party",
-                text: "Third party's address",
+                text: "Third party address",
                 checked: data['paper-address-for-letters'] == "Third party"
               }
               ]
@@ -52,10 +49,13 @@
 
             {% endif %}
 
-  <!--------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------- Corporate or Personal Acting Body ------------------------------------------------------------------------------------>
 
   {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}
 
+  {% set legend %}
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Where is the forecast being sent?</h1>
+  {% endset %}
 
         {{ govukRadios({
           idPrefix: "paper-address-for-letters",
@@ -76,17 +76,23 @@
           },
           {
             value: "Third party",
-            text: "Third party's address",
+            text: "Third party address",
             checked: data['paper-address-for-letters'] == "Third party"
           }
           ]
         }) }}
 
-{% endif %}
-        <!--------------------------------------------------------------------------------------------------->
+        {% endif %}
+
+<!-------------------------------------------------- Third party ------------------------------------------------------------------------------------>
 
 
         {% if data["who-is-caller"] == "Third party" %}
+
+        {% set legend %}
+          <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Where is the forecast being sent?</h1>
+        {% endset %}
+
 
 
         {{ govukRadios({
@@ -100,27 +106,15 @@
             }
           },
           items: [
-            {
-              value: "Citizen",
-              text: "Use " + data ['full-name'] + "' address",
-              checked: data['paper-address-for-letters'] == "Citizen",
-                label: {
-                  classes: ""
-                },
-                hint: {
-                  text: ""
-                }
-              },
-              {
+          {
             value: "Third party",
-            text: "Use Third party's address",
-            checked: data['paper-address-for-letters'] == "Third party",
-            label: {
-              classes: ""
-            },
-            hint: {
-              text: ""
-            }
+            text: "Third party address",
+            checked: data['paper-address-for-letters'] == "Third party"
+          },
+          {
+            value: "Citizen",
+            text: "Citizen's address",
+            checked: data['paper-address-for-letters'] == "Citizen"
           }
           ]
         }) }}

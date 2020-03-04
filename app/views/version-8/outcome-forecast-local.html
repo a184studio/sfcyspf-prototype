@@ -20,7 +20,7 @@
           {% if data["telephone-cope-check"] == "No" %}<form action="outcome-done" method="post" class="form">{% endif %}
 
 
-      <!-------------TELEPHONE HEADLINE------------>
+      <!-------------TELEPHONE ------------>
       {% if data["start-work"] == "Telephone" %}
 
       <div class="govuk-!-margin-bottom-6">
@@ -29,11 +29,16 @@
       titleText: "So thats' all done and i've issued your forecast.",
       html: "You should have it within the week. Thanks for your call today. Just to let you know you can get your forecast online, just visit GOV.uk"
     }) }}
-
     </div>
+    
+    {{ govukButton({
+      text: "End call and continue"
+    }) }}
+
+
 
       {% endif %}
-      <!-----------------PAPER HEADLINE------------>
+      <!-----------------PAPER ------------>
       {% if data["start-work"] == "Paper" %}
       <div class="govuk-!-margin-bottom-6">
         {{ govukPanel({
@@ -41,12 +46,15 @@
           html: ""
         }) }}
       </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
       {% endif %}
       <!--------------------------————------------->
 
-{{ govukButton({
-  text: "End call and continue"
-}) }}
+
 
       </form><p class="SFC-enquiry">All enquires</p>
 

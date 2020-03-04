@@ -201,6 +201,20 @@ const router = new express.Router()
 
 
 
+  router.post('/paper-address-check-router', (req, res, next) => {
+    const addressCheck = req.session.data['address-check']
+
+    if (addressCheck === 'United Kingdom') {
+      res.redirect('address-postcode')
+    } else if (addressCheck === 'Overseas') {
+      res.redirect('address-manual')
+    } else {
+      res.redirect('XXX')
+    }
+  })
+
+
+
   router.post('/address-choice-router', (req, res, next) => {
     const postCode = req.session.data['postcode']
 
@@ -385,25 +399,25 @@ router.post('/contact-formats-router', (req, res, next) => {
   const contactFormats = req.session.data['contact-formats'] || []
 
 if (contactFormats.includes('Audio form') === true) {
-  res.redirect('contact-formats-fallout')
+  res.redirect('outcome-forecast-check-local')
 }
 else if (contactFormats.includes('Audio CD, cassette or MP3') === true) {
-  res.redirect('contact-formats-fallout')
+  res.redirect('outcome-forecast-check-local')
 }
 else if (contactFormats.includes('Braille') === true) {
-  res.redirect('contact-formats-fallout')
+  res.redirect('outcome-forecast-check-local')
 }
 else if (contactFormats.includes('Large print') === true) {
-  res.redirect('contact-formats-fallout')
+  res.redirect('outcome-forecast-check-local')
 }
 else if (contactFormats.includes('Letters in Welsh') === true) {
-  res.redirect('contact-formats-fallout')
+  res.redirect('outcome-forecast-check-notify')
 }
 else if (contactFormats.includes('TexBox') === true) {
-  res.redirect('contact-formats-fallout')
+  res.redirect('outcome-forecast-check-local')
 }
 else if (contactFormats.includes('TypeTalk') === true) {
-  res.redirect('contact-formats-fallout')
+  res.redirect('outcome-forecast-check-local')
 }
 else {
   res.redirect('outcome-forecast-check-notify')

@@ -18,6 +18,11 @@
     {% if data["start-work"] == "Telephone" %}
     <h2 class="govuk-heading-xl govuk-!-margin-bottom-4">It is a printed forecast we send out to you.</h2>
       <h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Can we adjust something to make it accessible for you?</h1>
+
+        {% set conditionalHint %}
+          For example, larger print
+        {% endset %}
+
     {% endif %}
     <!-----------------PAPER HEADLINE------------>
     {% if data["start-work"] == "Paper" %}
@@ -25,8 +30,7 @@
     {% endif %}
     <!--------------------------————------------->
 
-
-      {{ govukRadios({
+  {{ govukRadios({
         classes: "govuk-radios",
         idPrefix: "contact-accessible-check",
         name: "contact-accessible-check",
@@ -39,7 +43,7 @@
           }
         },
         hint: {
-            html: "(Conditional start work Paper) For example, larger print"
+            html: conditionalHint
         },
 
         items: [
