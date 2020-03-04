@@ -17,12 +17,14 @@
 
   <!-------------TELEPHONE HEADLINE------------>
   {% if data["start-work"] == "Telephone" %}
-  {% if data["paper-address-for-letters"] == "Corporate or Personal Acting Body" or data['who-is-caller'] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">CAB Contact detials?</h1>{% endif %}
+  {% if data["paper-address-for-letters"] == "Corporate or Personal Acting Body" or data['who-is-caller'] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">And can I take your full name?</h1>{% endif %}
   {% endif %}
   <!-----------------PAPER HEADLINE------------>
   {% if data["start-work"] == "Paper" %}
-    {% if data["paper-address-for-letters"] == "Citizen" or data['who-is-caller'] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Is the address in the UK</h1>{% endif %}
-    {% if data["paper-address-for-letters"] == "Corporate or Personal Acting Body" or data['who-is-caller'] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Is the address in the UK?</h1>{% endif %}
+    {% if data["paper-address-for-letters"] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Where is the address?</h1>{% endif %}
+    {% if data["paper-address-for-letters"] == "Corporate or Personal Acting Body" or data['who-is-caller'] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Personal Acting Body (PAB) or Corporate Acting Body (CAB) details</h1>{% endif %}
+    {% if data["paper-address-for-letters"] == "Third party" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Third party details</h1>{% endif %}
+
   {% endif %}
   <!--------------------------————------------->
 
@@ -59,7 +61,9 @@
 <!--------------------------------------------------------------------------------------------------->
   {% if data["paper-address-for-letters"] == "Corporate or Personal Acting Body" or data['who-is-caller'] == "Corporate or Personal Acting Body" %}
 
- Telephone: Can I take your full name?
+ Telephone: Can I take your full name? (Just box for telephone)
+
+
 
 
         {{ govukInput({
@@ -77,10 +81,6 @@
           }
         }) }}
 
-        Telephone: conditional Can I check if you are representing a company?
-        Yes: And can I take the name of the company? (Box)
-        No:
-
 
 
 <!--------------------------------- representingCompany ------------------------------------->
@@ -88,6 +88,7 @@
 
 <div class='govuk-!-font-size-19 govuk-!-padding-top-2'>
 
+Telephone only: And can I take the name of the companny or organisation?
 
   {{ govukInput({
     label: {
@@ -116,7 +117,7 @@
           name: "Representing-Company-yn",
           fieldset: {
             legend: {
-              html: "Can I check if you are representing a company?",
+              html: "Can I check if you are representing a company or organisation?",
 
               isPageHeading: true,
               classes: "govuk-fieldset__legend--m"
@@ -149,16 +150,31 @@
           ]
         }) }}
 
-<br>
+        {{ govukInput({
+          label: {
+            html: "Paper only / Company or organisation name"
+            },
+            classes: "govuk-input--width-30",
+            hint: {
+              text: ""
+            },
+          id: "comtact-company-name",
+          name: "comtact-company-name",
+          attributes: {
+            spellcheck: "false"
+          }
+        }) }}
 
-Telephone: Is your address in the UK?
+Telephone Citizen: Is your address in the UK?
+Telephone PAB: Is the address in the UK
+
 
         {{ govukRadios({
           idPrefix: "address-check",
           name: "address-check",
           fieldset: {
             legend: {
-              text: "Is your address in the UK?",
+              text: "Where is the address?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--m"
             }
@@ -166,12 +182,12 @@ Telephone: Is your address in the UK?
           items: [
             {
               value: "United Kingdom",
-              text: "UK",
+              text: "Yes",
               checked: data['address-check'] == "United Kingdom"
             },
           {
             value: "Overseas",
-            text: "Overseas",
+            text: "No",
             checked: data['address-check'] == "Overseas"
           }
           ]
@@ -181,7 +197,6 @@ Telephone: Is your address in the UK?
 
         {% if data["paper-address-for-letters"] == "Third party" %}
 
-      <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Third party details</h1>
 
 
               {{ govukInput({

@@ -12,7 +12,7 @@
     <div class="govuk-grid-column-three-quarters">
       <form action="telephone-cope-check-router" method="post">
 
-          <h2 class="govuk-heading-xl"><span class="agent-action">Bare with me I'm just getting into our systems now.</h2>
+          <h2 class="govuk-heading-xl"><span class="agent-action">Bare with me I'm just getting into our systems now</h2>
 
               <!------------HEADLINE------------>
                 {% set legend %}
@@ -20,13 +20,16 @@
                 {% endset %}
               <!------------HEADLINE------------>
 
+              <div class="govuk-panel--agent-alert govuk-!-margin-bottom-6">
+                {% set agentAction %}
+
               {{ govukRadios({
                 classes: "govuk-radios",
                 idPrefix: "telephone-cope-check",
                 name: "telephone-cope-check",
                 fieldset: {
                   legend: {
-                    html: "Grey box: Are there any contracted out schemes listed on OLE?",
+                    html: "Are there any contracted out schemes listed on OLE?",
 
                     isPageHeading: true,
                     classes: "govuk-fieldset__legend--m"
@@ -54,6 +57,14 @@
                   checked: (data["telephone-cope-check"] == "No")
                 }
               ]
+            }) }}
+          </div>
+
+          {% endset %}
+
+            {{ govukWarningText({
+              html: agentAction,
+              iconFallbackText: "Warning"
             }) }}
 
               {{ govukButton({

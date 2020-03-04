@@ -68,15 +68,16 @@
             }
           },
           items: [
-            {
-              value: "Citizen",
-              text: "Use " + data ['full-name'] + "' address",
-              checked: data['paper-address-for-letters'] == "Citizen"
-            },
+
           {
             value: "Corporate or Personal Acting Body",
-            text: "Use Corporate or Personal Acting Body' address",
+            text: "Personal Acting Body (PAB) or Corporate Acting Body (CAB)",
             checked: data['paper-address-for-letters'] == "Corporate or Personal Acting Body"
+          },
+          {
+            value: "Third party",
+            text: "Third party's address",
+            checked: data['paper-address-for-letters'] == "Third party"
           }
           ]
         }) }}

@@ -13,12 +13,12 @@
       <form action="telephone-citizen-name-dob" method="post">
 
         <div class="govuk-panel--agent-alert govuk-!-margin-bottom-2">
-          {% set warning %}
+          {% set agentAction %}
             <p class="govuk-heading-xl govuk-!-margin-bottom-0">Select the caller type</p>
           {% endset %}
 
           {{ govukWarningText({
-            html: warning,
+            html: agentAction,
             iconFallbackText: "Warning"
           }) }}
 
