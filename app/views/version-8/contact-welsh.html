@@ -10,7 +10,14 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="contact-accessible-check" method="post" class="form">
+
+    <form action="outcome-forecast-check-notify" method="post" class="form">
+
+      <!------------ROUTER------------>
+    {% if data["contact-accessible-check"] == "No" %}<form action="outcome-forecast-check-notify" method="post" class="form">{% endif %}
+    {% if data["contact-accessible-check"] == "Yes" %}<form action="outcome-forecast-check-local" method="post" class="form">{% endif %}
+
+      <!------------ROUTER------------>
 
       <!------------ HEADLINE ------------>
           {% if data["who-is-caller"] == "Citizen" %}

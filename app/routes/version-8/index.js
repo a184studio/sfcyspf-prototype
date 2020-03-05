@@ -252,7 +252,7 @@ router.post('/contact-accessible-check-router', (req, res, next) => {
   if (accessibleCheck === 'Yes') {
     res.redirect('contact-formats')
   } else if (accessibleCheck === 'No') {
-    res.redirect('outcome-forecast-check-notify')
+    res.redirect('contact-welsh')
   } else {
     res.redirect('XXX')
   }
@@ -350,7 +350,7 @@ router.post('/telephone-rre-marital-status-router', (req, res, next) => {
   } else if (rreMaritalStatus === 'Dissolved civil partnership') {
     res.redirect('telephone-rre-scenarios-separated')
   } else {
-    res.redirect('contact-welsh')
+    res.redirect('contact-accessible-check')
   }
 })
 
@@ -364,7 +364,7 @@ router.post('/telephone-rre-scenarios-router', (req, res, next) => {
   } else if (rreScenarios === 'RRE FLAG senario C') {
     res.redirect('telephone-rre-marital-status')
   } else {
-    res.redirect('contact-welsh')
+    res.redirect('contact-accessible-check')
   }
 })
 
@@ -376,7 +376,7 @@ router.post('/telephone-rre-scenarios-continued-router', (req, res, next) => {
   } else if (rreScenariosContinued === 'RRE FLAG senario F') {
     res.redirect('telephone-rre-marital-status')
   } else {
-    res.redirect('contact-welsh')
+    res.redirect('contact-accessible-check')
   }
 })
 
@@ -388,7 +388,7 @@ router.post('/telephone-rre-scenarios-separated-router', (req, res, next) => {
   } else if (rreScenariosSeparated === 'RRE FLAG senario F') {
     res.redirect('telephone-rre-marital-status')
   } else {
-    res.redirect('contact-welsh')
+    res.redirect('contact-accessible-check')
   }
 })
 
