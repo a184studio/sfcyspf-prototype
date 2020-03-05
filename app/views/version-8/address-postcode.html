@@ -11,21 +11,24 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="address-choice-router" method="post" class="form">
+    <!------------CONDITIONAL ROUTING------------>
+    {% if data['start-work'] == "Telephone" %}<form action="telephone-address-choice" method="post" class="form">{% endif %}
+    {% if data['start-work'] == "Paper" %}<form action="paper-address-choice" method="post" class="form">{% endif %}
+
+    <!--------------------------————------------->
 
 
-    <!------------TELEPHONE HEADLINE------------>
-      {% if data["start-work"] == "Telephone" %}
-        {% if data["who-is-caller"] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Telehphone PAB, both: UK: Can I confirm your property number and your postcode?</h1>{% endif %}
-        {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Telehphone PAB, both: UK: Can I confirm the property number and the postcode?</h1>{% endif %}
-      {% endif %}
-    <!------------PAPER HEADLINE------------>
-    {% if data["start-work"] == "Paper" %}
-        {% if data["paper-address-for-letters"] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">What is the address?</h1>{% endif %}
-        {% if data["paper-address-for-letters"] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">What is the address?</h1>{% endif %}
-        {% if data["paper-address-for-letters"] == "Third party" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">What is the address?</h1>{% endif %}
-      {% endif %}
-    <!--------------------------————-------->
+<!------------ HEADLINE ------------>
+    {% if data["who-is-caller"] == "Citizen" %}
+    {% if data['start-work'] == "Paper" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">What is the address?</h1>{% endif %}
+    {% if data['start-work'] == "Telephone" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Can I confirm your property number and your postcode?</h1>{% endif %}
+    {% endif %}
+
+    {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}
+    {% if data['start-work'] == "Paper" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">What is the address?</h1>{% endif %}
+    {% if data['start-work'] == "Telephone" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Can I confirm your property number and your postcode?</h1>{% endif %}
+    {% endif %}
+<!------------ HEADLINE ------------>
 
 
 

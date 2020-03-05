@@ -25,17 +25,6 @@
 
       <p class="govuk-heading-m govuk-!-margin-bottom-3"></p>
 
-      {{ govukInput({
-        label: {
-          html: "Contact telephone number"
-        },
-        id: "telephone-number",
-        name: "telephone-number",
-        classes: "govuk-input--width-20",
-        value: data["telephone-number"]
-      }) }}
-
-
       {% set AudioFormYesHint %}
       <p class=govuk-hint></p>
       <ul class="govuk-hint govuk-list govuk-list--bullet govuk-!-margin-bottom-4">
@@ -277,6 +266,52 @@
             conditional: {
               html: TypeTalkYes
             }
+          }
+        ]
+      }) }}
+
+      <h1 class="govuk-heading-m govuk-!-margin-bottom-">Contact telephone number</h1>
+
+      {{ govukInput({
+        label: {
+          html: "Contact telephone number"
+        },
+        id: "telephone-number",
+        name: "telephone-number",
+        classes: "govuk-input--width-20",
+        value: data["telephone-number"]
+      }) }}
+
+      {{ govukRadios({
+        classes: "govuk-radios",
+        idPrefix: "telephone-number-format",
+        name: "telephone-number-format",
+        fieldset: {
+          legend: {
+            html: "Telephone options",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        hint: {
+            text: ""
+        },
+
+        items: [
+        {
+            value: "Option 1",
+            text: "Option 1",
+            checked: (data["telephone-number-format"] == "Option 1")
+          },
+          {
+            value: "Option 2",
+            text: "Option 2",
+            checked: (data["telephone-number-format"] == "Option 2")
+          },
+          {
+            value: "None",
+            text: "None",
+            checked: (data["telephone-number-format"] == "None")
           }
         ]
       }) }}

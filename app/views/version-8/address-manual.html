@@ -15,10 +15,18 @@
 
       <!------------HEADLINE------------>
         {% set legend %}
-        {% if data["who-is-caller"] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Can I confirm your address?</h1>{% endif %} <!--What is {{ data | getPronoun }} full address?-->
-        {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Can I confirm your address?</h1>{% endif %}
-        {% endset %}
 
+        {% if data["who-is-caller"] == "Citizen" %}
+        {% if data['start-work'] == "Paper" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">What is the address?</h1>{% endif %}
+        {% if data['start-work'] == "Telephone" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Can I confirm your address?</h1>{% endif %}
+        {% endif %}
+
+        {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}
+        {% if data['start-work'] == "Paper" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">What is the address?</h1>{% endif %}
+        {% if data['start-work'] == "Telephone" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Can I confirm your address?</h1>{% endif %}
+        {% endif %}
+
+        {% endset %}
       <!------------HEADLINE------------>
 
   {% call govukFieldset({

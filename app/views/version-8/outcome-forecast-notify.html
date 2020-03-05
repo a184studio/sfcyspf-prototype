@@ -28,6 +28,10 @@
 
     </div>
 
+    {{ govukButton({
+      text: "End call and continue"
+    }) }}
+
       {% endif %}
       <!-----------------PAPER HEADLINE------------>
       {% if data["start-work"] == "Paper" %}
@@ -37,6 +41,12 @@
           html: ""
         }) }}
       </div>
+
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
       {% endif %}
       <!--------------------------————------------->
 
@@ -44,9 +54,7 @@
 
 
 
-{{ govukButton({
-  text: "End call"
-}) }}
+
 
       </form><p class="SFC-enquiry">All enquires</p>
 

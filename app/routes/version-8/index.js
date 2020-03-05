@@ -201,6 +201,20 @@ const router = new express.Router()
 
 
 
+  router.post('/telephone-address-check-router', (req, res, next) => {
+    const addressCheck = req.session.data['address-check']
+
+    if (addressCheck === 'United Kingdom') {
+      res.redirect('address-postcode')
+    } else if (addressCheck === 'Overseas') {
+      res.redirect('address-manual')
+    } else {
+      res.redirect('XXX')
+    }
+  })
+
+
+
   router.post('/paper-address-check-router', (req, res, next) => {
     const addressCheck = req.session.data['address-check']
 

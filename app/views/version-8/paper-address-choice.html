@@ -1,0 +1,376 @@
+{% extends "layout-id-bar.html" %}
+
+{% block pageTitle %}
+  Select address - Pension Credit
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/js-back-link.html" %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="contact-welsh" method="post" class="form">
+    <!--------------------------————------------->
+
+    <!---------------------------------------------------------------------------------------------------------------------------------->
+    <h2 class="govuk-heading-xl govuk-!-padding-top-4 govuk-!-margin-bottom-4">Select address</h2>
+
+
+    {% if data["postcode"] == "G42 9BT" %}
+
+        <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-1"><strong>5</strong> addresses found for <strong> {{data["building-number"]}} </strong> and <strong> {{data["postcode"]}}</strong></p>
+        <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-4"><a class="govuk-link" href="address-postcode"></a></p>
+
+
+
+          {{ govukRadios({
+            classes: "govuk-radios",
+            idPrefix: "address",
+            name: "address",
+            fieldset: {
+              legend: {
+                html: "",
+
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--xl"
+              }
+            },
+            hint: {
+                text: ""
+            },
+
+            items: [
+            {
+                value: "1 Wood Street, Burnopfield, Newcastle Upon Tyne",
+                text: "1 Wood Street, Burnopfield, Newcastle Upon Tyne",
+                checked: (data["address"] == "1 Wood Street, Burnopfield, Newcastle Upon Tyne")
+              },
+              {
+                value: "2 Wood Street, Burnopfield, Newcastle Upon Tyne",
+                text: "2 Wood Street, Burnopfield, Newcastle Upon Tyne",
+                checked: (data["address"] == "2 Wood Street, Burnopfield, Newcastle Upon Tyne")
+              },
+              {
+                value: "3 Wood Street, Burnopfield, Newcastle Upon Tyne",
+                text: "3 Wood Street, Burnopfield, Newcastle Upon Tyne",
+                checked: (data["address"] == "3 Wood Street, Burnopfield, Newcastle Upon Tyne")
+              },
+              {
+                value: "4 Wood Street, Burnopfield, Newcastle Upon Tyne",
+                text: "4 Wood Street, Burnopfield, Newcastle Upon Tyne",
+                checked: (data["address"] == "4 Wood Street, Burnopfield, Newcastle Upon Tyne")
+              },
+              {
+                value: "5 Wood Street, Burnopfield, Newcastle Upon Tyne",
+                text: "5 Wood Street, Burnopfield, Newcastle Upon Tyne",
+                checked: (data["address"] == "5 Wood Street, Burnopfield, Newcastle Upon Tyne")
+              }
+            ]
+          }) }}
+
+          <ul class="govuk-list">
+            <li><a class="govuk-link" href="address-manual-uk">Address not found</a></li>
+          </ul>
+
+
+          {% endif %}
+
+
+    <!---------------------------------------------------------------------------------------------------------------------------------->
+
+      {% if data["postcode"] == "NE1 6BJ" %}
+
+
+
+          <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-1"><strong>66</strong> addresses found for <strong> {{data["building-number"]}} </strong> and <strong> {{data["postcode"]}}</strong></p>
+          <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-4"><a class="govuk-link" href="address-postcode"></a></p>
+
+            {{ govukRadios({
+              classes: "govuk-radios",
+              idPrefix: "address",
+              name: "address",
+              fieldset: {
+                legend: {
+                  html: "",
+
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--xl"
+                }
+              },
+              hint: {
+                  text: ""
+              },
+
+              items: [
+              {
+                  value: "P1, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  text: "P1, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  checked: (data["address"] == "P1, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+                },
+                {
+                  value: "P2, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  text: "P2, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  checked: (data["address"] == "P2, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+                },
+                {
+                  value: "P3, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  text: "P3, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  checked: (data["address"] == "P3, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+                },
+                {
+                  value: "P4, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  text: "P4, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  checked: (data["address"] == "P4, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+                },
+                {
+                  value: "P5, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  text: "P5, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  checked: (data["address"] == "P5, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+                },
+                {
+                  value: "P6, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  text: "P6, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  checked: (data["address"] == "P6, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+                },
+                {
+                  value: "P7, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  text: "P7, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  checked: (data["address"] == "P7, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+                },
+                {
+                  value: "P8, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  text: "P8, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  checked: (data["address"] == "P8, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+                },
+                {
+                  value: "9/1, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  text: "9/1, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  checked: (data["address"] == "9/1, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+                },
+                {
+                  value: "9/10, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  text: "9/10, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  checked: (data["address"] == "9/10, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+                },
+                {
+                  value: "9/11, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  text: "9/11, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  checked: (data["address"] == "9/11, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+                },
+                {
+                  value: "9/12, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  text: "9/12, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  checked: (data["address"] == "9/12, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+                },
+                {
+                  value: "9/13, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  text: "9/13, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  checked: (data["address"] == "9/13, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+                },
+                {
+                  value: "9/14, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  text: "9/14, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  checked: (data["address"] == "9/14, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+                },
+                {
+                  value: "9/15, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  text: "9/15, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  checked: (data["address"] == "9/15, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+                },
+                {
+                  value: "9/16, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  text: "9/16, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  checked: (data["address"] == "9/16, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+                },
+                {
+                  value: "9/17, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  text: "9/17, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  checked: (data["address"] == "9/17, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+                },
+                {
+                  value: "9/18, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  text: "9/18, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  checked: (data["address"] == "9/18, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+                },
+                {
+                  value: "9/19, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  text: "9/19, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  checked: (data["address"] == "9/19, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+                },
+                {
+                  value: "9/2, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  text: "9/2, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne",
+                  checked: (data["address"] == "9/2, 55 Degrees North, Pilgrim Street, Newcastle Upon Tyne")
+                }
+              ]
+            }) }}
+
+            <ul class="govuk-list">
+              <li><a class="govuk-link" href="address-manual-uk">Address not found</a></li>
+            </ul>
+
+
+            {% endif %}
+
+    <!---------------------------------------------------------------------------------------------------------------------------------->
+
+
+            {% if data["postcode"] == "NE16 6QG" %}
+
+            <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-1"><strong>20</strong> addresses found for <strong> {{data["building-number"]}} </strong> and <strong> {{data["postcode"]}}</strong></p>
+            <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-4"><a class="govuk-link" href="address-postcode"></a></p>
+
+              {{ govukRadios({
+                classes: "govuk-radios",
+                idPrefix: "address",
+                name: "address",
+                fieldset: {
+                  legend: {
+                    html: "",
+
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--xl"
+                  }
+                },
+                hint: {
+                    text: ""
+                },
+
+                items: [
+                {
+                    value: "11 Brownlie Street, Glasgow",
+                    text: "11 Brownlie Street, Glasgow",
+                    checked: (data["address"] == "11 Brownlie Street, Glasgow")
+                  },
+                  {
+                    value: "15 Brownlie Street, Glasgow",
+                    text: "15 Brownlie Street, Glasgow",
+                    checked: (data["address"] == "15 Brownlie Street, Glasgow")
+                  },
+                  {
+                    value: "0/2, 17 Brownlie Street, Glasgow",
+                    text: "0/2, 17 Brownlie Street, Glasgow",
+                    checked: (data["address"] == "0/2, 17 Brownlie Street, Glasgow")
+                  },
+                  {
+                    value: "1/1, 17 Brownlie Street, Glasgow",
+                    text: "1/1, 17 Brownlie Street, Glasgow",
+                    checked: (data["address"] == "1/1, 17 Brownlie Street, Glasgow")
+                  },
+                  {
+                    value: "1/2, 17 Brownlie Street, Glasgow",
+                    text: "1/2, 17 Brownlie Street, Glasgow",
+                    checked: (data["address"] == "1/2, 17 Brownlie Street, Glasgow")
+                  },
+                  {
+                    value: "2/1, 17 Brownlie Street, Glasgow",
+                    text: "2/1, 17 Brownlie Street, Glasgow",
+                    checked: (data["address"] == "2/1, 17 Brownlie Street, Glasgow")
+                  },
+                  {
+                    value: "2/2, 17 Brownlie Street, Glasgow",
+                    text: "2/2, 17 Brownlie Street, Glasgow",
+                    checked: (data["address"] == "2/2, 17 Brownlie Street, Glasgow")
+                  },
+                  {
+                    value: "3/1, 17 Brownlie Street, Glasgow",
+                    text: "3/1, 17 Brownlie Street, Glasgow",
+                    checked: (data["address"] == "3/1, 17 Brownlie Street, Glasgow")
+                  },
+                  {
+                    value: "3/2, 17 Brownlie Street, Glasgow",
+                    text: "3/2, 17 Brownlie Street, Glasgow",
+                    checked: (data["address"] == "3/2, 17 Brownlie Street, Glasgow")
+                  },
+                  {
+                    value: "0/1, 19 Brownlie Street, Glasgow",
+                    text: "0/1, 19 Brownlie Street, Glasgow",
+                    checked: (data["address"] == "0/1, 19 Brownlie Street, Glasgow")
+                  },
+                  {
+                    value: "0/2, 19 Brownlie Street, Glasgow",
+                    text: "0/2, 19 Brownlie Street, Glasgow",
+                    checked: (data["address"] == "0/2, 19 Brownlie Street, Glasgow")
+                  },
+                  {
+                    value: "25 Brownlie Street, Glasgow",
+                    text: "25 Brownlie Street, Glasgow",
+                    checked: (data["address"] == "25 Brownlie Street, Glasgow")
+                  },
+                  {
+                    value: "0/2, 27 Brownlie Street, Glasgow",
+                    text: "0/2, 27 Brownlie Street, Glasgow",
+                    checked: (data["address"] == "0/2, 27 Brownlie Street, Glasgow")
+                  },
+                  {
+                    value: "1/1, 27 Brownlie Street, Glasgow",
+                    text: "1/1, 27 Brownlie Street, Glasgow",
+                    checked: (data["address"] == "1/1, 27 Brownlie Street, Glasgow")
+                  },
+                  {
+                    value: "1/2, 27 Brownlie Street, Glasgow",
+                    text: "1/2, 27 Brownlie Street, Glasgow",
+                    checked: (data["address"] == "1/2, 27 Brownlie Street, Glasgow")
+                  },
+                  {
+                    value: "2/1, 27 Brownlie Street, Glasgow",
+                    text: "2/1, 27 Brownlie Street, Glasgow",
+                    checked: (data["address"] == "2/1, 27 Brownlie Street, Glasgow")
+                  },
+                  {
+                    value: "3/1, 27 Brownlie Street, Glasgow",
+                    text: "3/1, 27 Brownlie Street, Glasgow",
+                    checked: (data["address"] == "3/1, 27 Brownlie Street, Glasgow")
+                  },
+                  {
+                    value: "3/2, 27 Brownlie Street, Glasgow",
+                    text: "3/2, 27 Brownlie Street, Glasgow",
+                    checked: (data["address"] == "3/2, 27 Brownlie Street, Glasgow")
+                  },
+                  {
+                    value: "29 Brownlie Street, Glasgow",
+                    text: "29 Brownlie Street, Glasgow",
+                    checked: (data["address"] == "29 Brownlie Street, Glasgow")
+                  }
+                ]
+              }) }}
+
+              <ul class="govuk-list">
+                <li><a class="govuk-link" href="address-manual-uk">Address not found</a></li>
+              </ul>
+
+
+
+              {% endif %}
+
+    <!---------------------------------------------------------------------------------------------------------------------------------->
+
+<br>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form><p class="SFC-enquiry">All enquires</p>
+
+
+
+
+    <!--
+
+    <div class="govuk-panel--router">
+      <p class="govuk-!-font-weight-bold govuk-!-font-size-19 govuk-!-margin-bottom-0">Service router</p>
+      <p class="govuk-body govuk-!-font-size-19 govuk-!-margin-bottom-4">Continue will follow route without RRE flag</p>
+
+        <ul class="govuk-list">
+        <li><a class="govuk-link" href="telephone-rre-scenarios">RRE FLAG scenarios</a></li>
+        <li><a class="govuk-link" href="address-missing">No address found</a></li>
+      </ul>
+    </div>
+
+-->
+
+  </div>
+</div>
+{% endblock %}

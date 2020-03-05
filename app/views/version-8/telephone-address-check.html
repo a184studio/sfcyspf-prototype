@@ -15,247 +15,167 @@
   <!--------------------------------------------------------------------------------------------------->
 
 
-  <!-------------TELEPHONE HEADLINE------------>
-  {% if data["start-work"] == "Telephone" %}
-  {% if data["paper-address-for-letters"] == "Corporate or Personal Acting Body" or data['who-is-caller'] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">And can I take your full name?</h1>{% endif %}
-  {% endif %}
-  <!-----------------PAPER HEADLINE------------>
-  {% if data["start-work"] == "Paper" %}
-    {% if data["paper-address-for-letters"] == "Citizen" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Where is the address?</h1>{% endif %}
-    {% if data["paper-address-for-letters"] == "Corporate or Personal Acting Body" or data['who-is-caller'] == "Corporate or Personal Acting Body" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Personal Acting Body (PAB) or Corporate Acting Body (CAB) details</h1>{% endif %}
-    {% if data["paper-address-for-letters"] == "Third party" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Third party details</h1>{% endif %}
+  <!-------------------------------------------------- Citizen ------------------------------------------------------------------------------------>
 
-  {% endif %}
-  <!--------------------------————------------->
+    <!------------------ HEADLINE---------------->
+    {% if data['who-is-caller'] == "Corporate or Personal Acting Body" %}
 
-  <!--------------------------------------------------------------------------------------------------->
-    {% if data["paper-address-for-letters"] == "Citizen" %}
+    <h1 class="govuk-heading-xl">Personal Acting Body (PAB) or Corporate Acting Body (CAB) details</h1>
+    <h1 class="govuk-heading-m govuk-!-margin-bottom-3">And can I take your full name?</h1>
+    <!------------------------------------------->
 
-  {{ govukRadios({
-    idPrefix: "address-check",
-    name: "address-check",
-    fieldset: {
-      legend: {
-        text: "",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--m"
-      }
-    },
-    items: [
-      {
-        value: "United Kingdom",
-        text: "UK",
-        checked: data['address-check'] == "United Kingdom"
-      },
-    {
-      value: "Overseas",
-      text: "Overseas",
-      checked: data['address-check'] == "Overseas"
-    }
-    ]
-  }) }}
+       {{ govukInput({
+         label: {
+           html: ""
+           },
+           classes: "govuk-input--width-30",
+           hint: {
+             text: ""
+           },
+         id: "comtact-name",
+         name: "comtact-name",
+         attributes: {
+           spellcheck: "false"
+         }
+       }) }}
 
-  {% endif %}
+       <!--------------------------------- representingCompany ------------------------------------->
+       {% set representingCompany %}
 
+       <div class='govuk-!-font-size-19 govuk-!-padding-top-2'>
 
-<!--------------------------------------------------------------------------------------------------->
-  {% if data["paper-address-for-letters"] == "Corporate or Personal Acting Body" or data['who-is-caller'] == "Corporate or Personal Acting Body" %}
+         {{ govukInput({
+           label: {
+             html: "And can I take the name of the companny or organisation?"
+             },
+             classes: "govuk-input--width-30",
+             hint: {
+               text: ""
+             },
+           id: "comtact-company-name",
+           name: "comtact-company-name",
+           attributes: {
+             spellcheck: "false"
+           }
+         }) }}
 
- Telephone: Can I take your full name? (Just box for telephone)
+         </div>
 
+       {% endset -%}
 
-
-
-        {{ govukInput({
-          label: {
-            html: "Contact name"
-            },
-            classes: "govuk-input--width-30",
-            hint: {
-              text: ""
-            },
-          id: "comtact-name",
-          name: "comtact-name",
-          attributes: {
-            spellcheck: "false"
-          }
-        }) }}
-
-
-
-<!--------------------------------- representingCompany ------------------------------------->
-{% set representingCompany %}
-
-<div class='govuk-!-font-size-19 govuk-!-padding-top-2'>
-
-Telephone only: And can I take the name of the companny or organisation?
-
-  {{ govukInput({
-    label: {
-      html: "Company or organisation name"
-      },
-      classes: "govuk-input--width-30",
-      hint: {
-        text: ""
-      },
-    id: "comtact-company-name",
-    name: "comtact-company-name",
-    attributes: {
-      spellcheck: "false"
-    }
-  }) }}
-
-  </div>
-
-{% endset -%}
-<!--------------------------------------------------------------------------------------------->
+       <!------------------------------------------- Company or organisation -------------------------------------------------->
 
 
         {{ govukRadios({
-          classes: "govuk-radios",
-          idPrefix: "Representing-Company-yn",
-          name: "Representing-Company-yn",
-          fieldset: {
-            legend: {
-              html: "Can I check if you are representing a company or organisation?",
+         classes: "govuk-radios",
+         idPrefix: "Representing-Company-yn",
+         name: "Representing-Company-yn",
+         fieldset: {
+           legend: {
+             html: "Can I check if you are representing a company or organisation?",
 
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          hint: {
-              text: ""
-          },
+             isPageHeading: true,
+             classes: "govuk-fieldset__legend--m"
+           }
+         },
+         hint: {
+             text: ""
+         },
 
-          items: [
-          {
-            value: "Yes",
-            text: "Yes",
-            checked: (data["Representing-Company-yn"] == "Yes"),
-            hint: {
-              text: ""
-            },
-            conditional: {
-              html: representingCompany
-            }
-          },
-            {
-              value: "No",
-                text: "No",
-                checked: (data["Representing-Company-yn"] == "No"),
-                hint: {
-                  text: ""
-                }
-              }
-          ]
+         items: [
+         {
+           value: "Yes",
+           text: "Yes",
+           checked: (data["Representing-Company-yn"] == "Yes"),
+           hint: {
+             text: ""
+           },
+           conditional: {
+             html: representingCompany
+           }
+         },
+           {
+             value: "No",
+               text: "No",
+               checked: (data["Representing-Company-yn"] == "No"),
+               hint: {
+                 text: ""
+               }
+             }
+         ]
         }) }}
 
-        {{ govukInput({
-          label: {
-            html: "Paper only / Company or organisation name"
-            },
-            classes: "govuk-input--width-30",
-            hint: {
-              text: ""
-            },
-          id: "comtact-company-name",
-          name: "comtact-company-name",
-          attributes: {
-            spellcheck: "false"
-          }
-        }) }}
-
-Telephone Citizen: Is your address in the UK?
-Telephone PAB: Is the address in the UK
 
 
-        {{ govukRadios({
-          idPrefix: "address-check",
-          name: "address-check",
-          fieldset: {
-            legend: {
-              text: "Where is the address?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          items: [
-            {
-              value: "United Kingdom",
-              text: "Yes",
-              checked: data['address-check'] == "United Kingdom"
-            },
-          {
-            value: "Overseas",
-            text: "No",
-            checked: data['address-check'] == "Overseas"
-          }
-          ]
-        }) }}
+     {% endif %}
 
-        {% endif %}
+     <!------------------------------------------- Third party -------------------------------------------------->
 
-        {% if data["paper-address-for-letters"] == "Third party" %}
+     {% if data["telephone-address-for-letters"] == "Third party" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Third party details</h1>
 
 
+       {{ govukInput({
+         label: {
+           html: "Contact name"
+           },
+           classes: "govuk-input--width-30",
+           hint: {
+             text: ""
+           },
+         id: "third-party-name",
+         name: "third-party-name",
+         attributes: {
+           spellcheck: "false"
+         }
+       }) }}
 
-              {{ govukInput({
-                label: {
-                  html: "Contact name"
-                  },
-                  classes: "govuk-input--width-30",
-                  hint: {
-                    text: ""
-                  },
-                id: "third-party-name",
-                name: "third-party-name",
-                attributes: {
-                  spellcheck: "false"
-                }
-              }) }}
+       {{ govukInput({
+         label: {
+           html: "Company or organisation name"
+           },
+           classes: "govuk-input--width-30",
+           hint: {
+             text: ""
+           },
+         id: "third-party-company-name",
+         name: "third-party-company-name",
+         attributes: {
+           spellcheck: "false"
+         }
+       }) }}
 
-              {{ govukInput({
-                label: {
-                  html: "Company or organisation name"
-                  },
-                  classes: "govuk-input--width-30",
-                  hint: {
-                    text: ""
-                  },
-                id: "third-party-company-name",
-                name: "third-party-company-name",
-                attributes: {
-                  spellcheck: "false"
-                }
-              }) }}
+       {% endif %}
 
 
+     <!------------------------------------------- Address -------------------------------------------------->
 
-              {{ govukRadios({
-                idPrefix: "address-check",
-                name: "address-check",
-                fieldset: {
-                  legend: {
-                    text: "Where is the address?",
-                    isPageHeading: true,
-                    classes: "govuk-fieldset__legend--m"
-                  }
-                },
-                items: [
-                  {
-                    value: "United Kingdom",
-                    text: "UK",
-                    checked: data['address-check'] == "United Kingdom"
-                  },
-                {
-                  value: "Overseas",
-                  text: "Overseas",
-                  checked: data['address-check'] == "Overseas"
-                }
-                ]
-              }) }}
+     {{ govukRadios({
+       idPrefix: "address-check",
+       name: "address-check",
+       fieldset: {
+         legend: {
+           text: "Is the address in the UK?",
+           isPageHeading: true,
+           classes: "govuk-fieldset__legend--m"
+         }
+       },
+       items: [
+         {
+           value: "United Kingdom",
+           text: "Yes",
+           checked: data['address-check'] == "United Kingdom"
+         },
+       {
+         value: "Overseas",
+         text: "No",
+         checked: data['address-check'] == "Overseas"
+       }
+       ]
+     }) }}
 
-              {% endif %}
+     <!------------------------------------------- END -------------------------------------------------->
+
+
 
 <br>
 

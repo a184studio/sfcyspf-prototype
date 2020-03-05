@@ -12,15 +12,19 @@
   <div class="govuk-grid-column-two-thirds">
     <form action="contact-accessible-check" method="post" class="form">
 
-      <!-------------TELEPHONE HEADLINE------------>
-      {% if data["start-work"] == "Telephone" %}
-        <h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Citizen = Do you need your forecast in Welsh? PABCAB: Do you need the forecast in Welsh? </h1>
-      {% endif %}
-      <!-----------------PAPER HEADLINE------------>
-      {% if data["start-work"] == "Paper" %}
-        <h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Has Welsh been requested?</h1>
-      {% endif %}
-      <!--------------------------————------------->
+      <!------------ HEADLINE ------------>
+          {% if data["who-is-caller"] == "Citizen" %}
+          {% if data['start-work'] == "Paper" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Has Welsh been requested?</h1>{% endif %}
+          {% if data['start-work'] == "Telephone" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Do you need your forecast in Welsh?</h1>{% endif %}
+          {% endif %}
+
+          {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}
+          {% if data['start-work'] == "Paper" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Has Welsh been requested?</h1>{% endif %}
+          {% if data['start-work'] == "Telephone" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Do you need the forecast in Welsh?</h1>{% endif %}
+          {% endif %}
+      <!------------ HEADLINE ------------>
+
+
 
       {{ govukRadios({
         classes: "govuk-radios",

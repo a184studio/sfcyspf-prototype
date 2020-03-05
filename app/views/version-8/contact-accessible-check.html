@@ -14,21 +14,31 @@
 
     <h1 class="govuk-heading-xl govuk-!-margin-bottom-0"></h1>
 
-    <!-------------TELEPHONE HEADLINE------------>
+
+    <!------------ HEADLINE ------------>
+        {% if data["who-is-caller"] == "Citizen" %}
+        {% if data['start-work'] == "Paper" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Has an alternative format been requested?</h1>{% endif %}
+        {% if data['start-work'] == "Telephone" %}<h2 class="govuk-heading-xl govuk-!-margin-bottom-4">It is a printed forecast we send out to you.</h2>{% endif %}
+        {% if data['start-work'] == "Telephone" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Can we adjust something to make it accessible for you?</h1>{% endif %}
+        {% endif %}
+
+        {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}
+        {% if data['start-work'] == "Paper" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Has an alternative format been requested?</h1>{% endif %}
+        {% if data['start-work'] == "Telephone" %}<h2 class="govuk-heading-xl govuk-!-margin-bottom-4">It is a printed forecast we send out to you.</h2>{% endif %}
+        {% if data['start-work'] == "Telephone" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Can we adjust something to make it accessible for you?</h1>{% endif %}
+        {% endif %}
+    <!------------ HEADLINE ------------>
+
     {% if data["start-work"] == "Telephone" %}
-    <h2 class="govuk-heading-xl govuk-!-margin-bottom-4">It is a printed forecast we send out to you.</h2>
-      <h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Can we adjust something to make it accessible for you?</h1>
 
         {% set conditionalHint %}
           For example, larger print
         {% endset %}
 
     {% endif %}
-    <!-----------------PAPER HEADLINE------------>
-    {% if data["start-work"] == "Paper" %}
-      <h1 class="govuk-heading-xl govuk-!-margin-bottom-0">Has an alternative format been requested?</h1>
-    {% endif %}
-    <!--------------------------————------------->
+
+    <!------------ Hint ------------>
+
 
   {{ govukRadios({
         classes: "govuk-radios",

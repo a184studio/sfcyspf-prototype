@@ -13,12 +13,24 @@
 
     <form action="outcome-forecast-check-local" method="post">
 
+      {% set legend %}
 
+      {% if data["who-is-caller"] == "Citizen" %}
+      {% if data['start-work'] == "Paper" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">What is the address?</h1>{% endif %}
+      {% if data['start-work'] == "Telephone" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Can I confirm your property number and your postcode?</h1>{% endif %}
+      {% endif %}
+
+      {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}
+      {% if data['start-work'] == "Paper" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">What is the address?</h1>{% endif %}
+      {% if data['start-work'] == "Telephone" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-4">Can I confirm your property number and your postcode?</h1>{% endif %}
+      {% endif %}
+
+      {% endset %}
 
 
   {% call govukFieldset({
     legend: {
-      text: "What is the address?",
+      html: legend,
       classes: "govuk-fieldset__legend--xl",
       isPageHeading: true
     }
