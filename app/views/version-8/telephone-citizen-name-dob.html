@@ -12,49 +12,68 @@
     <div class="govuk-grid-column-two-thirds">
 
       <!------------CONDITIONAL ROUTING------------>
-        {% if data["who-is-caller"] == "Citizen" %}<form action="address-check" method="post" class="form">{% endif %}
-        {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}<form action="address-check" method="post">{% endif %}
+        {% if data["who-is-caller"] == "Citizen" %}<form action="telephone-address-check" method="post" class="form">{% endif %}
+        {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}<form action="telephone-address-check" method="post">{% endif %}
     <!--------------------------————------------->
 
-        <!------------HEADLINE------------>
 
-        {% if data["who-is-caller"] == "Citizen" %}
-          {% if data["telephone-cope-check"] == "No" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6"><span class="agent-action">@jane Can I confirm your full name please?</h1>{% endif %}
-          {% if data["telephone-cope-check"] == "Yes" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6"><span class="agent-action">Citizen details</h1>{% endif %}
-        {% endif %}
+      <!----------------------------------------------- Citizen and Corporate or Personal Acting Body ----------------------------------------------->
 
-          {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}
-            {% if data["telephone-cope-check"] == "No" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6"><span class="agent-action">Can I confirm the full name of the person you represent please?</h1>{% endif %}
-            {% if data["telephone-cope-check"] == "Yes" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6"><span class="agent-action">Person you represents details</h1>{% endif %}
-          {% endif %}
-        <!------------HEADLINE------------>
+      {% if data["who-is-caller"] == "Citizen" and data["telephone-national-insurance-check"] !== "NI 00 11 22 D"
+      or
+      data["who-is-caller"] == "Citizen" and data["telephone-national-insurance-check"] == "NI 00 11 22 D" and data["telephone-cope-check"] == "No"
+      or
+      data["who-is-caller"] == "Corporate or Personal Acting Body" and data["telephone-national-insurance-check"] !== "NI 00 11 22 D"
+      or
+      data["who-is-caller"] == "Corporate or Personal Acting Body" and data["telephone-national-insurance-check"] == "NI 00 11 22 D" and data["telephone-cope-check"] == "No" %}
 
+      <!------------ H1 ------------>
+      {% if data["who-is-caller"] == "Citizen" %}
+        {% if data["telephone-cope-check"] == "No" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">@jane Can I confirm your full name please?</h1>{% endif %}
+      {% endif %}
 
-        <!----------------------------------------------- FPC1 data COPE CHECK = NO ----------------------------------------------->
+      {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}
+        {% if data["telephone-cope-check"] == "No" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Can I confirm the full name of the person you represent please?</h1>{% endif %}
+      {% endif %}
+      <!------------ H1 ------------>
 
+        {% set conditionalLabel %}
+        {% endset %}
 
-        {% if data["telephone-cope-check"] == "No" %}
-
-
-        {{ govukInput({
-          label: {
+      {{ govukInput({
+        label: {
+          html: conditionalLabel
+        },
+        hint: {
             html: ""
-          },
-          hint: {
-            text: ""
-          },
-          id: "full-name",
-          name: "full-name",
-          classes: "govuk-input--width-20",
-          value: data["full-name"]
-        }) }}
+        },
+        id: "full-name",
+        name: "full-name",
+        classes: "govuk-input--width-20",
+        value: data["full-name"]
+      }) }}
 
-        {% endif %}
+      {% endif %}
+
+
+
 
         <!----------------------------------------------- FPC1 data COPE CHECK = YES ----------------------------------------------->
 
 
-        {% if data["telephone-cope-check"] == "Yes" %}
+        {% if data["who-is-caller"] == "Citizen" and data["telephone-national-insurance-check"] == "NI 00 11 22 D" and data["telephone-cope-check"] == "Yes"
+        or
+        data["who-is-caller"] == "Corporate or Personal Acting Body" and data["telephone-cope-check"] == "Yes" %}
+
+        <!------------ H1 ------------>
+        {% if data["who-is-caller"] == "Citizen" %}
+          {% if data["telephone-cope-check"] == "Yes" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Citizen details</h1>{% endif %}
+        {% endif %}
+
+        {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}
+          {% if data["telephone-cope-check"] == "Yes" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Person you represents details</h1>{% endif %}
+        {% endif %}
+        <!------------ H1 ------------>
 
         {{ govukInput({
           label: {
@@ -101,9 +120,12 @@
 
         {% endif %}
 
+        <!----------------------------------------------- ADDRESS ----------------------------------------------->
+
+
         {% if data["paper-address-for-letters"] == "Citizen" or data['who-is-caller'] == "Citizen" %}
 
-        <h1 class="govuk-heading-m govuk-!-margin-bottom-4">Is your address in the UK?</h1>
+        <h1 class="govuk-heading-s govuk-!-padding-top-2 govuk-!-margin-bottom-4">Is your address in the UK?</h1>
 
               {{ govukRadios({
                 idPrefix: "address-check",

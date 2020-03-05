@@ -301,11 +301,11 @@ router.post('/telephone-enquiry-type-router', (req, res, next) => {
     res.redirect('telephone-overview-ab')
 
   } else if (enquiryType === 'Request a forecast') {
-  if (seenAForecastYN2 === 'telephone-overview-ab') {
-    res.redirect('seenAForecastYN2Yes')
-  } else {
-    res.redirect('telephone-who-is-caller')
-  }
+    if (seenAForecastYN2 === 'Yes') {
+      res.redirect('telephone-overview-ab')
+    } else {
+      res.redirect('telephone-who-is-caller')
+    }
 
 
   } else {
