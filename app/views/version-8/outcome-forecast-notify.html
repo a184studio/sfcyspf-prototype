@@ -8,7 +8,7 @@
 
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-three-quarters">
+    <div class="govuk-grid-column-full">
 
       {% if data["paper-cope-check"] == "Yes" %}<form action="download-fpc1" method="post" class="form">{% endif %}
       {% if data["paper-cope-check"] == "No" %}<form action="outcome-done" method="post" class="form">{% endif %}
@@ -23,7 +23,7 @@
 
     {{ govukPanel({
       titleText: "So that's all done and I've issued your forecast. You should have it within the week. ",
-      html: "Thanks for your call today. Just to let you know you can get your forecast online, just visit GOV.UK"
+      html: "Thanks for your call today. Just to let you know you can get a forecast online, just visit GOV.UK"
     }) }}
 
     </div>

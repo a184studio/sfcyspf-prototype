@@ -20,8 +20,8 @@
     <!------------------ HEADLINE---------------->
     {% if data['who-is-caller'] == "Corporate or Personal Acting Body" %}
 
-    <h1 class="govuk-heading-xl">Personal Acting Body (PAB) or Corporate Acting Body (CAB) details</h1>
-    <h1 class="govuk-heading-m govuk-!-margin-bottom-3">And can I take your full name?</h1>
+    <h1 class="govuk-heading-xl">@Jane, H1 check/ Personal Acting Body (PAB) or Corporate Acting Body (CAB) details</h1>
+    <h1 class="govuk-heading-m govuk-!-margin-bottom-3">@jane Needed YN?// And can I take your full name?</h1>
     <!------------------------------------------->
 
        {{ govukInput({
@@ -46,7 +46,7 @@
 
          {{ govukInput({
            label: {
-             html: "And can I take the name of the companny or organisation?"
+             html: "@jane, dobule check content. // And can I take the name of the company or organisation?"
              },
              classes: "govuk-input--width-30",
              hint: {
@@ -72,7 +72,7 @@
          name: "Representing-Company-yn",
          fieldset: {
            legend: {
-             html: "Can I check if you are representing a company or organisation?",
+             html: "@jane, dobule check content. // Can I check if you are representing a company or organisation?",
 
              isPageHeading: true,
              classes: "govuk-fieldset__legend--m"
