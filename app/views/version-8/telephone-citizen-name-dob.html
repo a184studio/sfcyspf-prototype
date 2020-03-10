@@ -9,7 +9,7 @@
 {% include "includes/js-back-link.html" %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-three-quarters">
 
       <!------------CONDITIONAL ROUTING------------>
         {% if data["who-is-caller"] == "Citizen" %}<form action="telephone-address-check-router" method="post" class="form">{% endif %}
@@ -29,7 +29,8 @@
 
       <!------------ H1 ------------>
       {% if data["who-is-caller"] == "Citizen" %}
-        {% if data["telephone-cope-check"] == "No" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">@jane Can I confirm your full name please?</h1>{% endif %}
+        {% if data["telephone-cope-check"] == "No" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Right, I’ll just go through your contact details with you. Can you
+confirm your full name please?</h1>{% endif %}
       {% endif %}
 
       {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}
@@ -67,11 +68,12 @@
 
         <!------------ H1 ------------>
         {% if data["who-is-caller"] == "Citizen" %}
-          {% if data["telephone-cope-check"] == "Yes" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Citizen details</h1>{% endif %}
+          {% if data["telephone-cope-check"] == "Yes" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Right, I’ll just go through your contact details with you. Can you
+  confirm your full name please?</h1>{% endif %}
         {% endif %}
 
         {% if data["who-is-caller"] == "Corporate or Personal Acting Body" %}
-          {% if data["telephone-cope-check"] == "Yes" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Person you represents details</h1>{% endif %}
+          {% if data["telephone-cope-check"] == "Yes" %}<h1 class="govuk-heading-xl govuk-!-margin-bottom-6">Can I confirm the full name of the person you represent please?</h1>{% endif %}
         {% endif %}
         <!------------ H1 ------------>
 
