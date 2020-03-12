@@ -13,6 +13,8 @@ const router = new express.Router()
     }
   })
 
+
+
   router.post('/telephone-national-insurance-check-router', (req, res, next) => {
     const telephoneNIcheck = String(req.session.data['telephone-national-insurance-check']).toUpperCase()
 
